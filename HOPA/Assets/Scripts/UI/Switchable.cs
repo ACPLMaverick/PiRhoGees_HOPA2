@@ -35,32 +35,22 @@ public class Switchable : MonoBehaviour
 
     #region Functions Public
 
-    public bool SwitchOn()
+    public void SwitchOn()
     {
         if(!gameObject.activeSelf)
         {
             StopAllCoroutines();
             gameObject.SetActive(true);
             StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 0.0f, 1.0f, _appearTimeSec, true));
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 
-    public bool SwitchOff()
+    public void SwitchOff()
     {
         if(gameObject.activeSelf)
         {
             StopAllCoroutines();
             StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 1.0f, 0.0f, _disappearTimeSec, false));
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 

@@ -15,14 +15,6 @@ public class GameManager : Singleton<GameManager>
 
     public Room CurrentRoom;
 
-    public Room RoomPrologue;
-    public Room RoomFirst;
-    public Room RoomFirstPuzzle;
-    public Room RoomSecond;
-    public Room RoomSecondPuzzle;
-    public Room RoomThird;
-    public Room RoomFourth;
-    public EndingPhoto EndingPhoto;
     public Image FadeImage;
     public ItemInfo ItemInfoGroup;
     public PauseMenu PauseMenuGroup;
@@ -43,13 +35,6 @@ public class GameManager : Singleton<GameManager>
     // Use this for initialization
     void Start ()
     {
-        RoomFirst.FinishedEvent.AddListener(new UnityEngine.Events.UnityAction<Room>(OnRoomCommonPickablesCollected));
-        RoomFirstPuzzle.FinishedEvent.AddListener(new UnityEngine.Events.UnityAction<Room>(OnRoomAssignPuzzleFinished));
-        RoomSecond.FinishedEvent.AddListener(new UnityEngine.Events.UnityAction<Room>(OnRoomCommonPickablesCollected));
-        RoomSecondPuzzle.FinishedEvent.AddListener(new UnityEngine.Events.UnityAction<Room>(OnRoomAssignPuzzleFinished));
-
-
-
         CameraManager.Instance.Enabled = CurrentRoom.CameraEnabled;
         CurrentRoom.Initialize();
         CurrentRoom.Enter();
@@ -194,13 +179,11 @@ public class GameManager : Singleton<GameManager>
 
     private void OnRoomCommonPickablesCollected(Room r)
     {
-        EndingPhoto.Show(r.EndingPhotoSprite, r.EndingPhotoTextSprite);
         StartCoroutine(RoomFinishedCoroutine(r));
     }
 
     private void OnRoomAssignPuzzleFinished(Room r)
     {
-        EndingPhoto.Show(r.EndingPhotoSprite, r.EndingPhotoTextSprite);
         StartCoroutine(RoomFinishedCoroutine(r));
     }
 
