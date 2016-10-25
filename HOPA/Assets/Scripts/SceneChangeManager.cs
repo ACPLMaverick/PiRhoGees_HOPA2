@@ -44,7 +44,6 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         _loadingText.text = LoadingString;
 
         float angle = PlayerPrefs.GetFloat(PP_KEY);
-        Debug.Log(angle);
         if (angle != IMPOSSIBLE_ANGLE)
         {
             PlayerPrefs.SetFloat(PP_KEY, IMPOSSIBLE_ANGLE);

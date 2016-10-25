@@ -19,7 +19,10 @@ public class MainMenuManager : MonoBehaviour
 
 
     [SerializeField]
-    CanvasGroup _infoFullscreen;
+    CanvasGroup _infoFullscreenJadalna;
+
+    [SerializeField]
+    CanvasGroup _infoFullscreenLustrzana;
 
     #endregion
 
@@ -59,7 +62,6 @@ public class MainMenuManager : MonoBehaviour
                 SwitchToScreen(_screenMainMenu);
                 break;
         }
-
 	}
 	
 	// Update is called once per frame
@@ -75,11 +77,13 @@ public class MainMenuManager : MonoBehaviour
     public void ButtonClickMenuJadalna()
     {
         SwitchToScreen(_screenJadalna);
+        _infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickMenuLustrzana()
     {
         SwitchToScreen(_screenLustrzana);
+        _infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickMenuGallery()
@@ -94,7 +98,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickJadalnaHOPA()
     {
-
+        SceneChangeManager.Instance.ChangeScene(1);
     }
 
     public void ButtonClickJadalnaConservation()
