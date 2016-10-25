@@ -68,13 +68,13 @@ public class CameraManager : Singleton<CameraManager>
 
     private void InitCameraBoundaries()
     {
-        SpriteRenderer sr = GameManager.Instance.CurrentRoom.GetComponent<SpriteRenderer>();
+        SpriteRenderer sr = GameManager.Instance.CurrentRoom.GetComponentInChildren<SpriteRenderer>();
         _bMin.x = sr.sprite.bounds.center.x - sr.sprite.bounds.extents.x;
         _bMin.y = sr.sprite.bounds.center.y - sr.sprite.bounds.extents.y;
         _bMax.x = sr.sprite.bounds.center.x + sr.sprite.bounds.extents.x;
         _bMax.y = sr.sprite.bounds.center.y + sr.sprite.bounds.extents.y;
 
-        Transform tr = GameManager.Instance.CurrentRoom.GetComponent<Transform>();
+        Transform tr = sr.GetComponent<Transform>();
         Vector4 min4 = new Vector4(_bMin.x, _bMin.y, 0.0f, 1.0f);
         Vector4 max4 = new Vector4(_bMax.x, _bMax.y, 0.0f, 1.0f);
         min4 = tr.localToWorldMatrix * min4;
