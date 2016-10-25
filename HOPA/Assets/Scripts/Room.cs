@@ -18,16 +18,16 @@ public class Room : MonoBehaviour
 
     public string Name;
     public string Description;
-    public Sprite MapSprite;
-    public Sprite EndingPhotoSprite;
-    public Sprite EndingPhotoTextSprite;
+    //public Sprite MapSprite;
+    //public Sprite EndingPhotoSprite;
+    //public Sprite EndingPhotoTextSprite;
     public AudioClip AmbientTheme;
-    public Room PuzzleRoom = null;
+    //public Room PuzzleRoom = null;
     public Room ParentRoom = null;                // not necessary to be set if it is set when Room is assigned as child somewhere else
     public List<Room> ChildRooms;
     public float CameraZoomMin = 0.1f;
     public float CameraZoomMax = 3.0f;
-    public bool PickableAllowed = true;
+    //public bool PickableAllowed = true;
     public bool Locked = false;
     public bool CameraEnabled = true;
 
@@ -132,7 +132,6 @@ public class Room : MonoBehaviour
             _inRoom = true;
             EquipmentManager.Instance.ButtonBack.GetComponent<BackButton>().UpdateOnCurrentRoom();
             EquipmentManager.Instance.PanelPickableList.GetComponent<PanelGeneric>().Hide(true);
-            EquipmentManager.Instance.PanelUsableList.GetComponent<PanelGeneric>().Hide(true);
 
             OnEntered();
         }
@@ -189,10 +188,7 @@ public class Room : MonoBehaviour
                 PickableUsableObjects.Add((PickableUsableObject)obj);
             }
 
-            if (PickableAllowed)
-            {
-                obj.OnPickedUp.AddListener(new UnityAction<PickableObject>(RemoveOnPickup));
-            }
+            obj.OnPickedUp.AddListener(new UnityAction<PickableObject>(RemoveOnPickup));
         }
     }
 }

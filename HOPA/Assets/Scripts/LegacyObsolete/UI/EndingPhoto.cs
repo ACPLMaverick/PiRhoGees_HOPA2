@@ -24,9 +24,7 @@ public class EndingPhoto : MonoBehaviour
     #region private
 
     private CanvasGroup _mainGroup;
-    private Image _endingBackground;
     private CanvasGroup _endingBackgroundGroup;
-    private Image _endingFlash;
     private CanvasGroup _endingFlashGroup;
     private Image _endingPhoto;
     private Image _endingTextImage;
@@ -45,10 +43,8 @@ public class EndingPhoto : MonoBehaviour
         _endingFlashGroup = groups[2];
 
         Image[] imgs = GetComponentsInChildren<Image>();
-        _endingBackground = imgs[0];
         _endingPhoto = imgs[1];
         _endingTextImage = imgs[2];
-        _endingFlash = imgs[3];
 
         _endingPhotoAnimator = _endingPhoto.GetComponent<Animator>();
         _endingTextImageAnimator = _endingTextImage.GetComponent<Animator>();

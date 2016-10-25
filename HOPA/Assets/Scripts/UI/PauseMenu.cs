@@ -7,9 +7,6 @@ public class PauseMenu : MonoBehaviour
     #region private
 
     private CanvasGroup _grp;
-    private Button _btnToggleSound;
-    private Text _txtToggleSoundOn;
-    private Text _txtToggleSoundOff;
     private Button _btnExit;
     private Button _btnReturn;
 
@@ -24,11 +21,7 @@ public class PauseMenu : MonoBehaviour
 
         foreach (Button b in btns)
         {
-            if (b.name.Contains("ToggleSound"))
-            {
-                _btnToggleSound = b;
-            }
-            else if (b.name.Contains("Exit"))
+            if (b.name.Contains("Exit"))
             {
                 _btnExit = b;
             }
@@ -38,14 +31,8 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        _btnToggleSound.onClick.AddListener(new UnityEngine.Events.UnityAction(OnToggleSoundButtonClick));
         _btnExit.onClick.AddListener(new UnityEngine.Events.UnityAction(OnExitButtonClick));
         _btnReturn.onClick.AddListener(new UnityEngine.Events.UnityAction(OnReturnButtonClick));
-
-        _txtToggleSoundOff = _btnToggleSound.GetComponentsInChildren<Text>()[0];
-        _txtToggleSoundOn = _btnToggleSound.GetComponentsInChildren<Text>()[1];
-
-        ToggleSoundText(AudioManager.Instance.IsAudioMuted);
     }
 
     // Use this for initialization
@@ -77,12 +64,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void ToggleSoundText(bool stateTo)
-    {
-        _txtToggleSoundOff.gameObject.SetActive(!stateTo);
-        _txtToggleSoundOn.gameObject.SetActive(stateTo);
-    }
-
     private IEnumerator FadeCoroutine(float fadeStart, float fadeTarget, float timeSec, bool active)
     {
         float currentTime = Time.time;
@@ -100,11 +81,6 @@ public class PauseMenu : MonoBehaviour
         gameObject.SetActive(active);
 
         yield return null;
-    }
-
-    private void OnToggleSoundButtonClick()
-    {
-        ToggleSoundText(AudioManager.Instance.ToggleMute());
     }
 
     private void OnExitButtonClick()

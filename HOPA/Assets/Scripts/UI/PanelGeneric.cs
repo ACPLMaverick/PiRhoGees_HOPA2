@@ -7,8 +7,6 @@ public class PanelGeneric : MonoBehaviour
 {
     #region const
 
-    public const float Y_HIDDEN = -209.0f; 
-
     #endregion
 
     #region public
@@ -27,6 +25,13 @@ public class PanelGeneric : MonoBehaviour
             return _isHidden;
         }
     }
+
+    #endregion
+
+    #region Fields
+
+    [SerializeField]
+    protected float _yHidden = -209.0f;
 
     #endregion
 
@@ -92,7 +97,7 @@ public class PanelGeneric : MonoBehaviour
             {
                 if(_crt != null)
                     StopCoroutine(_crt);
-                _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, Y_HIDDEN);
+                _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, _yHidden);
             }
             else
             {
@@ -101,7 +106,7 @@ public class PanelGeneric : MonoBehaviour
                     new Vector2(_rt.anchoredPosition.x, _yStart),
                     _rt.localRotation,
                     _rt.localScale,
-                    new Vector2(_rt.anchoredPosition.x, Y_HIDDEN),
+                    new Vector2(_rt.anchoredPosition.x, _yHidden),
                     _rt.localRotation,
                     _rt.localScale,
                     0.5f,
@@ -109,7 +114,7 @@ public class PanelGeneric : MonoBehaviour
                     ));
             }
 
-            Arrow.transform.rotation = Quaternion.Euler(Vector3.zero);
+            Arrow.transform.localScale = Vector3.one;
             _isHidden = true;
         }
     }
@@ -128,7 +133,7 @@ public class PanelGeneric : MonoBehaviour
             {
                 _crt = StartCoroutine(Utility.TransformCoroutineUI(
                     _rt,
-                    new Vector2(_rt.anchoredPosition.x, Y_HIDDEN),
+                    new Vector2(_rt.anchoredPosition.x, _yHidden),
                     _rt.localRotation,
                     _rt.localScale,
                     new Vector2(_rt.anchoredPosition.x, _yStart),
@@ -139,7 +144,7 @@ public class PanelGeneric : MonoBehaviour
                     ));
             }
 
-            Arrow.transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f));
+            Arrow.transform.localScale = new Vector3(1.0f, -1.0f, 1.0f);
             _isHidden = false;
         }
     }

@@ -38,6 +38,7 @@ public class GameManager : Singleton<GameManager>
         CameraManager.Instance.Enabled = CurrentRoom.CameraEnabled;
         CurrentRoom.Initialize();
         CurrentRoom.Enter();
+        CurrentRoom.FinishedEvent.AddListener(OnRoomCommonPickablesCollected);
         AudioManager.Instance.PlayMusic(CurrentRoom.AmbientTheme, 0.5f);
         ItemInfoGroup.gameObject.SetActive(false);
         PauseMenuGroup.gameObject.SetActive(false);
@@ -156,7 +157,7 @@ public class GameManager : Singleton<GameManager>
         CurrentRoom.Leave();
         Room tmpCurrentRoom = CurrentRoom;
         CurrentRoom = _nextRoom;
-        PickableHintManager.Instance.Flush();
+        //PickableHintManager.Instance.Flush();
         //_nextRoom = CurrentRoom.PuzzleRoom;
 
         if (tmpCurrentRoom.ParentRoom == null && _nextRoom.ParentRoom != tmpCurrentRoom)
@@ -179,7 +180,8 @@ public class GameManager : Singleton<GameManager>
 
     private void OnRoomCommonPickablesCollected(Room r)
     {
-        StartCoroutine(RoomFinishedCoroutine(r));
+        SceneChangeManager.Instance.ChangeScene(0);
+        //StartCoroutine(RoomFinishedCoroutine(r));
     }
 
     private void OnRoomAssignPuzzleFinished(Room r)
@@ -251,21 +253,21 @@ public class GameManager : Singleton<GameManager>
         //r.Leave();
         */
 
-        if (r.PuzzleRoom != null)
-        {
-            if(r.PuzzleRoom.Locked)
-            {
-                r.PuzzleRoom.Locked = false;
-                r.PuzzleRoom.UnlockMapPart();
-            }
-            TransitionToRoom(r.PuzzleRoom);
+        //if (r.PuzzleRoom != null)
+        //{
+        //    if(r.PuzzleRoom.Locked)
+        //    {
+        //        r.PuzzleRoom.Locked = false;
+        //        r.PuzzleRoom.UnlockMapPart();
+        //    }
+        //    TransitionToRoom(r.PuzzleRoom);
 
-            //TutorialManager.Instance.GoStepFurther(11);
-        }
-        else
-        {
-            EquipmentManager.Instance.OpenMapArbitrarily();
-        }
+        //    //TutorialManager.Instance.GoStepFurther(11);
+        //}
+        //else
+        //{
+        //    EquipmentManager.Instance.OpenMapArbitrarily();
+        //}
 
         yield return null;
     }

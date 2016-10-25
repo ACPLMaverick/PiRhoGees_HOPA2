@@ -36,7 +36,6 @@ public class Map : MonoBehaviour
     private Vector2 _movementOneClick;
     private Vector2 _movementOneClickFromStart;
     private Vector2 _visiblePos;
-    private Vector2 _invisiblePos;
     private bool _isEnabled = false;
     private int _currentMapPosition = 0;
     private int _totalMapLength;
@@ -74,7 +73,6 @@ public class Map : MonoBehaviour
         _fadeRight = fades[1];
 
         _visiblePos = MapObject.GetComponent<RectTransform>().localPosition;
-        _invisiblePos = new Vector2(_visiblePos.x + MapObject.GetComponent<RectTransform>().rect.width, _visiblePos.y);
 
         // calculate movementOneClick and scale factor
         RectTransform r = _mapTitle.GetComponent<RectTransform>();
@@ -131,11 +129,11 @@ public class Map : MonoBehaviour
         if (col != null && col.gameObject == this.gameObject)
         {
             InputManager.Instance.OnInputClickUp.RemoveListener(PickUp);
-            EquipmentManager.Instance.HasMap = true;
+            //EquipmentManager.Instance.HasMap = true;
             TutorialManager.Instance.GoStepFurther();
             AudioManager.Instance.PlayClip(PickUpSound);
             StartCoroutine(Utility.FadeCoroutine(GetComponent<SpriteRenderer>(), 1.0f, 0.0f, 1.0f, true));
-            StartCoroutine(FlyToTarget(Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonMap.transform.position), Vector3.zero, 1.0f));
+            //StartCoroutine(FlyToTarget(Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonMap.transform.position), Vector3.zero, 1.0f));
         }
     }
 
@@ -228,7 +226,7 @@ public class Map : MonoBehaviour
     public void ShowMap()
     {
         //To enable toggle button (On room 0 it's useless and provokes bugs)
-        EquipmentManager.Instance.ButtonEquipmentPickableToggle.interactable = true;
+        //EquipmentManager.Instance.ButtonEquipmentPickableToggle.interactable = true;
 
         if (GameManager.Instance.CurrentRoom.ParentRoom != null)
         {

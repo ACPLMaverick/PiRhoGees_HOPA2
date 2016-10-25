@@ -13,15 +13,12 @@ public class ButtonEquipmentPanelToggle : MonoBehaviour
 
     #region private
 
-    private Image _img;
-
     #endregion
 
     #region functions
 
     protected virtual void Awake()
     {
-        _img = GetComponent<Image>();
     }
 
     // Use this for initialization
@@ -36,22 +33,22 @@ public class ButtonEquipmentPanelToggle : MonoBehaviour
 	
 	}
 
-    public void SwitchMode(EquipmentManager.EquipmentMode mode)
-    {
-        switch (mode)
-        {
-            case EquipmentManager.EquipmentMode.PICKABLES:
+    //public void SwitchMode(EquipmentManager.EquipmentMode mode)
+    //{
+    //    switch (mode)
+    //    {
+    //        case EquipmentManager.EquipmentMode.PICKABLES:
 
-                _img.sprite = SpriteEquipment;
+    //            _img.sprite = SpriteEquipment;
 
-                break;
-            case EquipmentManager.EquipmentMode.USABLES:
+    //            break;
+    //        case EquipmentManager.EquipmentMode.USABLES:
 
-                _img.sprite = SpriteList;
+    //            _img.sprite = SpriteList;
 
-                break;
-        }
-    }
+    //            break;
+    //    }
+    //}
 
     #endregion
 }

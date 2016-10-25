@@ -71,14 +71,14 @@ public class Letter : PickableObject
             col.gameObject.transform.SetParent(Camera.main.transform, true);
             Vector3 tgt = Vector3.zero/*, scl = Vector3.zero*/;
 
-            if (EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.PICKABLES)
-            {
+            //if (EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.PICKABLES)
+            //{
                 tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.PanelPickableList.transform.position);
-            }
-            else
-            {
-                tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
-            }
+            //}
+            //else
+            //{
+            //    tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
+            //}
             tgt.z = transform.position.z;
 
             InputManager.Instance.OnInputClickUp.RemoveListener(PickUp);

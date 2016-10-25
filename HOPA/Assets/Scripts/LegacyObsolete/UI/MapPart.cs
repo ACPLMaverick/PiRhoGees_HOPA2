@@ -42,7 +42,6 @@ public class MapPart : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        _roomButton.GetComponent<Image>().sprite = AssociatedRoom.MapSprite;
         _roomText.text = AssociatedRoom.Description;
     }
 	

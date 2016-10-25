@@ -31,7 +31,7 @@ public class PickableObject : MonoBehaviour
 
     #region properties
 
-    public Button AssociatedListElement
+    public CanvasGroup AssociatedListElement
     {
         get
         {
@@ -42,10 +42,10 @@ public class PickableObject : MonoBehaviour
         {
             if(_associatedListElement != null)
             {
-                _associatedListElement.onClick.RemoveListener(_actionOnListElementClick);
+                _associatedListElement.GetComponentInChildren<Button>().onClick.RemoveListener(_actionOnListElementClick);
             }
             _associatedListElement = value;
-            _associatedListElement.onClick.AddListener(_actionOnListElementClick);
+            _associatedListElement.GetComponentInChildren<Button>().onClick.AddListener(_actionOnListElementClick);
         }
     }
     public bool FrameLocked
@@ -69,7 +69,7 @@ public class PickableObject : MonoBehaviour
 
     protected bool _frameLocked = false;
     protected bool _frameLockedHelper = false;
-    protected Button _associatedListElement;
+    protected CanvasGroup _associatedListElement;
     protected bool _picked = false;
     protected UnityAction _actionOnListElementClick;
 
@@ -124,14 +124,14 @@ public class PickableObject : MonoBehaviour
             col.gameObject.transform.SetParent(Camera.main.transform, true);
             Vector3 tgt = Vector3.zero, scl = Vector3.zero;
 
-            if(EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.PICKABLES)
-            {
+            //if(EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.PICKABLES)
+            //{
                 tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.PanelPickableList.transform.position);
-            }
-            else
-            {
-                tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
-            }
+            //}
+            //else
+            //{
+            //    tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
+            //}
             tgt.z = transform.position.z;
 
             StartCoroutine(FlyToTarget(tgt, scl, FADE_OUT_TIME_SEC));
@@ -140,7 +140,7 @@ public class PickableObject : MonoBehaviour
 
             EquipmentManager.Instance.AddObjectToList(this, FADE_OUT_TIME_SEC);
             InputManager.Instance.OnInputClickUp.RemoveListener(PickUp);
-            PickableHintManager.Instance.Flush();
+            //PickableHintManager.Instance.Flush();
             //col.gameObject.transform.SetParent(Camera.main.transform, true);
 
             _picked = true;
@@ -155,8 +155,8 @@ public class PickableObject : MonoBehaviour
     {
         if(AssociatedListElement != null)
         {
-            EquipmentManager.Instance.ChangeTextPickedStatus(AssociatedListElement.GetComponent<Text>(), true);
-            AssociatedListElement.GetComponent<Button>().onClick.RemoveListener(_actionOnListElementClick);
+            EquipmentManager.Instance.ChangeTextPickedStatus(AssociatedListElement.GetComponentInChildren<Text>(), AssociatedListElement.GetComponentInChildren<Button>(), true);
+            AssociatedListElement.GetComponentInChildren<Button>().onClick.RemoveListener(_actionOnListElementClick);
         }
         GameObject.DestroyImmediate(this.gameObject);
     }

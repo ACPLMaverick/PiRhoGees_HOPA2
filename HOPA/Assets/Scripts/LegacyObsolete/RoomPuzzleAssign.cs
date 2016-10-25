@@ -79,13 +79,13 @@ public class RoomPuzzleAssign : Room
 
     protected override void OnEntered()
     {
-        EquipmentManager.Instance.Enabled = false;
+        //EquipmentManager.Instance.Enabled = false;
     }
 
     protected override void OnLeft()
     {
-        EquipmentManager.Instance.Enabled = true;
-        EquipmentManager.Instance.CurrentMode = EquipmentManager.EquipmentMode.USABLES;
+        //EquipmentManager.Instance.Enabled = true;
+        //EquipmentManager.Instance.CurrentMode = EquipmentManager.EquipmentMode.USABLES;
     }
 
     #endregion

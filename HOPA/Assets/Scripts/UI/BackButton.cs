@@ -10,7 +10,6 @@ public class BackButton : MonoBehaviour
 
     #region private
 
-    private Image _img;
 
     #endregion
 
@@ -18,7 +17,6 @@ public class BackButton : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _img = GetComponent<Image>();
     }
 
     // Use this for initialization

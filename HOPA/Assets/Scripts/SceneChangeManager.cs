@@ -27,8 +27,6 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     private Image _rotatingImage;
     private Text _loadingText;
     private bool _rotatingFlag;
-    private Coroutine _crtTemp;
-    private Coroutine _crtTempRot;
 
     private Image _prevLoadingScreen;
 
@@ -78,14 +76,13 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         _loadingText = LoadingScreen.GetComponentInChildren<Text>();
 
         LoadingScreen.gameObject.SetActive(true);
-        _crtTemp = StartCoroutine(FadeCoroutineUI(_prevLoadingScreen.GetComponent<CanvasGroup>(), 0.0f, 1.0f, FADE_TIME, true, index));
         _rotatingFlag = true;
-        _crtTempRot = StartCoroutine(RotateCoroutineUI(_rotatingImage, ROTATE_SPEED));
+        StartCoroutine(FadeCoroutineUI(LoadingScreen.GetComponent<CanvasGroup>(), 0.0f, 1.0f, FADE_TIME, true, index));
     }
 
     private void ChangeSceneIndeed(int index)
     {
-        int cScene = SceneManager.GetActiveScene().buildIndex;
+        //int cScene = SceneManager.GetActiveScene().buildIndex;
         AsyncOperation op = SceneManager.LoadSceneAsync(index);
         op.priority = 999;
         op.allowSceneActivation = true;

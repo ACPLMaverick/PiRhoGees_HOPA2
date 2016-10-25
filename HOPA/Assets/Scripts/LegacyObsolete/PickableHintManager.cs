@@ -22,7 +22,6 @@ public class PickableHintManager : Singleton<PickableHintManager>
     private bool _showFlash;
     private bool _showArrow;
 
-    private float _flashSpeed = 1.0f;
     private float _flashPhases = 3.0f;
     private float _flashHelper = 0.0f;
 

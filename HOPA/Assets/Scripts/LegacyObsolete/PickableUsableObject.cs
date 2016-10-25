@@ -85,26 +85,26 @@ public class PickableUsableObject : PickableObject
 
     protected override void PickUp(Vector2 position, Collider2D col)
     {
-        if (col != null && col.gameObject == this.gameObject && EquipmentManager.Instance.EquipmentFreeContainersAvailable && !_picked)
+        if (col != null && col.gameObject == this.gameObject && /*EquipmentManager.Instance.EquipmentFreeContainersAvailable &&*/ !_picked)
         {
             Vector3 tgt = Vector3.zero, scl = Vector3.zero;
 
-            if (EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.USABLES && 
-                !EquipmentManager.Instance.PanelPickableList.GetComponent<PanelGeneric>().Hidden)
-            {
+            //if (EquipmentManager.Instance.CurrentMode == EquipmentManager.EquipmentMode.USABLES && 
+            //    !EquipmentManager.Instance.PanelPickableList.GetComponent<PanelGeneric>().Hidden)
+            //{
                 tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.PanelPickableList.transform.position);
-            }
-            else
-            {
-                tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
-            }
+            //}
+            //else
+            //{
+            //    tgt = Camera.main.ScreenToWorldPoint(EquipmentManager.Instance.ButtonEquipmentPickableToggle.transform.position);
+            //}
             tgt.z = transform.position.z;
 
             StartCoroutine(FlyToTarget(tgt, scl, FADE_OUT_TIME_SEC));
 
             AudioManager.Instance.PlayClip(PickUpSound);
 
-            EquipmentManager.Instance.AddObjectToPool(this, FADE_OUT_TIME_SEC);
+            //EquipmentManager.Instance.AddObjectToPool(this, FADE_OUT_TIME_SEC);
             InputManager.Instance.OnInputClickUp.RemoveListener(PickUp);
 
             _picked = true;
@@ -178,7 +178,7 @@ public class PickableUsableObject : PickableObject
 
             if(actionDone && DestroyOnUse)
             {
-                EquipmentManager.Instance.RemoveObjectFromPool(this, 0.6f);
+                //EquipmentManager.Instance.RemoveObjectFromPool(this, 0.6f);
                 StartCoroutine(OnClickUpDestroyCoroutine(_container.UsableField, _startSlotPosition, 1.2f));
             }
             else
