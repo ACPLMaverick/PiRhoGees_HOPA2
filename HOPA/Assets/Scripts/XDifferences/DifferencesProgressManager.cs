@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PuzzleProgressManager : MinigameProgressManager<PuzzleElement> {
+public class DifferencesProgressManager : MinigameProgressManager<DifferentObject> {
 
     #region Public
 
-    public static PuzzleProgressManager Instance;
+    public static DifferencesProgressManager Instance;
 
     #endregion
 
@@ -25,9 +25,9 @@ public class PuzzleProgressManager : MinigameProgressManager<PuzzleElement> {
     {
         base.ResetGame();
 
-        foreach(PuzzleElement puzzle in Elements)
+        foreach (DifferentObject puzzle in Elements)
         {
-            puzzle.ResetElement();
+            puzzle.Reset();
         }
     }
 

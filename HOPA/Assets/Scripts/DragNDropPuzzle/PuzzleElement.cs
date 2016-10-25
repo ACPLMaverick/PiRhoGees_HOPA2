@@ -14,7 +14,6 @@ public class PuzzleElement : MonoBehaviour {
     #region Protected
 
     private Vector3 _initPosition;
-    [SerializeField]
     private float _currentDistance;
 
     #endregion
@@ -48,7 +47,7 @@ public class PuzzleElement : MonoBehaviour {
         if(_currentDistance <= MinDistance)
         {
             this.transform.position = TargetSlot.transform.position;
-            PuzzleProgressManager.Instance.ElementsOnSlots += 1;
+            PuzzleProgressManager.Instance.ElementsCompleted += 1;
             IsOnRightSlot = true;
         }
     }
