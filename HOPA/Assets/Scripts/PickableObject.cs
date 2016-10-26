@@ -105,7 +105,7 @@ public class PickableObject : MonoBehaviour
 
     protected virtual void OnListElementClick()
     {
-        if (Description.Length != 0)
+        if (Picked)
         {
             GameManager.Instance.ItemInfoGroup.Show(GetComponent<SpriteRenderer>().sprite, Name, Description);
         }
@@ -156,9 +156,10 @@ public class PickableObject : MonoBehaviour
         if(AssociatedListElement != null)
         {
             EquipmentManager.Instance.ChangeTextPickedStatus(AssociatedListElement.GetComponentInChildren<Text>(), AssociatedListElement.GetComponentInChildren<Button>(), true);
-            AssociatedListElement.GetComponentInChildren<Button>().onClick.RemoveListener(_actionOnListElementClick);
+            //AssociatedListElement.GetComponentInChildren<Button>().onClick.RemoveListener(_actionOnListElementClick);
+            OnListElementClick();
         }
-        GameObject.DestroyImmediate(this.gameObject);
+        //GameObject.DestroyImmediate(this.gameObject);
     }
 
     protected IEnumerator FlyToTarget(Vector3 targetPos, Vector3 targetScale, float time)

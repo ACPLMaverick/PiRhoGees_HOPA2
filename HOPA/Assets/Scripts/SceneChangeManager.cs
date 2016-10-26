@@ -34,13 +34,18 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 
     #region functions
 
-    // Use this for initialization
-    void Start()
+    protected override void Awake()
     {
+        _destroyOnLoad = true;
         _rotatingImage = LoadingScreen.GetComponentsInChildren<Image>()[1];
         _loadingText = LoadingScreen.GetComponentInChildren<Text>();
         _loadingText.text = LoadingString;
+        base.Awake();
+    }
 
+    // Use this for initialization
+    void Start()
+    {
         float angle = PlayerPrefs.GetFloat(PP_KEY);
         if (angle != IMPOSSIBLE_ANGLE)
         {
@@ -82,6 +87,8 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 
     private void ChangeSceneIndeed(int index)
     {
+        StartCoroutine(RotateCoroutineUI(_rotatingImage, 1.0f));
+        _rotatingFlag = false;
         //int cScene = SceneManager.GetActiveScene().buildIndex;
         AsyncOperation op = SceneManager.LoadSceneAsync(index);
         op.priority = 999;

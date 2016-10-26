@@ -70,7 +70,7 @@ public class EquipmentManager : Singleton<EquipmentManager>
     {
         text.fontStyle = !status ? FontStyle.Bold : FontStyle.BoldAndItalic;
         text.color = !status ? Color.white : new Color(0.8f, 0.8f, 0.8f);
-        button.interactable = !status;
+        //button.interactable = !status;
     }
 
     private IEnumerator AddObjectToListCoroutine(PickableObject obj, float lagSeconds)

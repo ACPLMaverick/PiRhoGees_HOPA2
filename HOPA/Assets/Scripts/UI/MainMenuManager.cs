@@ -9,24 +9,24 @@ public class MainMenuManager : MonoBehaviour
     #region Fields
 
     [SerializeField]
-    CanvasGroup _screenMainMenu;
+    protected CanvasGroup _screenMainMenu;
 
     [SerializeField]
-    CanvasGroup _screenJadalna;
+    protected CanvasGroup _screenJadalna;
 
     [SerializeField]
-    CanvasGroup _screenLustrzana;
+    protected CanvasGroup _screenLustrzana;
 
 
     [SerializeField]
-    CanvasGroup _infoFullscreenJadalna;
+    protected CanvasGroup _infoFullscreenJadalna;
 
     [SerializeField]
-    CanvasGroup _infoFullscreenLustrzana;
+    protected CanvasGroup _infoFullscreenLustrzana;
 
     #endregion
 
-    CanvasGroup _currentScreen;
+    protected CanvasGroup _currentScreen;
 
     #endregion
 
@@ -70,6 +70,11 @@ public class MainMenuManager : MonoBehaviour
 	    
 	}
 
+    protected virtual void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Main);
+    }
+
     #endregion
 
     #region Button Handlers
@@ -78,17 +83,19 @@ public class MainMenuManager : MonoBehaviour
     {
         SwitchToScreen(_screenJadalna);
         _infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Jadalna);
     }
 
     public void ButtonClickMenuLustrzana()
     {
         SwitchToScreen(_screenLustrzana);
         _infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Lustrzana);
     }
 
     public void ButtonClickMenuGallery()
     {
-
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Galeria);
     }
 
     public void ButtonClickMenuLanguage()
@@ -138,6 +145,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickBack()
     {
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Main);
         SwitchToScreen(_screenMainMenu);
     }
 
