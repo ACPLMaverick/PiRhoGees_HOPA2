@@ -301,7 +301,7 @@ public class InputManager : Singleton<InputManager>
                 Vector2 diff = new Vector2(Input.mousePosition.x, Input.mousePosition.y) - _swipeHelperPos;
                 if (/*colUC == _swipeHelperCol &&*/ diff.magnitude >= _swipeMinimumLength)
                 {
-                    OnInputSwipe.Invoke(_swipeHelperPos, GetSwipeDirectionFromVector(diff), diff.magnitude, colUC);
+                    OnInputSwipe.Invoke(_swipeHelperPos, GetSwipeDirectionFromVector(diff), diff.magnitude, _swipeHelperCol);
                     _swipeHelperCol = null;
                     _swipeHelperPos = Vector2.zero;
                 }
@@ -427,19 +427,8 @@ public class InputManager : Singleton<InputManager>
 
     public Collider2D GetCollider2DUnderCursor()
     {
-        //for(int i = 0; i < _sLayerCount; ++i)
-        //{
-        //    _sortLayerList[i].Value.Clear();
-        //}
-
         RaycastHit2D[] hits = GetRaycastHitsUnderCursor();
-        int hitCount = hits.Length;
-
-        //List<RaycastResult> uiRaycastResults = new List<RaycastResult>();
-        //PointerEventData pData = new PointerEventData(EventSystem.current);
-        //EventSystem.current.RaycastAll(pData, uiRaycastResults);
-
-        
+        int hitCount = hits.Length;        
 
         //if(uiRaycastResults.Count != 0)
         if (IsPointerOnGuiInternal())
@@ -457,52 +446,7 @@ public class InputManager : Singleton<InputManager>
             //Debug.Log("IM: NTH HIT");
             return null;
         }
-
-        //for(int i = 0; i < hitCount; ++i)
-        //{
-        //    int layerID = hits[i].collider.gameObject.GetComponent<SpriteRenderer>().sortingLayerID;
-        //    int orderInLayer = hits[i].collider.gameObject.GetComponent<SpriteRenderer>().sortingOrder;
-        //    // find layer the collider's object is on
-        //    SortedList<int, Collider2D> layer = null;
-        //    for (int j = 0; j < _sLayerCount; ++j)
-        //    {
-        //        if(_sortLayerList[j].Key == layerID)
-        //        {
-        //            layer = _sortLayerList[j].Value;
-        //            break;
-        //        }
-        //    }
-
-        //    // add to that layer with given sort order. This will sort automatically.
-        //    layer.Add(orderInLayer, hits[i].collider);
-        //}
-
-        //// iterate from the furthest layer and hightest order and pick first object found
-
-        //Collider2D highestHit = null;
-        //for (int i = _sLayerCount - 1; i > 0; --i)
-        //{
-        //    int mObjectCountOnLayer = _sortLayerList[i].Value.Count;
-
-        //    if(mObjectCountOnLayer != 0)
-        //    {
-        //        highestHit = _sortLayerList[i].Value.Values[mObjectCountOnLayer - 1];
-        //        break;
-        //    }
-        //}
-
-        ////Debug.Log(highestHit.gameObject.name);
-
-        //return highestHit;
     }
-
-    // Get the unique sorting layer IDs -- tossed this in for good measure
-    //public int[] GetSortingLayerUniqueIDs()
-    //{
-    //    Type internalEditorUtilityType = typeof(InternalEditorUtility);
-    //    PropertyInfo sortingLayerUniqueIDsProperty = internalEditorUtilityType.GetProperty("sortingLayerUniqueIDs", BindingFlags.Static | BindingFlags.NonPublic);
-    //    return (int[])sortingLayerUniqueIDsProperty.GetValue(null, new object[0]);
-    //}
 
     private SwipeDirection GetSwipeDirectionFromVector(Vector2 diff)
     {

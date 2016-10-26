@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -7,7 +8,10 @@ public class RollingPart : MonoBehaviour
     #region Fields
 
     [SerializeField]
-    protected int _firstElement = 0;
+    protected int _beginIndex = 0;
+
+    [SerializeField]
+    protected int _correctIndex = 1;
 
     [SerializeField]
     protected List<Sprite> _sprites;
@@ -19,11 +23,19 @@ public class RollingPart : MonoBehaviour
 
     #region Properties
 
-    public int CurrentSpriteIndex
+    public int CurrentIndex
     {
         get
         {
             return _currentSpriteIndex;
+        }
+    }
+
+    public int CorrectIndex
+    {
+        get
+        {
+            return _correctIndex;
         }
     }
 
@@ -44,13 +56,22 @@ public class RollingPart : MonoBehaviour
 
     #endregion
 
+    #region Events Public
+
+    public class UnityEventRollingPartChanged : UnityEvent<RollingPart> { }
+
+    public UnityEvent<RollingPart> EventChanged = new UnityEventRollingPartChanged();
+
+    #endregion
+
     #region MonoBehaviours
 
     // Use this for initialization
     void Start ()
     {
+        _currentSpriteIndex = _beginIndex;
         _sr = GetComponent<SpriteRenderer>();
-        _sr.sprite = _sprites[_firstElement];
+        _sr.sprite = _sprites[_beginIndex];
         InputManager.Instance.OnInputSwipe.AddListener(new UnityEngine.Events.UnityAction<Vector2, InputManager.SwipeDirection, float, Collider2D>(OnSwipe));
 	}
 	
@@ -72,8 +93,10 @@ public class RollingPart : MonoBehaviour
 
     protected void OnSwipe(Vector2 pos, InputManager.SwipeDirection dir, float diffLength, Collider2D col)
     {
-        if(((_currentSpriteIndex == 0 && dir == InputManager.SwipeDirection.LEFT) || 
-            (_currentSpriteIndex == _sprites.Count - 1) && dir == InputManager.SwipeDirection.RIGHT) && !_canWrap)
+        if((((_currentSpriteIndex == 0 && dir == InputManager.SwipeDirection.LEFT) || 
+            (_currentSpriteIndex == _sprites.Count - 1) && dir == InputManager.SwipeDirection.RIGHT) && !_canWrap) ||
+            !enabled ||
+            col != GetComponent<Collider2D>())
         {
             return;
         }
@@ -85,7 +108,12 @@ public class RollingPart : MonoBehaviour
         }
 
         _currentSpriteIndex = (_currentSpriteIndex + indexAddition) % _sprites.Count;
+        if(_currentSpriteIndex < 0)
+        {
+            _currentSpriteIndex = _sprites.Count + _currentSpriteIndex;
+        }
         SetSprite(_sprites[_currentSpriteIndex]);
+        EventChanged.Invoke(this);
     }
 
     protected void SetSprite(Sprite nextSpr)
