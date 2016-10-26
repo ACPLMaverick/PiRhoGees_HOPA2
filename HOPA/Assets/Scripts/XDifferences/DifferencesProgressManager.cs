@@ -12,7 +12,9 @@ public class DifferencesProgressManager : MinigameProgressManager<DifferentObjec
     #region Functions
 
     // Use this for initialization
-    void Start () {
+    public override void Start () {
+        base.Start();
+
         Instance = this;
 	}
 	
