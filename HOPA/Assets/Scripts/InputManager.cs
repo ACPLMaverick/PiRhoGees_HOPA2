@@ -379,10 +379,10 @@ public class InputManager : Singleton<InputManager>
         }
 
         // showing pause menu on back button pressed
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            GameManager.Instance.ShowPauseMenu();
-        }
+        //if (Input.GetKeyUp(KeyCode.Escape))
+        //{
+            //GameManager.Instance.ShowPauseMenu();
+        //}
     }
 
     public RaycastHit2D[] GetRaycastHitsUnderCursor()

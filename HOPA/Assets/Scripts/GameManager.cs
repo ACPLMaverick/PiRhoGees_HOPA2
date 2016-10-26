@@ -90,11 +90,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void ShowPauseMenu()
-    {
-        PauseMenuGroup.Show();
-    }
-
     public void ExitGame()
     {
         StartCoroutine(ExitGameCoroutine(0));
