@@ -7,7 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     #region const
 
-    private const float WAIT_FOR_ENDING_PHOTO_SECONDS = 7.5f;
+    private const float WAIT_FOR_ENDING_PHOTO_SECONDS = 2.0f;
 
     #endregion
 
@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     public Image FadeImage;
     public ItemInfo ItemInfoGroup;
     public PauseMenu PauseMenuGroup;
+    public Switchable EndingInfoFullscreen;
 
     public float RoomTransitionTime = 2.0f;
 
@@ -42,16 +43,18 @@ public class GameManager : Singleton<GameManager>
         AudioManager.Instance.PlayMusic(CurrentRoom.AmbientTheme, 0.5f);
         ItemInfoGroup.gameObject.SetActive(false);
         PauseMenuGroup.gameObject.SetActive(false);
+
+        if(EndingInfoFullscreen != null)
+        {
+            EndingInfoFullscreen.gameObject.SetActive(false);
+            EndingInfoFullscreen.GetComponent<InfoFullscreen>().ButtonTotal.onClick.AddListener(new UnityEngine.Events.UnityAction(EndRoom));
+        }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    // for tetin
-        //if(Input.GetKeyUp(KeyCode.P))
-        //{
-        //    OnRoomCommonPickablesCollected(RoomFirst);
-        //}
+
 	}
 
     public void TransitionToRoom(Room room)
@@ -180,100 +183,33 @@ public class GameManager : Singleton<GameManager>
 
     private void OnRoomCommonPickablesCollected(Room r)
     {
-        SceneChangeManager.Instance.ChangeScene(0);
-        //StartCoroutine(RoomFinishedCoroutine(r));
+        ItemInfoGroup.GetComponentInChildren<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(EndRoomOnInfoButtonClicked));
     }
 
-    private void OnRoomAssignPuzzleFinished(Room r)
+    private void EndRoomOnInfoButtonClicked()
     {
-        StartCoroutine(RoomFinishedCoroutine(r));
+        ItemInfoGroup.GetComponentInChildren<Button>().onClick.RemoveAllListeners();          // !!!
+        StartCoroutine(RoomFinishedCoroutine());
     }
 
-    //private void OnRoom0PickablesCollected()
-    //{
-    //    StartCoroutine(OnRoom0PickablesCollectedCoroutine());
-    //}
+    private void EndRoom()
+    {
+        SceneChangeManager.Instance.ChangeScene(0);
+    }
 
-    private IEnumerator RoomFinishedCoroutine(Room r)
+    private IEnumerator RoomFinishedCoroutine()
     {
         yield return new WaitForSeconds(WAIT_FOR_ENDING_PHOTO_SECONDS);
 
-        //t.gameObject.SetActive(true);
-        //RectTransform rt = t.GetComponent<RectTransform>();
-        //CanvasGroup cg = t.GetComponent<CanvasGroup>();
-        /*
-        Vector2 startScale = new Vector2(0.5f, 0.5f);
-        float startAlpha = 0.0f;
-        Vector2 targetScale = new Vector2(1.0f, 1.0f);
-        float targetAlpha = 1.0f;
-        float timeSecondsWait = 1.5f;
-        float timeSecondsIn = 3.0f;
-        float timeSecondsStay = 3.0f;
-        float timeSecondsOut = 1.2f;
-
-        yield return new WaitForSeconds(timeSecondsWait);
-
-        float cTime = Time.time;
-
-        while (Time.time - cTime <= timeSecondsIn)
+        if (EndingInfoFullscreen != null)
         {
-            float lerpValue = (Time.time - cTime) / timeSecondsIn;
-
-            Vector2 finalScale = Vector2.Lerp(startScale, targetScale, lerpValue);
-            float finalAlpha = Mathf.Lerp(startAlpha, targetAlpha, lerpValue);
-
-            //rt.localScale = finalScale;
-            //cg.alpha = finalAlpha;
-
-            yield return null;
+            EndingInfoFullscreen.SwitchOn();
         }
-        //rt.localScale = targetScale;
-        //cg.alpha = targetAlpha;
-
-        yield return new WaitForSeconds(timeSecondsStay);
-
-        cTime = Time.time;
-
-        while (Time.time - cTime <= timeSecondsOut)
+        else
         {
-            float lerpValue = (Time.time - cTime) / timeSecondsOut;
-
-            Vector2 finalScale = Vector2.Lerp(targetScale, startScale, lerpValue);
-            float finalAlpha = Mathf.Lerp(targetAlpha, startAlpha, lerpValue);
-
-            //rt.localScale = finalScale;
-            //cg.alpha = finalAlpha;
-
-            yield return null;
+            EndRoom();
         }
-        //rt.localScale = startScale;
-        //cg.alpha = startAlpha;
-        //t.gameObject.SetActive(false);
-
-        //r.Leave();
-        */
-
-        //if (r.PuzzleRoom != null)
-        //{
-        //    if(r.PuzzleRoom.Locked)
-        //    {
-        //        r.PuzzleRoom.Locked = false;
-        //        r.PuzzleRoom.UnlockMapPart();
-        //    }
-        //    TransitionToRoom(r.PuzzleRoom);
-
-        //    //TutorialManager.Instance.GoStepFurther(11);
-        //}
-        //else
-        //{
-        //    EquipmentManager.Instance.OpenMapArbitrarily();
-        //}
 
         yield return null;
     }
-
-    //private IEnumerator OnRoom0PickablesCollectedCoroutine()
-    //{
-    //    yield return new WaitForSeconds(4.0f);
-    //}
 }

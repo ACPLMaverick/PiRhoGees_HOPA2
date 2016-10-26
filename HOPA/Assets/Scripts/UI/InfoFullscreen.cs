@@ -7,10 +7,7 @@ public class InfoFullscreen : MonoBehaviour
     #region Fields
 
     [SerializeField]
-    protected string _initTitleText;
-
-    [SerializeField]
-    protected string _initMainText;
+    protected bool _buttonTotal = false;
 
     #endregion
 
@@ -50,10 +47,41 @@ public class InfoFullscreen : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public Button ButtonForward
+    {
+        get
+        {
+            return _btnFwd;
+        }
+    }
+
+    public Button ButtonBackward
+    {
+        get
+        {
+            return _btnBwd;
+        }
+    }
+
+    public Button ButtonTotal
+    {
+        get
+        {
+            return _btnTotal;
+        }
+    }
+
+    #endregion
+
     #region Protected
 
     protected Text _title;
     protected Text _text;
+    protected Button _btnFwd;
+    protected Button _btnBwd;
+    protected Button _btnTotal;
 
     protected CanvasGroup _grpForward = null;
     protected CanvasGroup _grpBackward = null;
@@ -62,14 +90,24 @@ public class InfoFullscreen : MonoBehaviour
 
     #region MonoBehaviour
 
+    protected virtual void Awake()
+    {
+        Text[] texts = GetComponentsInChildren<Text>();
+        Button[] buttons = GetComponentsInChildren<Button>();
+        _title = texts[0];
+        _text = texts[1];
+        _btnBwd = buttons[0];
+        _btnFwd = buttons[1];
+        _btnTotal = buttons[2];
+        _btnTotal.gameObject.SetActive(_buttonTotal);
+        _btnFwd.gameObject.SetActive(!_buttonTotal);
+        _btnBwd.gameObject.SetActive(!_buttonTotal);
+    }
+
     // Use this for initialization
     void Start ()
     {
-        _title = GetComponentsInChildren<Text>()[0];
-        _text = GetComponentsInChildren<Text>()[1];
 
-        _title.text = _initTitleText;
-        _text.text = _initMainText;
     }
 
     // Update is called once per frame
