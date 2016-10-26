@@ -23,7 +23,7 @@ public class DifferentObject : MonoBehaviour {
 
     public void DetectClick(Vector2 screenPos, Collider2D hitCollider2D)
     {
-        if(!IsFound)
+        if(hitCollider2D != null && hitCollider2D.gameObject == this.gameObject && !IsFound)
         {
             IsFound = true;
             DifferencesProgressManager.Instance.ElementsCompleted += 1;

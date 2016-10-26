@@ -12,7 +12,9 @@ public class PuzzleProgressManager : MinigameProgressManager<PuzzleElement> {
     #region Functions
 
     // Use this for initialization
-    void Start () {
+    public override void Start () {
+        base.Start();
+
         Instance = this;
 	}
 	

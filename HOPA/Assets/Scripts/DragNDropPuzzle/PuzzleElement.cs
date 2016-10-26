@@ -14,6 +14,8 @@ public class PuzzleElement : MonoBehaviour {
     #region Protected
 
     private Vector3 _initPosition;
+    private SpriteRenderer _mySpriteRenderer;
+    private ParticleSystem _myParticle;
     private float _currentDistance;
 
     #endregion
@@ -23,7 +25,9 @@ public class PuzzleElement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _initPosition = this.transform.position;
-
+        _mySpriteRenderer = GetComponent<SpriteRenderer>();
+        _myParticle = GetComponentInChildren<ParticleSystem>();
+        
         InputManager.Instance.OnInputClickDown.AddListener(OnPickUp);
         InputManager.Instance.OnInputClickUp.AddListener(OnPutDown);
         InputManager.Instance.OnInputMoveExclusive.AddListener(OnDrag);
@@ -37,6 +41,7 @@ public class PuzzleElement : MonoBehaviour {
     public void ResetElement()
     {
         this.transform.position = _initPosition;
+        _mySpriteRenderer.sortingOrder = 0;
         IsOnRightSlot = false;
     }
 
@@ -46,6 +51,7 @@ public class PuzzleElement : MonoBehaviour {
 
         if(_currentDistance <= MinDistance)
         {
+            _myParticle.Play();
             this.transform.position = TargetSlot.transform.position;
             PuzzleProgressManager.Instance.ElementsCompleted += 1;
             IsOnRightSlot = true;
@@ -61,6 +67,7 @@ public class PuzzleElement : MonoBehaviour {
     {
         if(!IsOnRightSlot)
         {
+            _mySpriteRenderer.sortingOrder = 0;
             CountDistanceToSlot();
         }
     }
@@ -69,6 +76,8 @@ public class PuzzleElement : MonoBehaviour {
     {
         if (hitCollider2D != null && hitCollider2D.gameObject == gameObject && !IsOnRightSlot)
         {
+            _mySpriteRenderer.sortingOrder = 1;
+
             Vector3 wp1 = Camera.main.ScreenToWorldPoint(currentScreenPos);
             Vector3 wp2 = Camera.main.ScreenToWorldPoint(currentScreenPos + direction);
             Vector3 deltaP = wp2 - wp1;
