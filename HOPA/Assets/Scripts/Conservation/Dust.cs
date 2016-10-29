@@ -35,6 +35,8 @@ public class Dust : MonoBehaviour {
         {
             _wp1 = Camera.main.ScreenToWorldPoint(currentScreenPos);
 
+            //print(_wp1);
+
             UpdateTexture();
         }
     }
@@ -42,11 +44,13 @@ public class Dust : MonoBehaviour {
     public void UpdateTexture()
     {
         //LOGIC
-        if(_wp1.x <= this.transform.position.x + _myCollider.size.x / 2 &&
-            _wp1.x >= this.transform.position.x - _myCollider.size.x / 2 &&
-            _wp1.y <= this.transform.position.y + _myCollider.size.y / 2 &&
-            _wp1.y >= this.transform.position.y - _myCollider.size.y / 2)
+        if(_wp1.x <= this.transform.position.x + (_myCollider.size.x * this.transform.localScale.x) / 2 &&
+            _wp1.x >= this.transform.position.x - (_myCollider.size.x * this.transform.localScale.x) / 2 &&
+            _wp1.y <= this.transform.position.y + (_myCollider.size.y * this.transform.localScale.y) / 2 &&
+            _wp1.y >= this.transform.position.y - (_myCollider.size.y * this.transform.localScale.y) / 2)
         {
+            _wp1 -= this.transform.position;
+
             ClearWithBrush(Mathf.RoundToInt((_wp1.x + 1) * _copy.width * 0.5f),
                 Mathf.RoundToInt((_wp1.y + 1) * _copy.height * 0.5f));
         }
