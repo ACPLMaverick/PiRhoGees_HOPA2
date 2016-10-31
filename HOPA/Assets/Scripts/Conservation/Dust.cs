@@ -43,6 +43,16 @@ public class Dust : MonoBehaviour {
 
     public void UpdateTexture()
     {
+        // transform wp1 to local coordinates of game object
+        _wp1 = transform.worldToLocalMatrix * new Vector4(_wp1.x, _wp1.y, _wp1.z, 1.0f);
+        // transform local coordinates to texture coordinates, taking sprite size into account
+        _wp1.x = Mathf.Clamp01(((_wp1.x / _mySpriteRenderer.sprite.bounds.extents.x) + 1.0f) * 0.5f) * _copy.width;
+        _wp1.y = Mathf.Clamp01(((_wp1.y / _mySpriteRenderer.sprite.bounds.extents.y) + 1.0f) * 0.5f) * _copy.height;
+        //Debug.Log(_wp1);
+
+        ClearWithBrush(Mathf.RoundToInt(_wp1.x), Mathf.RoundToInt(_wp1.y));
+
+        /*
         //LOGIC
         if(_wp1.x <= this.transform.position.x + (_myCollider.size.x * this.transform.localScale.x) / 2 &&
             _wp1.x >= this.transform.position.x - (_myCollider.size.x * this.transform.localScale.x) / 2 &&
@@ -51,10 +61,12 @@ public class Dust : MonoBehaviour {
         {
             _wp1 -= this.transform.position;
 
+            Debug.Log(_wp1);
+
             ClearWithBrush(Mathf.RoundToInt((_wp1.x + 1) * _copy.width * 0.5f),
                 Mathf.RoundToInt((_wp1.y + 1) * _copy.height * 0.5f));
         }
-
+        */
         //This finalizes it. If you want to edit it still, do it before you finish with Apply(). Do NOT expect to edit the image after you have applied.
         _copy.Apply();
     }
