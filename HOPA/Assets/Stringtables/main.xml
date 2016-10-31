@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stringtable>
+  
+  
+  <string index="$MENU_MAIN_DINING">
+    <value lang="pl">
+      Sala Jadalna
+    </value>
+    <value lang="en">
+      Dining Hall
+    </value>
+  </string>
+  <string index="$MENU_MAIN_MIRROR">
+    <value lang="pl">
+      Sala Lustrzana
+    </value>
+    <value lang="en">
+      Mirror Hall
+    </value>
+   </string>
+  <string index="$MENU_MAIN_GALLERY">
+    <value lang="pl">
+      Galeria
+    </value>
+    <value lang="en">
+      Gallery
+    </value>
+  </string>
+  <string index="$MENU_MAIN_LANG">
+    <value lang="pl">
+      Zmiana języka
+    </value>
+    <value lang="en">
+      Change language
+    </value>
+  </string>
+  <string index="$MENU_DIN_MIR_HOPA">
+    <value lang="pl">
+      Poszukiwanie eksponatów
+    </value>
+    <value lang="en">
+      Find the exhibits
+    </value>
+  </string>
+  <string index="$MENU_DIN_CONS">
+    <value lang="pl">
+      Konserwacja obrazu
+    </value>
+    <value lang="en">
+      Painting maintenance
+    </value>
+  </string>
+  <string index="$MENU_DIN_FURN">
+    <value lang="pl">
+      Naprawa kominka
+    </value>
+    <value lang="en">
+      Fix the furnace
+    </value>
+  </string>
+  <string index="$MENU_DIN_MIR_ADDITIONAL">
+    <value lang="pl">
+      Dodatkowe informacje
+    </value>
+    <value lang="en">
+      Additional informations
+    </value>
+  </string>
+  <string index="$MENU_MIR_RENOVAL">
+    <value lang="pl">
+      Rekonstrukcja lustra
+    </value>
+    <value lang="en">
+      Mirror renovation
+    </value>
+  </string>
+  <string index="$MENU_MIR_DIFF">
+    <value lang="pl">
+      Znajdź różnice
+    </value>
+    <value lang="en">
+      Find differences
+    </value>
+  </string>
+  
+  
+  <string index="$FSINFO_TOUCH_TO_CONTINUE">
+    <value lang="pl">
+      Dotknij ekranu, aby kontynuować.
+    </value>
+    <value lang="en">
+      Tap screen to continue.
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_DIN_TITLE">
+    <value lang="pl">
+      Sala Jadalna - wprowadzenie
+    </value>
+    <value lang="en">
+      Dining Hall - introduction
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_DIN_TEXT">
+    <value lang="pl">
+      Wprowadzenie.
+    </value>
+    <value lang="en">
+      Introduction.
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_MIR_TITLE">
+    <value lang="pl">
+      Sala Lustrzana - wprowadzenie
+    </value>
+    <value lang="en">
+      Mirror Hall - introduction
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_MIR_TEXT">
+    <value lang="pl">
+      Wprowadzenie.
+    </value>
+    <value lang="en">
+      Introduction.
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_ADD_DIN_TITLE">
+    <value lang="pl">
+      Sala Jadalna - ciekawostki
+    </value>
+    <value lang="en">
+      Dining Hall - curiosities
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_ADD_DIN_TEXT">
+    <value lang="pl">
+      Tyle ciekawostek.
+    </value>
+    <value lang="en">
+      So many curiosities.
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_ADD_MIR_TITLE">
+    <value lang="pl">
+      Sala Lustrzana - ciekawostki
+    </value>
+    <value lang="en">
+      Mirror Hall - curiosities
+    </value>
+  </string>
+  <string index="$FSINFO_MENU_ADD_MIR_TEXT">
+    <value lang="pl">
+      Tyle ciekawostek.
+    </value>
+    <value lang="en">
+      So many curiosities.
+    </value>
+  </string>
+  
+</stringtable>
