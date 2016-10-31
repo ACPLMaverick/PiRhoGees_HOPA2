@@ -102,6 +102,7 @@ public class InfoFullscreen : MonoBehaviour
         _btnTotal.gameObject.SetActive(_buttonTotal);
         _btnFwd.gameObject.SetActive(!_buttonTotal);
         _btnBwd.gameObject.SetActive(!_buttonTotal);
+        _btnTotal.onClick.AddListener(new UnityEngine.Events.UnityAction(ForwardButtonClick));
     }
 
     // Use this for initialization

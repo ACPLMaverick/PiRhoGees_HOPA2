@@ -31,6 +31,7 @@ public class RollingCollumn : MonoBehaviour
 
     RollingPart[] _parts;
     bool _locked = false;
+    ParticleSystem _winParticle;
 
     #endregion
 
@@ -44,6 +45,7 @@ public class RollingCollumn : MonoBehaviour
         {
             _parts[i].EventChanged.AddListener(new UnityAction<RollingPart>(OnRollingPartChanged));
         }
+        _winParticle = GetComponentInChildren<ParticleSystem>();
 
         // pre-check
         OnRollingPartChanged(null);
@@ -76,6 +78,11 @@ public class RollingCollumn : MonoBehaviour
         {
             _parts[i].EventChanged.RemoveAllListeners();        // !!!
             _parts[i].enabled = false;
+        }
+        if(_winParticle != null)
+        {
+            _winParticle.Stop();
+            _winParticle.Play();
         }
         _locked = true;
         EventCorrect.Invoke(this);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Switchable : MonoBehaviour
@@ -39,6 +40,11 @@ public class Switchable : MonoBehaviour
     {
         if(!gameObject.activeSelf)
         {
+            Button[] btns = GetComponentsInChildren<Button>();
+            for(int i = 0; i < btns.Length; ++i)
+            {
+                btns[i].enabled = true;
+            }
             StopAllCoroutines();
             gameObject.SetActive(true);
             StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 0.0f, 1.0f, _appearTimeSec, true));
@@ -49,6 +55,12 @@ public class Switchable : MonoBehaviour
     {
         if(gameObject.activeSelf)
         {
+            Button[] btns = GetComponentsInChildren<Button>();
+            for (int i = 0; i < btns.Length; ++i)
+            {
+                btns[i].enabled = false;
+            }
+
             StopAllCoroutines();
             StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 1.0f, 0.0f, _disappearTimeSec, false));
         }

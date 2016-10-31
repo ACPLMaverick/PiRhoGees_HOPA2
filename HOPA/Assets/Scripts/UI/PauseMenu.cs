@@ -6,6 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
     #region private
 
+    [SerializeField]
+    CanvasGroup _fadeImage;
+
     private CanvasGroup _grp;
     private Button _btnExit;
     private Button _btnReturn;
@@ -85,12 +88,25 @@ public class PauseMenu : MonoBehaviour
 
     private void OnExitButtonClick()
     {
-        GameManager.Instance.ExitGame();
+        StartCoroutine(ExitToMenuCoroutine());
     }
 
     private void OnReturnButtonClick()
     {
         Hide();
+    }
+
+    private IEnumerator ExitToMenuCoroutine()
+    {
+        _btnExit.enabled = false;
+        _fadeImage.gameObject.SetActive(true);
+        StartCoroutine(Utility.FadeCoroutineUI(_fadeImage, 0.0f, 1.0f, 2.0f, true));
+
+        yield return new WaitForSeconds(2.0f);
+
+        SceneChangeManager.Instance.ChangeScene(0);
+
+        yield return null;
     }
 
     #endregion

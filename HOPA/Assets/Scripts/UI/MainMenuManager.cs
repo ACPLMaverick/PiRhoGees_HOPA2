@@ -24,6 +24,12 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     protected CanvasGroup _infoFullscreenLustrzana;
 
+    [SerializeField]
+    protected CanvasGroup _infoFullscreenAdditionalJadalna;
+
+    [SerializeField]
+    protected CanvasGroup _infoFullscreenAdditionalLustrzana;
+
     #endregion
 
     protected CanvasGroup _currentScreen;
@@ -110,37 +116,37 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickJadalnaConservation()
     {
-
+        SceneChangeManager.Instance.ChangeScene(2);
     }
 
     public void ButtonClickJadalnaFurnace()
     {
-
+        SceneChangeManager.Instance.ChangeScene(3);
     }
 
     public void ButtonClickJadalnaInfo()
     {
-
+        _infoFullscreenAdditionalJadalna.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickLustrzanaHOPA()
     {
-
+        SceneChangeManager.Instance.ChangeScene(1);     // TO BE CHANGED!
     }
 
     public void ButtonClickLustrzanaReconstruction()
     {
-
+        SceneChangeManager.Instance.ChangeScene(4);
     }
 
     public void ButtonClickLustrzanaDifferences()
     {
-
+        SceneChangeManager.Instance.ChangeScene(5);
     }
 
     public void ButtonClickLustrzanaInfo()
     {
-
+        _infoFullscreenAdditionalLustrzana.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickBack()
