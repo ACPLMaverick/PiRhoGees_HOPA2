@@ -105,7 +105,7 @@ public class InputManager : Singleton<InputManager>
 
         float wFlt = (float)Screen.width;
         float hFlt = (float)Screen.height;
-        _swipeMinimumLength = SwipePercentageOfScreenDiag * 0.01f * Mathf.Sqrt(wFlt * wFlt + hFlt * hFlt);
+        _swipeMinimumLength = SwipePercentageOfScreenDiag * 0.001f * Mathf.Sqrt(wFlt * wFlt + hFlt * hFlt);
     }
 	
 	// Update is called once per frame
