@@ -7,6 +7,9 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
 
     public Dust DustyImage;
 
+    [SerializeField]
+    private float _targetWinCondition = 0.9f;
+
     private float _winCondition;
 
     // Use this for initialization
@@ -24,7 +27,7 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
     public override void CheckProgress()
     {
         _winCondition = (float)ElementsCompleted / (float)DustyImage.GetPixelsCount();
-        if (_winCondition >= 0.75f)
+        if (_winCondition >= _targetWinCondition)
         {
             DustyImage.IsClear = true;
             WinGame();

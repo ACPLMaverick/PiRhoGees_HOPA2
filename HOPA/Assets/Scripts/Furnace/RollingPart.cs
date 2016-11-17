@@ -72,8 +72,9 @@ public class RollingPart : MonoBehaviour
         _currentSpriteIndex = _beginIndex;
         _sr = GetComponent<SpriteRenderer>();
         _sr.sprite = _sprites[_beginIndex];
-        InputManager.Instance.OnInputSwipe.AddListener(new UnityEngine.Events.UnityAction<Vector2, InputManager.SwipeDirection, float, Collider2D>(OnSwipe));
-	}
+        //InputManager.Instance.OnInputSwipe.AddListener(new UnityEngine.Events.UnityAction<Vector2, InputManager.SwipeDirection, float, Collider2D>(OnSwipe));
+        InputManager.Instance.OnInputClickUp.AddListener(new UnityEngine.Events.UnityAction<Vector2, Collider2D>(OnClickUp));
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -90,6 +91,17 @@ public class RollingPart : MonoBehaviour
     #endregion
 
     #region Functions Protected
+
+    protected void OnClickUp(Vector2 pos, Collider2D col)
+    {
+        // always roll collumn to the right (i.e. rotate CW)
+        if(enabled && col == GetComponent<Collider2D>())
+        {
+            _currentSpriteIndex = (_currentSpriteIndex + 1) % _sprites.Count;
+            SetSprite(_sprites[_currentSpriteIndex]);
+            EventChanged.Invoke(this);
+        }
+    }
 
     protected void OnSwipe(Vector2 pos, InputManager.SwipeDirection dir, float diffLength, Collider2D col)
     {

@@ -23,13 +23,13 @@ public class ItemInfo : MonoBehaviour
     {
         _grp = GetComponent<CanvasGroup>();
         Image[] imgs = GetComponentsInChildren<Image>();
-        _img = imgs[1];
+        _img = imgs[2];
         _imgBig = imgs[3];
         Text[] texts = GetComponentsInChildren<Text>();
         _tit = texts[0];
         _txt = texts[1];
         _titBig = texts[2];
-        _backButton = GetComponentInChildren<Button>();
+        _backButton = GetComponentsInChildren<Button>()[0];
         _backButton.onClick.AddListener(new UnityEngine.Events.UnityAction(OnBackButtonClick));
         _defSizeDelta = _img.rectTransform.sizeDelta;
     }
