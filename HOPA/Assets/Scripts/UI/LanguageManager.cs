@@ -66,7 +66,10 @@ public class LanguageManager : MonoBehaviour
         _xmlDoc = new XmlDocument();
         _xmlDoc.LoadXml(_stringtable.text);
 
-        _langChangeButton.onClick.AddListener(new UnityEngine.Events.UnityAction(ChangeLanguageToNext));
+        if(_langChangeButton != null)
+        {
+            _langChangeButton.onClick.AddListener(new UnityEngine.Events.UnityAction(ChangeLanguageToNext));
+        }
 
         PrepareIndexToText();
         ChangeLanguage(_lang);
