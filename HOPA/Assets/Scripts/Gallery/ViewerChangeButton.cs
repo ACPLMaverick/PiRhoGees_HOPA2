@@ -32,12 +32,12 @@ public class ViewerChangeButton : MonoBehaviour
 
     public void MakeCurrent()
     {
-        GetComponentInChildren<Image>().color = _colorCurrent;
+        GetComponentInChildren<Text>().color = _colorCurrent;
     }
 
     public void MakeNonCurrent()
     {
-        GetComponentInChildren<Image>().color = _colorNonCurrent;
+        GetComponentInChildren<Text>().color = _colorNonCurrent;
     }
 
     protected void OnClick()

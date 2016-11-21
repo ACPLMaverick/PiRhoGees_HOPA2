@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ef4df9921244cbc48b2a2fa5f6dae518
+timeCreated: 1479766327
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vacer Serif Personal
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 247717465e98a6943bf238a96e00fc0c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
