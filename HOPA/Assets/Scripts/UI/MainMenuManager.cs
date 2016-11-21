@@ -101,12 +101,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickMenuGallery()
     {
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Galeria);
+        SceneChangeManager.Instance.ChangeScene(4);
+        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Jadalna);
     }
 
     public void ButtonClickMenuLanguage()
     {
-
     }
 
     public void ButtonClickJadalnaHOPA()
@@ -136,12 +136,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickLustrzanaReconstruction()
     {
-        SceneChangeManager.Instance.ChangeScene(4);
+        SceneChangeManager.Instance.ChangeScene(5);
     }
 
     public void ButtonClickLustrzanaDifferences()
     {
-        SceneChangeManager.Instance.ChangeScene(5);
+        SceneChangeManager.Instance.ChangeScene(6);
     }
 
     public void ButtonClickLustrzanaInfo()

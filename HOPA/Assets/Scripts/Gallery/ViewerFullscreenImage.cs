@@ -147,7 +147,7 @@ public class ViewerFullscreenImage : MonoBehaviour
         }
         */
         // move photo - move
-        if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || (Input.GetMouseButton(1) && Input.mousePosition != new Vector3(_lastTouchPositon.x, _lastTouchPositon.y, Input.mousePosition.z)))
+        if((Input.GetMouseButton(1) && Input.mousePosition != new Vector3(_lastTouchPositon.x, _lastTouchPositon.y, Input.mousePosition.z)))
         {
             OnMove(currentPosition - _lastTouchPositon);
         }
@@ -155,7 +155,14 @@ public class ViewerFullscreenImage : MonoBehaviour
         // zoom - pinch
         if(Application.isMobilePlatform)
         {
-            if (Input.touchCount == 2)
+            if(Input.touchCount == 1)
+            {
+                if ((Input.GetTouch(0).phase == TouchPhase.Moved))
+                {
+                    OnMove(currentPosition - _lastTouchPositon);
+                }
+            }
+            else if (Input.touchCount == 2)
             {
                 Touch cTouch1 = Input.GetTouch(0);
                 Touch cTouch2 = Input.GetTouch(1);
@@ -173,7 +180,7 @@ public class ViewerFullscreenImage : MonoBehaviour
                     {
                         float fl = delta1.magnitude;
                         float sl = delta2.magnitude;
-                        float mp = -0.05f;
+                        float mp = 0.01f;
                         float diff = (pos1 - pos2).magnitude;
                         if (diff - _diffPinchHelper < 0)
                         {
