@@ -58,8 +58,8 @@ public class ViewerFullscreenImage : MonoBehaviour
         if(_image.sprite != sprite)
         {
             _image.sprite = sprite;
-            Show();
         }
+        Show();
     }
 
     public void Hide()

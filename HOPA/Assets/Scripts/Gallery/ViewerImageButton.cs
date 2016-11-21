@@ -38,7 +38,8 @@ public class ViewerImageButton : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        _img.sprite = _spriteMini;
+        _img.Rebuild(CanvasUpdate.PreRender);
     }
 
     // Update is called once per frame
@@ -57,7 +58,6 @@ public class ViewerImageButton : MonoBehaviour
         _spriteMini = pair.Miniature;
 
         _buttonEnlarge.onClick.AddListener(new UnityEngine.Events.UnityAction(OnButtonClick));
-        _img.sprite = _spriteMini;
         _vfs = vfs;
     }
 
