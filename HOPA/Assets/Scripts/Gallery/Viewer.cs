@@ -126,6 +126,8 @@ public class Viewer : MonoBehaviour
             numberLast = numberFirst + _viewerScreens[i].GetButtonCount() - 1;
             _changeButtons.Add(SpawnAndPlaceViewerChangeButton(_viewerScreens[i], numberFirst, numberLast, offset));
         }
+
+        _changeButtons[0].MakeCurrent();
     }
 
     // Update is called once per frame
@@ -192,6 +194,8 @@ public class Viewer : MonoBehaviour
 
         Text txt = vcb.GetComponentInChildren<Text>();
         txt.text = string.Format("{0} - {1}", numberBegin, numberEnd);
+
+        vcb.AllButtons = _changeButtons;
 
         return vcb;
     }
