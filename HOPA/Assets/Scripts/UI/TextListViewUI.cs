@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.IO;
+using SimpleJSON;
 
 public class TextListViewUI : MonoBehaviour
 {
@@ -14,19 +15,22 @@ public class TextListViewUI : MonoBehaviour
 
     #region public
 
-    public int TextsCount;
+    public TextAsset JSONFile;
     public GameObject ButtonSource;
 
     #endregion
 
     #region private
 
+    private const float _canvasHeight = 1920.0f;
+
     private Image _background;
 
     private Vector2 _upPosition;
     private Vector2 _downPosition;
 
-    private const float _canvasHeight = 1920.0f;
+    private float _buttonHeight;
+    private int _textsCount;
 
     #endregion
 
@@ -36,6 +40,8 @@ public class TextListViewUI : MonoBehaviour
     {
         _background = GetComponent<Image>();
         GameObject.Find("BackButton").GetComponent<Button>().onClick.AddListener(() => SceneChangeManager.Instance.ChangeScene(0));
+
+        _buttonHeight = ButtonSource.GetComponent<RectTransform>().rect.height;
 
         //Load text count from some JSON or other shit
         //TextsCount = 1;
@@ -128,23 +134,37 @@ public class TextListViewUI : MonoBehaviour
 
     private void GenerateListView()
     {
+        var N = JSON.Parse(JSONFile.text);
+        ButtonSource.GetComponent<TextButton>().Title = N["articles"][0]["title"].Value;
+        ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0]["textPath"].Value;
+        _textsCount = N["articles"].Count;
+        
+        if(_textsCount < 6)
+        {
+            _buttonHeight = _canvasHeight / _textsCount;
+            ButtonSource.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _buttonHeight);
+        }
+
         float x = ButtonSource.GetComponent<RectTransform>().rect.width;
 
-        for (int i = 1; i < TextsCount; ++i)
+        for (int i = 1; i < _textsCount; ++i)
         {
             GameObject copy = (GameObject)Instantiate(ButtonSource);
 
             copy.transform.SetParent(this.transform, false);
-            float y = 150 * -i;
+            float y = _buttonHeight * -i;
 
-            if(150 + Mathf.Abs(y) > _background.rectTransform.rect.height)
+            if(_buttonHeight + Mathf.Abs(y) > _background.rectTransform.rect.height)
             {
-                _background.rectTransform.sizeDelta = new Vector2(_background.rectTransform.sizeDelta.x, 150f * TextsCount);
+                _background.rectTransform.sizeDelta = new Vector2(_background.rectTransform.sizeDelta.x, _buttonHeight * _textsCount);
                 GetDownPosition(_background.rectTransform);
                 _downPosition -= new Vector2(0, _canvasHeight);
             }
 
             copy.GetComponent<RectTransform>().localPosition = new Vector2(x / 2, y);
+
+            copy.GetComponent<TextButton>().Title = N["articles"][i]["title"].Value;
+            copy.GetComponent<TextButton>().TextPath = N["articles"][i]["textPath"].Value;
         }
     }
 

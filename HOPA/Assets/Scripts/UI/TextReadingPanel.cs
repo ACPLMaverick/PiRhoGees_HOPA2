@@ -15,23 +15,32 @@ public class TextReadingPanel : MonoBehaviour {
     protected virtual void Awake()
     {
         _background = GetComponent<Image>();
+
+        SetReadingSpace();
     }
 
     // Use this for initialization
     void Start () {
-        RectTransform rt = _background.GetComponent<RectTransform>();
 
         InputManager.Instance.OnInputMove.AddListener(Slide);
 
-        _upPosition = rt.anchoredPosition;
-        GetDownPosition(rt);
-        _downPosition -= new Vector2(0, rt.rect.height);
+        //print(_downPosition.y);
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void SetReadingSpace()
+    {
+        RectTransform rt = _background.GetComponent<RectTransform>();
+
+        _upPosition = rt.anchoredPosition;
+        GetDownPosition(rt);
+        _downPosition -= new Vector2(0, 1920);
+        //print(_downPosition.y);
+    }
 
     public void Show(string header, string context, string secondSideContext, bool twoSided)
     {
@@ -65,7 +74,7 @@ public class TextReadingPanel : MonoBehaviour {
             Vector2 newPosition = rt.anchoredPosition;
             newPosition += direction;
             newPosition.y = Mathf.Max(Mathf.Min(newPosition.y, _downPosition.y), _upPosition.y);
-            print(newPosition.y);
+
             newPosition.x = _upPosition.x;
 
             rt.anchoredPosition = newPosition;

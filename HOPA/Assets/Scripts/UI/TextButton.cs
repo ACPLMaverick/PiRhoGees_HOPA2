@@ -35,14 +35,17 @@ public class TextButton : MonoBehaviour {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(CloseText);
 
+        ReadingPanel.GetComponent<Switchable>().SwitchOn();
         ReadingPanel.GetComponent<TextReadingPanel>().Title.text = Title;
+        ReadingPanel.GetComponent<TextReadingPanel>().Content.text = "New Text";
         if (TextPath != "")
         {
             ReadingPanel.GetComponent<TextReadingPanel>().Content.text = Resources.Load<TextAsset>(TextPath).text;
         }
 
-        ReadingPanel.GetComponent<Switchable>().SwitchOn();
         transform.parent.GetComponent<Switchable>().SwitchOff();
+
+        StartCoroutine(SetReadingSpace());
     }
 
     public void CloseText()
@@ -53,5 +56,12 @@ public class TextButton : MonoBehaviour {
         ReadingPanel.transform.localPosition = _panelInitialPosition;
 
         transform.parent.GetComponent<Switchable>().SwitchOn();
+    }
+
+    IEnumerator SetReadingSpace()
+    {
+        // Wait for text to size itself
+        yield return new WaitForEndOfFrame();
+        ReadingPanel.GetComponent<TextReadingPanel>().SetReadingSpace();
     }
 }
