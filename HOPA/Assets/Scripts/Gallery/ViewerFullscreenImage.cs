@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 public class ViewerFullscreenImage : MonoBehaviour
 {
@@ -16,10 +16,17 @@ public class ViewerFullscreenImage : MonoBehaviour
 
     protected CanvasGroup _cGrp;
     protected Image _image;
+    protected Image _imageClone;
+    protected Button _backButton;
+    protected Button _leftButton;
+    protected Button _rightButton;
 
     protected const float _MAX_TIME_BETWEEN_DOUBLE_TOUCH = 0.7f;
     protected const float _MAX_ZOOM = 3.0f;
     protected const float _MIN_ZOOM = 1.0f;
+
+    protected List<Viewer.ImageMiniaturePair> _resources;
+    protected int _currentImageId = 0;
 
     protected Vector3 _imageBaseScale;
     protected Vector2 _imageBaseSizeDelta;
@@ -39,10 +46,23 @@ public class ViewerFullscreenImage : MonoBehaviour
     void Awake()
     {
         _cGrp = GetComponent<CanvasGroup>();
-        _image = GetComponentsInChildren<Image>()[GetComponentsInChildren<Image>().Length - 2];
+        _image = GetComponentsInChildren<Image>()[1];
         _imageBasePosition = _image.rectTransform.anchoredPosition;
         _imageBaseScale = _image.rectTransform.localScale;
         _imageBaseSizeDelta = new Vector2(_image.rectTransform.rect.width, _image.rectTransform.rect.height);
+
+        _imageClone = Instantiate(_image);
+        _imageClone.rectTransform.SetParent(_image.rectTransform.parent, true);
+        _imageClone.gameObject.SetActive(false);
+
+        Button[] buttons = GetComponentsInChildren<Button>();
+        _backButton = buttons[0];
+        _leftButton = buttons[1];
+        _rightButton = buttons[2];
+
+        _backButton.onClick.AddListener(new UnityEngine.Events.UnityAction(Hide));
+        _leftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(MoveLeft));
+        _rightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(MoveRight));
 
         RecalculateImageBounds();
     }
@@ -63,6 +83,11 @@ public class ViewerFullscreenImage : MonoBehaviour
 
     #region Functions Public
 
+    public void Initialize(List<Viewer.ImageMiniaturePair> resources)
+    {
+        _resources = resources;
+    }
+
     public void Show()
     {
         _zoomHelper = 1.0f;
@@ -79,6 +104,7 @@ public class ViewerFullscreenImage : MonoBehaviour
     {
         if(_image.sprite != sprite)
         {
+            _currentImageId = GetNewSpriteID(sprite);
             ChangeSpriteImmediately(sprite);
         }
         Show();
@@ -110,6 +136,7 @@ public class ViewerFullscreenImage : MonoBehaviour
         }
 
         // exit - tap twice
+        /*
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || (Input.GetMouseButtonDown(0)))
         {
             if(_lastPressTime <= _MAX_TIME_BETWEEN_DOUBLE_TOUCH)
@@ -118,7 +145,7 @@ public class ViewerFullscreenImage : MonoBehaviour
             }
             _lastPressTime = 0.0f;
         }
-
+        */
         // move photo - move
         if((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || (Input.GetMouseButton(1) && Input.mousePosition != new Vector3(_lastTouchPositon.x, _lastTouchPositon.y, Input.mousePosition.z)))
         {
@@ -172,7 +199,6 @@ public class ViewerFullscreenImage : MonoBehaviour
         _lastTouchPositon = currentPosition;
     }
 
-
     protected void OnTapTwice()
     {
         Hide();
@@ -194,6 +220,24 @@ public class ViewerFullscreenImage : MonoBehaviour
 
         FixImagePosition();
         RecalculateImageBounds();
+    }
+
+    protected void MoveLeft()
+    {
+        if(_currentImageId > 0)
+        {
+            --_currentImageId;
+            ChangeSprite(_resources[_currentImageId].Image);
+        }
+    }
+
+    protected void MoveRight()
+    {
+        if (_currentImageId < _resources.Count - 1)
+        {
+            ++_currentImageId;
+            ChangeSprite(_resources[_currentImageId].Image);
+        }
     }
 
     protected void FixImagePosition()
@@ -222,6 +266,15 @@ public class ViewerFullscreenImage : MonoBehaviour
 
     protected void ChangeSprite(Sprite newSprite)
     {
+        StopAllCoroutines();
+        StartCoroutine(Utility.FadeCoroutineUI(_image.GetComponent<CanvasGroup>(), 1.0f, 0.0f, 0.5f, false));
+        _imageClone.gameObject.SetActive(true);
+        StartCoroutine(Utility.FadeCoroutineUI(_imageClone.GetComponent<CanvasGroup>(), 0.0f, 1.0f, 0.5f, true));
+
+        Image temp = _image;
+        _image = _imageClone;
+        _imageClone = temp;
+
         ChangeSpriteImmediately(newSprite);
     }
 
@@ -238,7 +291,15 @@ public class ViewerFullscreenImage : MonoBehaviour
         _image.sprite = newSprite;
         _image.SetNativeSize();
 
-        rt.sizeDelta /= (rt.sizeDelta.y / _imageBaseSizeDelta.y);
+        if(baseRatio > ratio)
+        {
+            rt.sizeDelta /= (rt.sizeDelta.y / _imageBaseSizeDelta.y);
+        }
+        else
+        {
+            rt.sizeDelta /= (rt.sizeDelta.x / _imageBaseSizeDelta.x);
+        }
+        
 
         RecalculateImageBounds();
     }
@@ -254,6 +315,18 @@ public class ViewerFullscreenImage : MonoBehaviour
         _moveBoundMin.y = Mathf.Max(parentBoundMin.y, imageBoundMin.y);
         _moveBoundMax.x = Mathf.Min(parentBoundMax.x, imageBoundMax.x);
         _moveBoundMax.y = Mathf.Min(parentBoundMax.y, imageBoundMax.y);
+    }
+
+    protected int GetNewSpriteID(Sprite newSprite)
+    {
+        for(int i = 0; i < _resources.Count; ++i)
+        {
+            if(_resources[i].Image == newSprite)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     #endregion

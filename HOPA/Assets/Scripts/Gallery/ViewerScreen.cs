@@ -91,7 +91,7 @@ public class ViewerScreen : MonoBehaviour
             else
             {
                 Vector3 currentPosition = _iButtons[i - 1].GetComponent<RectTransform>().anchoredPosition;
-                currentPosition.x -= _iButtons[i - 1].GetComponent<RectTransform>().sizeDelta.x;
+                currentPosition.x += _iButtons[i - 1].GetComponent<RectTransform>().sizeDelta.x;
                 btn.GetComponent<RectTransform>().anchoredPosition = currentPosition;
                 ++currentRowCount;
             }

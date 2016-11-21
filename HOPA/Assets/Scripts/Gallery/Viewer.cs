@@ -57,6 +57,7 @@ public class Viewer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _fullscreenImage.Initialize(_resources);
         _fullscreenImage.gameObject.SetActive(false);
 
         int maxImagesPerScreen = ViewerScreen.MAX_BUTTONS_PER_LINE * ViewerScreen.MAX_BUTTON_LINES;
