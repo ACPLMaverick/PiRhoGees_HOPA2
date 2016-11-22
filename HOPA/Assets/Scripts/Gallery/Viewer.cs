@@ -71,6 +71,9 @@ public class Viewer : MonoBehaviour
         List<ImageMiniaturePair> tempImages = new List<ImageMiniaturePair>();
         for (int i = 0; i < _resources.Count; ++i)
         {
+            tempImages.Add(_resources[i]);
+            ++totalImgsCount;
+
             if (_resources[i].IsWide)
             {
                 // it is wide miniature
@@ -82,7 +85,7 @@ public class Viewer : MonoBehaviour
                 ++totalImgsCount;
             }
 
-            if (totalImgsCount > maxImagesPerScreen)
+            if (totalImgsCount >= maxImagesPerScreen)
             {
                 wideImgCounter = 0;
                 totalImgsCount = 0;
@@ -93,15 +96,15 @@ public class Viewer : MonoBehaviour
                 _viewerScreens.Add(vs);
                 vs = SpawnAndPlaceViewerScreen();
             }
-
-            tempImages.Add(_resources[i]);
-            ++totalImgsCount;
         }
 
-        _viewerScreens.Add(vs);
-        vs.Initialize(tempImages, _fullscreenImage);
+        if(totalImgsCount <= maxImagesPerScreen)
+        {
+            _viewerScreens.Add(vs);
+            vs.Initialize(tempImages, _fullscreenImage);
+        }
 
-        if(_viewerScreens.Count > 1)
+        if (_viewerScreens.Count > 1)
         {
             for (int i = 1; i < _viewerScreens.Count; ++i)
             {
