@@ -13,6 +13,8 @@ public class ViewerChangeButton : MonoBehaviour
     public Viewer ViewerRef { get; set; }
     public List<ViewerChangeButton> AllButtons { get; set; }
 
+    public Color ColorCurrent { get { return _colorCurrent; } set { _colorCurrent = value; } } 
+
     void Awake()
     {
         MakeNonCurrent();

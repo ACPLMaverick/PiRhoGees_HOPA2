@@ -31,6 +31,9 @@ public class Viewer : MonoBehaviour
     protected Canvas _currentCanvas;
 
     [SerializeField]
+    protected Color _color;
+
+    [SerializeField]
     protected List<ImageMiniaturePair> _resources;
 
     #endregion
@@ -125,7 +128,9 @@ public class Viewer : MonoBehaviour
             }
 
             numberLast = numberFirst + _viewerScreens[i].GetButtonCount() - 1;
-            _changeButtons.Add(SpawnAndPlaceViewerChangeButton(_viewerScreens[i], numberFirst, numberLast, offset));
+            ViewerChangeButton vcb = SpawnAndPlaceViewerChangeButton(_viewerScreens[i], numberFirst, numberLast, offset);
+            vcb.ColorCurrent = _color;
+            _changeButtons.Add(vcb);
         }
 
         _changeButtons[0].MakeCurrent();
