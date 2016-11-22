@@ -39,6 +39,10 @@ public class ViewerFullscreenImage : MonoBehaviour
     protected float _diffPinchHelper = 0.0f;
     protected float _zoomHelper = 1.0f;
     protected bool _frameDelay = false;
+    protected bool _frameDelayZoom = false;
+    protected bool _canMoveRight = false;
+    protected bool _canMoveLeft = false;
+    protected bool _hasSwipedRecently = false;
 
     #endregion
 
@@ -62,8 +66,8 @@ public class ViewerFullscreenImage : MonoBehaviour
         _rightButton = buttons[2];
 
         _backButton.onClick.AddListener(new UnityEngine.Events.UnityAction(Hide));
-        _leftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(MoveLeft));
-        _rightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(MoveRight));
+        _leftButton.onClick.AddListener(new UnityEngine.Events.UnityAction(ChangeImageLeft));
+        _rightButton.onClick.AddListener(new UnityEngine.Events.UnityAction(ChangeImageRight));
 
         RecalculateImageBounds();
     }
@@ -147,11 +151,6 @@ public class ViewerFullscreenImage : MonoBehaviour
             _lastPressTime = 0.0f;
         }
         */
-        // move photo - move
-        if((Input.GetMouseButton(1) && Input.mousePosition != new Vector3(_lastTouchPositon.x, _lastTouchPositon.y, Input.mousePosition.z)))
-        {
-            OnMove(currentPosition - _lastTouchPositon);
-        }
 
         if(Application.isMobilePlatform)
         {
@@ -169,6 +168,7 @@ public class ViewerFullscreenImage : MonoBehaviour
                 else if(Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     _frameDelay = false;
+                    _hasSwipedRecently = false;
                 }
             }
             else if(Input.touchCount == 1 && !_frameDelay)
@@ -181,47 +181,71 @@ public class ViewerFullscreenImage : MonoBehaviour
                 Touch cTouch1 = Input.GetTouch(0);
                 Touch cTouch2 = Input.GetTouch(1);
 
-                if (cTouch1.phase == TouchPhase.Began)
+                if (cTouch1.phase == TouchPhase.Began || cTouch1.phase == TouchPhase.Ended)
                 {
                     _lastTouchPositon = cTouch1.position;
+                    _frameDelayZoom = false;
                 }
-                if (cTouch2.phase == TouchPhase.Began)
+                if (cTouch2.phase == TouchPhase.Began || cTouch1.phase == TouchPhase.Ended)
                 {
                     _lastTouchPositon2 = cTouch2.position;
+                    _frameDelayZoom = false;
                 }
 
                 if (cTouch1.phase == TouchPhase.Moved && cTouch2.phase == TouchPhase.Moved)
                 {
-                    Vector2 pos1 = cTouch1.position;
-                    Vector2 pos2 = cTouch2.position;
-                    Vector2 delta1 = pos1 - _lastTouchPositon;
-                    Vector2 delta2 = pos2 - _lastTouchPositon2;
-
-                    float dot = Vector2.Dot(delta1, delta2);
-                    float epsilon = 0.5f;
-
-                    if (dot < 0.7f && delta1.magnitude > epsilon && delta2.magnitude > epsilon)
+                    if(_frameDelayZoom)
                     {
-                        float fl = delta1.magnitude;
-                        float sl = delta2.magnitude;
-                        float mp = 0.01f;
-                        float diff = (pos1 - pos2).magnitude;
-                        if (diff - _diffPinchHelper < 0)
-                        {
-                            mp *= -1.0f;
-                        }
-                        _diffPinchHelper = diff;
-                        float amount = (fl + sl) * mp;
+                        Vector2 pos1 = cTouch1.position;
+                        Vector2 pos2 = cTouch2.position;
+                        Vector2 delta1 = pos1 - _lastTouchPositon;
+                        Vector2 delta2 = pos2 - _lastTouchPositon2;
+                        _lastTouchPositon = cTouch1.position;
+                        _lastTouchPositon2 = cTouch2.position;
 
-                        OnZoom(amount);
+                        float dot = Vector2.Dot(delta1, delta2);
+                        float epsilon = 0.01f;
+
+                        if (dot < 0.7f && delta1.magnitude > epsilon && delta2.magnitude > epsilon)
+                        {
+                            float fl = delta1.magnitude;
+                            float sl = delta2.magnitude;
+                            float mp = 0.005f;
+                            float diff = (pos1 - pos2).magnitude;
+                            if (diff - _diffPinchHelper < 0)
+                            {
+                                mp *= -1.0f;
+                            }
+                            _diffPinchHelper = diff;
+                            float amount = (fl + sl) * mp;
+
+                            OnZoom(amount);
+                        }
                     }
+                    else
+                    {
+                        _frameDelayZoom = true;
+                        _diffPinchHelper = (cTouch1.position - cTouch2.position).magnitude;
+                        _lastTouchPositon = cTouch1.position;
+                        _lastTouchPositon2 = cTouch2.position;
+                    }
+                    
                 }
-                _lastTouchPositon2 = cTouch2.position;
             }
         }
         else
         {
-            if(Input.mouseScrollDelta.y != 0.0f)
+            // move photo - move
+            if ((Input.GetMouseButton(1) && Input.mousePosition != new Vector3(_lastTouchPositon.x, _lastTouchPositon.y, Input.mousePosition.z)))
+            {
+                OnMove(currentPosition - _lastTouchPositon);
+            }
+            if(Input.GetMouseButtonUp(1))
+            {
+                _hasSwipedRecently = false;
+            }
+
+            if (Input.mouseScrollDelta.y != 0.0f)
             {
                 OnZoom(Input.mouseScrollDelta.y);
             }
@@ -237,13 +261,32 @@ public class ViewerFullscreenImage : MonoBehaviour
 
     protected void OnMove(Vector2 delta)
     {
-        RectTransform rt = _image.rectTransform;
-        Vector2 oldPosition = rt.position;
-        rt.position += new Vector3(delta.x, delta.y, 0.0f);
+        float deltaMagMinimumToChange = 10.0f;
+        float deltaMag = delta.magnitude;
 
-        FixImagePosition();
+        Vector3[] points = new Vector3[4];
+        _image.rectTransform.GetWorldCorners(points);
+        CheckMoveAbilities(points);
 
-        Debug.LogFormat("OnMove: {0} ; {1}", delta.x, delta.y);
+        if (delta.x < 0.0f && _canMoveRight && deltaMag >= deltaMagMinimumToChange && !_hasSwipedRecently)
+        {
+            ChangeImageRight();
+        }
+        else if(delta.x > 0.0f && _canMoveLeft && deltaMag >= deltaMagMinimumToChange && !_hasSwipedRecently)
+        {
+            ChangeImageLeft();
+        }
+        else
+        {
+            if(deltaMag >= deltaMagMinimumToChange)
+                _hasSwipedRecently = true;
+
+            RectTransform rt = _image.rectTransform;
+            Vector2 oldPosition = rt.position;
+            rt.position += new Vector3(delta.x, delta.y, 0.0f);
+
+            FixImagePosition();
+        }
     }
 
     protected void OnZoom(float val)
@@ -253,31 +296,35 @@ public class ViewerFullscreenImage : MonoBehaviour
 
         FixImagePosition();
         RecalculateImageBounds();
-
-        //if (val < 0.0f)
-        //{
-            RectTransform rt = _image.rectTransform;
-            rt.anchoredPosition = new Vector2(Mathf.Min(rt.anchoredPosition.x, _imageBasePosition.x), Mathf.Min(rt.anchoredPosition.x, _imageBasePosition.y));
-        //}
-        Debug.LogFormat("OnZoom: {0} | {1}", val, _zoomHelper);
     }
 
-    protected void MoveLeft()
+    protected void ChangeImageLeft()
     {
         if(_currentImageId > 0)
         {
+            _hasSwipedRecently = true;
             --_currentImageId;
             ChangeSprite(_resources[_currentImageId].Image);
         }
     }
 
-    protected void MoveRight()
+    protected void ChangeImageRight()
     {
         if (_currentImageId < _resources.Count - 1)
         {
+            _hasSwipedRecently = true;
             ++_currentImageId;
             ChangeSprite(_resources[_currentImageId].Image);
         }
+    }
+
+    protected void CheckMoveAbilities(Vector3[] cornerPoints)
+    {
+        RectTransform rt = _image.rectTransform;
+        float tolerance = 0.1f;
+
+        _canMoveLeft = (cornerPoints[0].x >= (_moveBoundMin.x - tolerance));
+        _canMoveRight = (cornerPoints[3].x <= (_moveBoundMax.x + tolerance));
     }
 
     protected void FixImagePosition()
@@ -301,6 +348,7 @@ public class ViewerFullscreenImage : MonoBehaviour
                     -(Mathf.Max(points[3].y - _moveBoundMin.y, 0.0f)) + Mathf.Max(_moveBoundMax.y - points[1].y, 0.0f)
                 );
             rt.position += new Vector3(adjustment.x, adjustment.y, 0.0f);
+            rt.anchoredPosition = new Vector2(Mathf.Min(rt.anchoredPosition.x, _imageBasePosition.x), Mathf.Min(rt.anchoredPosition.y, _imageBasePosition.y));
         }
     }
 
@@ -342,6 +390,7 @@ public class ViewerFullscreenImage : MonoBehaviour
         
 
         RecalculateImageBounds();
+        FixImagePosition();
     }
 
     protected void RecalculateImageBounds()

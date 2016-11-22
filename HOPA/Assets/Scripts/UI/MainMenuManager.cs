@@ -36,38 +36,12 @@ public class MainMenuManager : MonoBehaviour
 
     #endregion
 
-    protected const string PP_LAST_SCREEN = "MenuLastScreen";
-    protected enum MenuScreen
-    {
-        Main,
-        Jadalna,
-        Lustrzana,
-        Galeria
-    }
-
-
     #region Monobehaviour
 
     // Use this for initialization
     void Start ()
     {
-        // load last screen state from playerprefs and set it here
-        MenuScreen screen = (MenuScreen)PlayerPrefs.GetInt(PP_LAST_SCREEN, (int)MenuScreen.Main);
-        switch (screen)
-        {
-            case MenuScreen.Jadalna:
-                SwitchToScreen(_screenJadalna);
-                break;
-            case MenuScreen.Lustrzana:
-                SwitchToScreen(_screenLustrzana);
-                break;
-            case MenuScreen.Galeria:
-                //SwitchToScreen(_);
-                break;
-            default:
-                SwitchToScreen(_screenMainMenu);
-                break;
-        }
+        SwitchToScreen(_screenMainMenu);
 	}
 	
 	// Update is called once per frame
@@ -78,7 +52,7 @@ public class MainMenuManager : MonoBehaviour
 
     protected virtual void OnApplicationQuit()
     {
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Main);
+
     }
 
     #endregion
@@ -89,20 +63,17 @@ public class MainMenuManager : MonoBehaviour
     {
         SwitchToScreen(_screenJadalna);
         _infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Jadalna);
     }
 
     public void ButtonClickMenuLustrzana()
     {
         SwitchToScreen(_screenLustrzana);
         _infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Lustrzana);
     }
 
     public void ButtonClickMenuGallery()
     {
         SceneChangeManager.Instance.ChangeScene(4);
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Jadalna);
     }
 
     public void ButtonClickMenuLanguage()
@@ -151,7 +122,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickBack()
     {
-        PlayerPrefs.SetInt(PP_LAST_SCREEN, (int)MenuScreen.Main);
         SwitchToScreen(_screenMainMenu);
     }
 
