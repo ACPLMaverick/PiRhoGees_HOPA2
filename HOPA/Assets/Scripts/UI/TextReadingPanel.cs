@@ -6,9 +6,11 @@ public class TextReadingPanel : MonoBehaviour {
 
     public Text Title;
     public Text Content;
+    public Slider TextSlider;
+    public RectTransform SliderHandle;
+    public RectTransform SliderHandleSlideArea;
 
     private Image _background;
-
     private Vector2 _upPosition;
     private Vector2 _downPosition;
 
@@ -38,8 +40,22 @@ public class TextReadingPanel : MonoBehaviour {
 
         _upPosition = rt.anchoredPosition;
         GetDownPosition(rt);
-        _downPosition -= new Vector2(0, 1920);
+        _downPosition -= new Vector2(0, 1440);
         //print(_downPosition.y);
+    }
+
+    public void SetSliderSize()
+    {
+        float baseHeight = _background.GetComponent<RectTransform>().rect.height;
+        float heightDifference = baseHeight - 1440;
+        SliderHandle.sizeDelta = new Vector2(-14.8f, 1000);
+        SliderHandleSlideArea.sizeDelta = new Vector2(0, -1000);
+        if (heightDifference > 0)
+        {
+            float percentageValue = (heightDifference / baseHeight) * 100;
+            SliderHandle.sizeDelta = new Vector2(-14.8f, percentageValue * 10);
+            SliderHandleSlideArea.sizeDelta = new Vector2(0, -percentageValue * 10);
+        }
     }
 
     public void Show(string header, string context, string secondSideContext, bool twoSided)
@@ -75,6 +91,7 @@ public class TextReadingPanel : MonoBehaviour {
             newPosition += direction;
             newPosition.y = Mathf.Max(Mathf.Min(newPosition.y, _downPosition.y), _upPosition.y);
 
+            TextSlider.value = newPosition.y / _downPosition.y;
             newPosition.x = _upPosition.x;
 
             rt.anchoredPosition = newPosition;
