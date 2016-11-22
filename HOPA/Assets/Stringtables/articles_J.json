@@ -1,4 +1,13 @@
 {"articles":[
-    {"title":"Sala jadalna\nWstęp", "textPath":"Jadalna/Wstep", "bgImage":"Jadalna/_0005_wstep_kwadrat", "miniImage":"Jadalna/zdj_wstep"},
-    {"title":"Sala jadalna\nWnętrza i symbolika dekoracji", "textPath":"Jadalna/Wystroj", "bgImage":"Jadalna/_0007_wystroj_kwadrat", "miniImage":"Jadalna/zdj_wystroj"}
+    {"title_pl":"Sala jadalna\nWstęp", 
+	"title_en":"Dining Hall\nPrologue",
+	"textPath":"Jadalna/Wstep", 
+	"bgImage":"Jadalna/_0005_wstep_kwadrat", 
+	"miniImage":"Jadalna/zdj_wstep"},
+
+    {"title_pl":"Sala jadalna\nWnętrza i symbolika dekoracji", 
+	"title_en":"Dining Hall\nSymbolism of decorations",
+	"textPath":"Jadalna/Wystroj", 
+	"bgImage":"Jadalna/_0007_wystroj_kwadrat", 
+	"miniImage":"Jadalna/zdj_wystroj"}
 ]}
