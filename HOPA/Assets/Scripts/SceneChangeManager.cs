@@ -24,11 +24,13 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 
     #region private
 
-    private Image _rotatingImage;
+    private Image _animatedImage;
     private Text _loadingText;
-    private bool _rotatingFlag;
 
     private Image _prevLoadingScreen;
+
+    private AsyncOperation _loadOperation = null;
+    private int _loadedSceneIndex = -1;
 
     #endregion
 
@@ -37,7 +39,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     protected override void Awake()
     {
         _destroyOnLoad = true;
-        _rotatingImage = LoadingScreen.GetComponentsInChildren<Image>()[1];
+        _animatedImage = LoadingScreen.GetComponentsInChildren<Image>()[1];
         _loadingText = LoadingScreen.GetComponentInChildren<Text>();
         _loadingText.text = LoadingString;
         base.Awake();
@@ -46,62 +48,57 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     // Use this for initialization
     void Start()
     {
-        float angle = PlayerPrefs.GetFloat(PP_KEY);
-        if (angle != IMPOSSIBLE_ANGLE)
-        {
-            PlayerPrefs.SetFloat(PP_KEY, IMPOSSIBLE_ANGLE);
-            // swapping load screen from old to new
-            LoadingScreen.gameObject.SetActive(true);
-            LoadingScreen.GetComponent<CanvasGroup>().alpha = 1.0f;
-            Vector3 cEuler = _rotatingImage.GetComponent<RectTransform>().localRotation.eulerAngles;
-            cEuler.z = angle;
-            _rotatingImage.GetComponent<RectTransform>().localRotation = Quaternion.Euler(cEuler);
-            ////
-            StartCoroutine(FadeCoroutineUI(LoadingScreen.GetComponent<CanvasGroup>(), 1.0f, 0.0f, FADE_TIME, false, 0));
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (_loadOperation != null)
+        {
+            if(!_loadOperation.isDone)
+            {
+                UpdateLoading();
+            }
+            else
+            {
+                FinishLoading();
+            }
+        }
     }
 
     public virtual void OnDestroy()
     {
-        if(!_rotatingFlag)
-        {
-            PlayerPrefs.SetFloat(PP_KEY, IMPOSSIBLE_ANGLE);
-        }
     }
 
     public void ChangeScene(int index)
     {
         _prevLoadingScreen = LoadingScreen;
         _loadingText = LoadingScreen.GetComponentInChildren<Text>();
+        _animatedImage.GetComponent<Animator>().Stop();
 
         LoadingScreen.gameObject.SetActive(true);
-        _rotatingFlag = true;
         StartCoroutine(FadeCoroutineUI(LoadingScreen.GetComponent<CanvasGroup>(), 0.0f, 1.0f, FADE_TIME, true, index));
     }
 
     private void ChangeSceneIndeed(int index)
     {
-        StartCoroutine(RotateCoroutineUI(_rotatingImage, 1.0f));
-        _rotatingFlag = false;
-        //int cScene = SceneManager.GetActiveScene().buildIndex;
-        AsyncOperation op = SceneManager.LoadSceneAsync(index);
-        op.priority = 999;
-        op.allowSceneActivation = true;
-        //SceneManager.UnloadScene(cScene);
-        float cAngle = _rotatingImage.GetComponent<RectTransform>().localRotation.eulerAngles.z;
-        if(cAngle == 0.0f)
-        {
-            cAngle = 0.1f;
-        }
-        PlayerPrefs.SetFloat(PP_KEY, cAngle);
-        //StopCoroutine(_crtTemp);
-        //StopCoroutine(_crtTempRot);
+        _loadOperation = SceneManager.LoadSceneAsync(index);
+        _loadOperation.allowSceneActivation = true;
+        _loadedSceneIndex = index;
+    }
+
+    private void FinishLoading()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(_loadedSceneIndex));
+        SceneManager.UnloadScene(currentScene);
+        _loadOperation = null;
+    }
+
+    private void UpdateLoading()
+    {
+        _animatedImage.GetComponent<Animator>().Play("LoadingScreenAnimation", 0, _loadOperation.progress);
     }
 
     private IEnumerator FadeCoroutineUI(CanvasGroup grp, float fadeStart, float fadeTarget, float timeSec, bool active, int nextSceneIndex)
@@ -127,20 +124,6 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         else
         {
             
-        }
-
-        yield return null;
-    }
-
-    private IEnumerator RotateCoroutineUI(Image img, float rotateSpeed)
-    {
-        RectTransform rt = img.GetComponent<RectTransform>();
-        while(_rotatingFlag)
-        {
-            Vector3 rot = rt.localRotation.eulerAngles;
-            rot.z += rotateSpeed * Time.fixedDeltaTime;
-            rt.localRotation = Quaternion.Euler(rot);
-            yield return null;
         }
 
         yield return null;

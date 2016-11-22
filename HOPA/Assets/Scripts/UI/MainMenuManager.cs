@@ -73,7 +73,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickMenuGallery()
     {
-        SceneChangeManager.Instance.ChangeScene(4);
+        SceneChangeManager.Instance.ChangeScene(7);
     }
 
     public void ButtonClickMenuLanguage()
@@ -102,7 +102,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickLustrzanaHOPA()
     {
-        SceneChangeManager.Instance.ChangeScene(7);     // TO BE CHANGED!
+        SceneChangeManager.Instance.ChangeScene(8);     // TO BE CHANGED!
     }
 
     public void ButtonClickLustrzanaReconstruction()
