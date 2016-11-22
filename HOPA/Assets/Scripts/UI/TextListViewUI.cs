@@ -138,12 +138,15 @@ public class TextListViewUI : MonoBehaviour
         var N = JSON.Parse(JSONFile.text);
         ButtonSource.GetComponent<TextButton>().Title = N["articles"][0]["title"].Value;
         ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0]["textPath"].Value;
+        ButtonSource.GetComponent<TextButton>().UpdateTitle();
         _textsCount = N["articles"].Count;
         
         if(_textsCount < 6)
         {
             _buttonHeight = _canvasHeight / _textsCount;
             ButtonSource.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _buttonHeight);
+            ButtonSource.GetComponent<TextButton>().MainImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _buttonHeight);
+            ButtonSource.GetComponent<TextButton>().MiniImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _buttonHeight);
         }
 
         float x = ButtonSource.GetComponent<RectTransform>().rect.width;
@@ -158,6 +161,11 @@ public class TextListViewUI : MonoBehaviour
             if(_buttonHeight + Mathf.Abs(y) > _background.rectTransform.rect.height)
             {
                 _background.rectTransform.sizeDelta = new Vector2(_background.rectTransform.sizeDelta.x, _buttonHeight * _textsCount);
+                ButtonSource.GetComponent<TextButton>().MainImage.rectTransform.sizeDelta = 
+                    new Vector2(GetComponent<TextButton>().MainImage.rectTransform.sizeDelta.x, _buttonHeight * _textsCount);
+                ButtonSource.GetComponent<TextButton>().MiniImage.rectTransform.sizeDelta = 
+                    new Vector2(GetComponent<TextButton>().MiniImage.rectTransform.sizeDelta.x, _buttonHeight * _textsCount);
+
                 GetDownPosition(_background.rectTransform);
                 _downPosition -= new Vector2(0, _canvasHeight);
             }
@@ -166,6 +174,8 @@ public class TextListViewUI : MonoBehaviour
 
             copy.GetComponent<TextButton>().Title = N["articles"][i]["title"].Value;
             copy.GetComponent<TextButton>().TextPath = N["articles"][i]["textPath"].Value;
+            copy.GetComponent<TextButton>().MainImage.sprite = Resources.Load<Sprite>(N["articles"][i]["bgImage"].Value);
+            copy.GetComponent<TextButton>().MiniImage.sprite = Resources.Load<Sprite>(N["articles"][i]["miniImage"].Value);
         }
     }
 

@@ -1,4 +1,4 @@
 {"articles":[
-    {"title":"Sala jadalna - Wstęp", "textPath":"Jadalna/Wstep"},
-    {"title":"Sala jadalna - Wnętrza i symbolika dekoracji", "textPath":"Jadalna/Wystroj"}
+    {"title":"Sala jadalna\nWstęp", "textPath":"Jadalna/Wstep", "bgImage":"Jadalna/_0005_wstep_kwadrat", "miniImage":"Jadalna/zdj_wstep"},
+    {"title":"Sala jadalna\nWnętrza i symbolika dekoracji", "textPath":"Jadalna/Wystroj", "bgImage":"Jadalna/_0007_wystroj_kwadrat", "miniImage":"Jadalna/zdj_wystroj"}
 ]}

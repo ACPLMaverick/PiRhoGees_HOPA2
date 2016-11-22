@@ -1,5 +1,5 @@
 {"articles":[
-    {"title":"Henryk Hirszenberg biogram", "textPath":"MainMenu/Henryk"},
-    {"title":"Leon Hirszenberg biogram", "textPath":"MainMenu/Leon"},
-    {"title":"Samuel Hirszenberg biogram", "textPath":"MainMenu/Samuel"}
+    {"title":"Henryk Hirszenberg biogram", "textPath":"MainMenu/Henryk", "bgImage":"MainMenu/_0000s_0009_Henryk", "miniImage":"MainMenu/4"},
+    {"title":"Leon Hirszenberg biogram", "textPath":"MainMenu/Leon", "bgImage":"MainMenu/_0000s_0008_Samuel", "miniImage":"MainMenu/Hirszenberg_Spinoza"},
+    {"title":"Samuel Hirszenberg biogram", "textPath":"MainMenu/Samuel", "bgImage":"MainMenu/_0000s_0006_Leon", "miniImage":"MainMenu/Gottlieb_Ben-Uri_Leon"}
 ]}

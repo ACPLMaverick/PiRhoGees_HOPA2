@@ -9,6 +9,8 @@ public class TextButton : MonoBehaviour {
     public string BackButtonMenuText;
     public TextReadingPanel ReadingPanel;
     public Button BackButton;
+    public Image MainImage;
+    public Image MiniImage;
 
     protected Button _myButton;
     protected Vector2 _panelInitialPosition;
@@ -24,12 +26,18 @@ public class TextButton : MonoBehaviour {
         _panelInitialPosition = ReadingPanel.transform.localPosition;
 
         _myButton.GetComponentInChildren<Text>().text = Title;
+        BackButtonMenuText = BackButton.GetComponentInChildren<Text>().text;
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void UpdateTitle()
+    {
+        _myButton.GetComponentInChildren<Text>().text = Title;
+    }
 
     public void OpenText()
     {
