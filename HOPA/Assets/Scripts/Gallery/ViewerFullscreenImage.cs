@@ -38,6 +38,7 @@ public class ViewerFullscreenImage : MonoBehaviour
     protected float _lastPressTime = 0.0f;
     protected float _diffPinchHelper = 0.0f;
     protected float _zoomHelper = 1.0f;
+    protected bool _frameDelay = false;
 
     #endregion
 
@@ -152,20 +153,42 @@ public class ViewerFullscreenImage : MonoBehaviour
             OnMove(currentPosition - _lastTouchPositon);
         }
 
-        // zoom - pinch
         if(Application.isMobilePlatform)
         {
-            if(Input.touchCount == 1)
+            // move
+            if(Input.touchCount == 1 && _frameDelay)
             {
-                if ((Input.GetTouch(0).phase == TouchPhase.Moved))
+                if((Input.GetTouch(0).phase == TouchPhase.Began))
+                {
+                    _lastTouchPositon = currentPosition;
+                }
+                else if ((Input.GetTouch(0).phase == TouchPhase.Moved))
                 {
                     OnMove(currentPosition - _lastTouchPositon);
                 }
+                else if(Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    _frameDelay = false;
+                }
             }
+            else if(Input.touchCount == 1 && !_frameDelay)
+            {
+                _frameDelay = true;
+            }
+            // zoom - pinch
             else if (Input.touchCount == 2)
             {
                 Touch cTouch1 = Input.GetTouch(0);
                 Touch cTouch2 = Input.GetTouch(1);
+
+                if (cTouch1.phase == TouchPhase.Began)
+                {
+                    _lastTouchPositon = cTouch1.position;
+                }
+                if (cTouch2.phase == TouchPhase.Began)
+                {
+                    _lastTouchPositon2 = cTouch2.position;
+                }
 
                 if (cTouch1.phase == TouchPhase.Moved && cTouch2.phase == TouchPhase.Moved)
                 {
@@ -175,8 +198,9 @@ public class ViewerFullscreenImage : MonoBehaviour
                     Vector2 delta2 = pos2 - _lastTouchPositon2;
 
                     float dot = Vector2.Dot(delta1, delta2);
+                    float epsilon = 0.5f;
 
-                    if (dot < 0.7f)
+                    if (dot < 0.7f && delta1.magnitude > epsilon && delta2.magnitude > epsilon)
                     {
                         float fl = delta1.magnitude;
                         float sl = delta2.magnitude;
@@ -218,6 +242,8 @@ public class ViewerFullscreenImage : MonoBehaviour
         rt.position += new Vector3(delta.x, delta.y, 0.0f);
 
         FixImagePosition();
+
+        Debug.LogFormat("OnMove: {0} ; {1}", delta.x, delta.y);
     }
 
     protected void OnZoom(float val)
@@ -227,6 +253,13 @@ public class ViewerFullscreenImage : MonoBehaviour
 
         FixImagePosition();
         RecalculateImageBounds();
+
+        //if (val < 0.0f)
+        //{
+            RectTransform rt = _image.rectTransform;
+            rt.anchoredPosition = new Vector2(Mathf.Min(rt.anchoredPosition.x, _imageBasePosition.x), Mathf.Min(rt.anchoredPosition.x, _imageBasePosition.y));
+        //}
+        Debug.LogFormat("OnZoom: {0} | {1}", val, _zoomHelper);
     }
 
     protected void MoveLeft()
