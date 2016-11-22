@@ -6,6 +6,7 @@ public class TextButton : MonoBehaviour {
 
     public string Title;
     public string TextPath;
+    public string BackButtonMenuText;
     public TextReadingPanel ReadingPanel;
     public Button BackButton;
 
@@ -34,6 +35,7 @@ public class TextButton : MonoBehaviour {
     {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(CloseText);
+        BackButton.GetComponentInChildren<Text>().text = "Powrót do zasobów";
 
         ReadingPanel.GetComponent<Switchable>().SwitchOn();
         ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOn();
@@ -53,6 +55,8 @@ public class TextButton : MonoBehaviour {
     {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(() => SceneChangeManager.Instance.ChangeScene(0));
+        BackButton.GetComponentInChildren<Text>().text = BackButtonMenuText;
+
         ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOff();
         ReadingPanel.GetComponent<Switchable>().SwitchOff();
         ReadingPanel.transform.localPosition = _panelInitialPosition;

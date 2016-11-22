@@ -52,7 +52,7 @@ public class TextReadingPanel : MonoBehaviour {
         SliderHandleSlideArea.sizeDelta = new Vector2(0, -1000);
         if (heightDifference > 0)
         {
-            float percentageValue = (heightDifference / baseHeight) * 100;
+            float percentageValue = (1440 / baseHeight) * 100;
             SliderHandle.sizeDelta = new Vector2(-14.8f, percentageValue * 10);
             SliderHandleSlideArea.sizeDelta = new Vector2(0, -percentageValue * 10);
         }
