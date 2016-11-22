@@ -6,7 +6,7 @@ public class TextButton : MonoBehaviour {
 
     public string Title;
     public string TextPath;
-    public GameObject ReadingPanel;
+    public TextReadingPanel ReadingPanel;
     public Button BackButton;
 
     protected Button _myButton;
@@ -36,11 +36,12 @@ public class TextButton : MonoBehaviour {
         BackButton.onClick.AddListener(CloseText);
 
         ReadingPanel.GetComponent<Switchable>().SwitchOn();
-        ReadingPanel.GetComponent<TextReadingPanel>().Title.text = Title;
-        ReadingPanel.GetComponent<TextReadingPanel>().Content.text = "New Text";
+        ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOn();
+        ReadingPanel.Title.text = Title;
+        ReadingPanel.Content.text = "New Text";
         if (TextPath != "")
         {
-            ReadingPanel.GetComponent<TextReadingPanel>().Content.text = Resources.Load<TextAsset>(TextPath).text;
+            ReadingPanel.Content.text = Resources.Load<TextAsset>(TextPath).text;
         }
 
         transform.parent.GetComponent<Switchable>().SwitchOff();
@@ -52,8 +53,10 @@ public class TextButton : MonoBehaviour {
     {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(() => SceneChangeManager.Instance.ChangeScene(0));
+        ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOff();
         ReadingPanel.GetComponent<Switchable>().SwitchOff();
         ReadingPanel.transform.localPosition = _panelInitialPosition;
+        ReadingPanel.TextSlider.value = 0;
 
         transform.parent.GetComponent<Switchable>().SwitchOn();
     }
@@ -62,6 +65,7 @@ public class TextButton : MonoBehaviour {
     {
         // Wait for text to size itself
         yield return new WaitForEndOfFrame();
-        ReadingPanel.GetComponent<TextReadingPanel>().SetReadingSpace();
+        ReadingPanel.SetReadingSpace();
+        ReadingPanel.SetSliderSize();
     }
 }

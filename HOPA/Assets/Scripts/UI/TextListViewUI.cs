@@ -22,13 +22,14 @@ public class TextListViewUI : MonoBehaviour
 
     #region private
 
-    private const float _canvasHeight = 1920.0f;
+    private const float _canvasHeight = 1440.0f;
 
     private Image _background;
 
     private Vector2 _upPosition;
     private Vector2 _downPosition;
 
+    private bool _isSliding;
     private float _buttonHeight;
     private int _textsCount;
 
@@ -65,7 +66,7 @@ public class TextListViewUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	
+
 	}
 
     public void Show(string header, string context, string secondSideContext, bool twoSided)
@@ -100,7 +101,7 @@ public class TextListViewUI : MonoBehaviour
             Vector2 newPosition = rt.anchoredPosition;
             newPosition += direction;
             newPosition.y = Mathf.Max(Mathf.Min(newPosition.y, _downPosition.y), _upPosition.y);
-            print(newPosition.y);
+
             newPosition.x = _upPosition.x;
 
             rt.anchoredPosition = newPosition;
