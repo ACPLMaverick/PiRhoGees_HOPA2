@@ -1,19 +1,22 @@
 {"articles":[
     {"title_pl":"Henryk Hirszenberg biogram", 
 	"title_en":"Biography of Henryk Hirszenberg",
-	"textPath":"MainMenu/Henryk", 
+	"textPath_pl":"MainMenu/Henryk", 
+	"textPath_en":"MainMenu/Henryk_en",
 	"bgImage":"MainMenu/_0000s_0009_Henryk", 
 	"miniImage":"MainMenu/4"},
 
-    {"title_pl":"Leon Hirszenberg biogram",
-	"title_en":"Biography of Leon Hirszenberg",
-	"textPath":"MainMenu/Leon", 
+    {"title_pl":"Samuel Hirszenberg biogram",
+	"title_en":"Biography of Samuel Hirszenberg",
+	"textPath_pl":"MainMenu/Samuel",
+	"textPath_en":"MainMenu/Samuel_en", 
 	"bgImage":"MainMenu/_0000s_0008_Samuel", 
 	"miniImage":"MainMenu/Hirszenberg_Spinoza"},
 
-    {"title_pl":"Samuel Hirszenberg biogram",
-	"title_en":"Biography of Samuel Hirszenberg",
-	"textPath":"MainMenu/Samuel", 
+    {"title_pl":"Leon Hirszenberg biogram",
+	"title_en":"Biography of Leon Hirszenberg",
+	"textPath_pl":"MainMenu/Leon", 
+	"textPath_en":"MainMenu/Leon_en",
 	"bgImage":"MainMenu/_0000s_0006_Leon", 
 	"miniImage":"MainMenu/Gottlieb_Ben-Uri_Leon"}
 ]}

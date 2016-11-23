@@ -135,20 +135,23 @@ public class TextListViewUI : MonoBehaviour
 
     private void GenerateListView()
     {
-        string language = "";
+        string titleLanguage = "";
+        string textLanguage = "";
         switch((LanguageManager.Language)PlayerPrefs.GetInt("PP_LANGUAGE", 0))
         {
             case LanguageManager.Language.Polish:
-                language = "title_pl";
+                titleLanguage = "title_pl";
+                textLanguage = "textPath_pl";
                 break;
             case LanguageManager.Language.English:
-                language = "title_en";
+                titleLanguage = "title_en";
+                textLanguage = "textPath_en";
                 break;
         }
 
         var N = JSON.Parse(JSONFile.text);
-        ButtonSource.GetComponent<TextButton>().Title = N["articles"][0][language].Value;
-        ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0]["textPath"].Value;
+        ButtonSource.GetComponent<TextButton>().Title = N["articles"][0][titleLanguage].Value;
+        ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0][textLanguage].Value;
         ButtonSource.GetComponent<TextButton>().UpdateTitle();
         _textsCount = N["articles"].Count;
         
@@ -183,8 +186,8 @@ public class TextListViewUI : MonoBehaviour
 
             copy.GetComponent<RectTransform>().localPosition = new Vector2(x / 2, y);
 
-            copy.GetComponent<TextButton>().Title = N["articles"][i][language].Value;
-            copy.GetComponent<TextButton>().TextPath = N["articles"][i]["textPath"].Value;
+            copy.GetComponent<TextButton>().Title = N["articles"][i][titleLanguage].Value;
+            copy.GetComponent<TextButton>().TextPath = N["articles"][i][textLanguage].Value;
             copy.GetComponent<TextButton>().MainImage.sprite = Resources.Load<Sprite>(N["articles"][i]["bgImage"].Value);
             copy.GetComponent<TextButton>().MiniImage.sprite = Resources.Load<Sprite>(N["articles"][i]["miniImage"].Value);
         }

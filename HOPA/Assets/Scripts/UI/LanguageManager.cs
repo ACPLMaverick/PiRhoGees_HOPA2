@@ -48,7 +48,9 @@ public class LanguageManager : MonoBehaviour
     protected TextAsset _stringtable;
 
     [SerializeField]
-    protected Button _langChangeButton;
+    protected Button _langChangeButtonPL;
+    [SerializeField]
+    protected Button _langChangeButtonEN;
 
     protected XmlDocument _xmlDoc;
     protected Dictionary<Text, string> _indexToText;
@@ -66,9 +68,14 @@ public class LanguageManager : MonoBehaviour
         _xmlDoc = new XmlDocument();
         _xmlDoc.LoadXml(_stringtable.text);
 
-        if(_langChangeButton != null)
+        if(_langChangeButtonPL != null)
         {
-            _langChangeButton.onClick.AddListener(new UnityEngine.Events.UnityAction(ChangeLanguageToNext));
+            _langChangeButtonPL.onClick.AddListener(() => ChangeLanguage(Language.Polish));
+        }
+
+        if (_langChangeButtonEN != null)
+        {
+            _langChangeButtonEN.onClick.AddListener(() => ChangeLanguage(Language.English));
         }
 
         PrepareIndexToText();

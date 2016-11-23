@@ -30,9 +30,23 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     protected CanvasGroup _infoFullscreenAdditionalLustrzana;
 
+
+    [SerializeField]
+    protected Text _screenJadalnaInfoComingSoonText;
+
+    [SerializeField]
+    protected Image _screenJadalnaInfoImage;
+
+    [SerializeField]
+    protected Text _screenLustrzanaInfoComingSoonText;
+
+    [SerializeField]
+    protected Image _screenLustrzanaInfoImage;
+
     #endregion
 
     protected CanvasGroup _currentScreen;
+    protected LanguageManager _myLanguage;
 
     #endregion
 
@@ -42,13 +56,13 @@ public class MainMenuManager : MonoBehaviour
     void Start ()
     {
         SwitchToScreen(_screenMainMenu);
+        _myLanguage = GetComponent<LanguageManager>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    
-	}
+    }
 
     protected virtual void OnApplicationQuit()
     {
@@ -62,22 +76,51 @@ public class MainMenuManager : MonoBehaviour
     public void ButtonClickMenuJadalna()
     {
         SwitchToScreen(_screenJadalna);
-        _infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
+        if(_myLanguage.CurrentLanguage == LanguageManager.Language.English)
+        {
+            _screenJadalnaInfoComingSoonText.gameObject.SetActive(true);
+            _screenJadalnaInfoComingSoonText.GetComponentInParent<Button>().interactable = false;
+            _screenJadalnaInfoImage.sprite = Resources.Load<Sprite>("Jadalna/_0029_info_j_CS");
+        }
+        else
+        {
+            _screenJadalnaInfoComingSoonText.gameObject.SetActive(false);
+            _screenJadalnaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
+            _screenJadalnaInfoImage.sprite = Resources.Load<Sprite>("Jadalna/_0029_info_j");
+        }
+        //_infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickMenuLustrzana()
     {
         SwitchToScreen(_screenLustrzana);
-        _infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
+        if (_myLanguage.CurrentLanguage == LanguageManager.Language.English)
+        {
+            _screenLustrzanaInfoComingSoonText.gameObject.SetActive(true);
+            _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = false;
+            _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0030_info_l_CS");
+        }
+        else
+        {
+            _screenLustrzanaInfoComingSoonText.gameObject.SetActive(false);
+            _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
+            _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0023_info_l");
+        }
+        //_infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
     }
 
-    public void ButtonClickMenuGallery()
+    public void ButtonClickMenuHirszenberg()
     {
-        SceneChangeManager.Instance.ChangeScene(7);
+        SceneChangeManager.Instance.ChangeScene(8);
     }
 
     public void ButtonClickMenuLanguage()
     {
+    }
+
+    public void ButtonClickJadalnaGallery()
+    {
+        SceneChangeManager.Instance.ChangeScene(4);
     }
 
     public void ButtonClickJadalnaHOPA()
@@ -97,7 +140,13 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickJadalnaInfo()
     {
-        _infoFullscreenAdditionalJadalna.GetComponent<Switchable>().SwitchOn();
+        SceneChangeManager.Instance.ChangeScene(9);
+        //_infoFullscreenAdditionalJadalna.GetComponent<Switchable>().SwitchOn();
+    }
+
+    public void ButtonClickLustrzanaGallery()
+    {
+        SceneChangeManager.Instance.ChangeScene(7);
     }
 
     public void ButtonClickLustrzanaHOPA()
@@ -117,7 +166,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickLustrzanaInfo()
     {
-        _infoFullscreenAdditionalLustrzana.GetComponent<Switchable>().SwitchOn();
+        SceneChangeManager.Instance.ChangeScene(10);
+        //_infoFullscreenAdditionalLustrzana.GetComponent<Switchable>().SwitchOn();
     }
 
     public void ButtonClickBack()

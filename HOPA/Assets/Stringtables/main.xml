@@ -18,6 +18,14 @@
       Mirror Hall
     </value>
    </string>
+  <string index="$MENU_MAIN_HIRSZENBERG">
+    <value lang="pl">
+      Bracia Hirszenberg
+    </value>
+    <value lang="en">
+      Hirszenberg brothers
+    </value>
+  </string>
   <string index="$MENU_MAIN_GALLERY">
     <value lang="pl">
       Galeria
@@ -26,12 +34,44 @@
       Gallery
     </value>
   </string>
-  <string index="$MENU_MAIN_LANG">
+  <string index="$MENU_MUSEUM_DESC">
     <value lang="pl">
-      Zmiana języka
+      Muzeum Miasta Łodzi ma swą siedzibę w jednym z najbardziej efektownych budynków w Łodzi, dawnym Pałacu Poznańskich. Pałac wraz z ogrodem usytuowany jest w północnej części miasta, w bliskim sąsiedztwie budynków fabrycznych i domów robotniczych
     </value>
     <value lang="en">
-      Change language
+      Museum of the City of Lodz has its headquarter in one of the most impressive buildings in Lodz - former Poznański's Palace. Palace and the garden are situated in northern part of the city, in the close neighbourhood with industrial buildings and workers' houses.
+    </value>
+  </string>  
+  <string index="$MENU_BACK">
+    <value lang="pl">
+      Powrót
+    </value>
+    <value lang="en">
+      Back
+    </value>
+  </string> 
+  <string index="$MENU_GAME">
+    <value lang="pl">
+      Gra
+    </value>
+    <value lang="en">
+      Minigame
+    </value>
+  </string> 
+  <string index="$MENU_COMING_SOON">
+    <value lang="pl">
+      Wkrótce
+    </value>
+    <value lang="en">
+      Coming Soon
+    </value>
+  </string> 
+  <string index="$MENU_DIN_DESC">
+    <value lang="pl">
+      Duża Jadalnia, czyli dawna sala bankietowa, usytuowana jest w najbardziej reprezentacyjnej części Pałacu z widokiem na ulice Zachodnią i Ogrodową. Służyła reprezentacji, przyjmowaniu gości w otoczeniu przepychu, pełna bogactwa form, materiałów i barw, posiadająca nader interesującą dekorację.. Obecny jej stan został zrekonstruowany na podstawie archiwalnych fotografii.
+    </value>
+    <value lang="en">
+      The corner Dining Hall has a very rich décor with diverse and refined details. Its current state has been reconstructed on the basis of archival photographs. The Dining Hall has remained the place of receiving guests in lavish surroundings.
     </value>
   </string>
   <string index="$MENU_DIN_MIR_HOPA">
@@ -60,10 +100,18 @@
   </string>
   <string index="$MENU_DIN_MIR_ADDITIONAL">
     <value lang="pl">
-      Dodatkowe informacje
+      Informacje
     </value>
     <value lang="en">
       Additional informations
+    </value>
+  </string>
+  <string index="$MENU_MIR_DESC">
+    <value lang="pl">
+      Dawna sala balowa jest jednym z dwóch najbardziej reprezentacyjnych pomieszczeń Pałacu  Rodziny Poznańskich. Dziś zwana Salą Lustrzaną nadal służy jako miejsce ważniejszych uroczystości oraz wydarzeń kulturalnych. Ze względu na znakomitą akustykę wykorzystywana jest  bardzo często jako sala koncertowa.
+    </value>
+    <value lang="en">
+      The Ballroom, also called the Mirror Hall, is one of the two most prestigious halls of the Poznański's Palace. It still serves as a place for important ceremonies and cultural events. Due to the excellent acoustics it is often used as a concert hall.
     </value>
   </string>
   <string index="$MENU_MIR_RENOVAL">
@@ -83,6 +131,14 @@
     </value>
   </string>
   
+  <string index="$HIRSZENBERG_DESC">
+    <value lang="pl">
+      Wystawa "Bracia Hirszenbergowie - w poszukiwaniu ziemi obiecanej"  to podsumowanie dotychczasowej wiedzy o życiu i twórczości artystów żydowskich polskiego pochodzenia, Samuela oraz jego braci: Leona (malarza) i Henryka (architekta). Samuel Hirszenberg, uważany jest za jednego z prekursorów sztuki żydowskiej w Polsce. Jest autorem monumentalnych obrazów stanowiących ozdobę dwóch reprezentacyjnych sal Pałacu Poznańskich.
+    </value>
+    <value lang="en">
+      "Hirszenberg Brothers - In search of the Promised Land" exhibition is a summary of current knowledge about the life and artwork of Jewish-Polish artists, Samuel and his brothers: Leon (painter) and Henryk (architect). Samuel Hirszenberg, is considered to be one of the precursors of Jewish art in Poland. He is the author of monumental paintings decorating two prestigious halls of the Poznański's Palace.
+    </value>
+  </string>
   
   <string index="$FSINFO_TOUCH_TO_CONTINUE">
     <value lang="pl">

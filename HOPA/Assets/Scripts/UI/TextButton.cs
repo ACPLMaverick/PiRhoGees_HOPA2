@@ -13,6 +13,7 @@ public class TextButton : MonoBehaviour {
     public Image MiniImage;
 
     protected Button _myButton;
+    protected LanguageManager _parentLanguageManager;
     protected Vector2 _panelInitialPosition;
 
     protected virtual void Awake()
@@ -25,7 +26,13 @@ public class TextButton : MonoBehaviour {
         _myButton.onClick.AddListener(OpenText);
         _panelInitialPosition = ReadingPanel.transform.localPosition;
 
+        _parentLanguageManager = GetComponentInParent<LanguageManager>();
         _myButton.GetComponentInChildren<Text>().text = Title;
+
+        if(_parentLanguageManager.CurrentLanguage == LanguageManager.Language.English)
+        {
+            BackButton.GetComponentInChildren<Text>().text = "Back to menu";
+        }
         BackButtonMenuText = BackButton.GetComponentInChildren<Text>().text;
     }
 	
@@ -43,7 +50,14 @@ public class TextButton : MonoBehaviour {
     {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(CloseText);
-        BackButton.GetComponentInChildren<Text>().text = "Powrót do zasobów";
+        if (_parentLanguageManager.CurrentLanguage == LanguageManager.Language.English)
+        {
+            BackButton.GetComponentInChildren<Text>().text = "Back to resources";
+        }
+        else
+        {
+            BackButton.GetComponentInChildren<Text>().text = "Powrót do zasobów";
+        }
 
         ReadingPanel.GetComponent<Switchable>().SwitchOn();
         ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOn();
