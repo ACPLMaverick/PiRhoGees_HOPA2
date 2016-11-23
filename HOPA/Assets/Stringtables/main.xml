@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stringtable>
-  
-  
+
+  <string index="$LOADING">
+    <value lang="pl">
+      Wczytywanie
+    </value>
+    <value lang="en">
+      Loading
+    </value>
+  </string>
   <string index="$MENU_MAIN_DINING">
     <value lang="pl">
       Sala Jadalna
@@ -210,6 +217,46 @@
     </value>
     <value lang="en">
       So many curiosities.
+    </value>
+  </string>
+  <string index="$GAL_GALLERY">
+    <value lang="pl">
+      Galeria
+    </value>
+    <value lang="en">
+      Gallery
+    </value>
+  </string>
+  <string index="$GAL_RET_TO_GAL">
+    <value lang="pl">
+      Powrót do galerii
+    </value>
+    <value lang="en">
+      Back to gallery
+    </value>
+  </string>
+  <string index="$GALJ_RET_TO_JAD">
+    <value lang="pl">
+      Powrót do menu
+    </value>
+    <value lang="en">
+      Back to menu
+    </value>
+  </string>
+  <string index="$GALL_RET_TO_LUS">
+    <value lang="pl">
+      Powrót do menu
+    </value>
+    <value lang="en">
+      Back to menu
+    </value>
+  </string>
+  <string index="$GAL_FSVIEWER_HELP">
+    <value lang="pl">
+      Wykonaj gest uszczypnięcia, aby oddalić obraz lub gest odwrotny, by przybliżyć.
+    </value>
+    <value lang="en">
+      Pinch in to zoom out the picture or pinch out to zoom it in.
     </value>
   </string>
   
