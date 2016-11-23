@@ -26,6 +26,7 @@ public class ViewerScreen : MonoBehaviour
 
     #region Protected
 
+    protected Coroutine _crt;
     protected List<ViewerImageButton> _iButtons = new List<ViewerImageButton>();
     protected ViewerFullscreenImage _fullscreenImage;
 
@@ -105,13 +106,16 @@ public class ViewerScreen : MonoBehaviour
     {
         StopAllCoroutines();
         gameObject.SetActive(true);
-        StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 0.0f, 1.0f, 0.5f, true));
+        _crt = StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 0.0f, 1.0f, 0.5f, true));
     }
 
     public void Hide()
     {
-        StopAllCoroutines();
-        StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 1.0f, 0.0f, 0.5f, false));
+        if(gameObject.activeSelf)
+        {
+            StopAllCoroutines();
+            _crt = StartCoroutine(Utility.FadeCoroutineUI(GetComponent<CanvasGroup>(), 1.0f, 0.0f, 0.5f, false));
+        }
     }
 
     public int GetButtonCount()

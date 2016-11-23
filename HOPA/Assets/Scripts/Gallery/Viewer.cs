@@ -160,13 +160,13 @@ public class Viewer : MonoBehaviour
         {
             if(_viewerScreens[i] == screen)
             {
-                if(!_viewerScreens[i].gameObject.activeSelf)
-                {
+                //if(!_viewerScreens[i].gameObject.activeSelf)
+                //{
                     _viewerScreens[i].Show();
-                }
+                //}
                 _currentViewerScreenPosition = i;
             }
-            else if(_viewerScreens[i].gameObject.activeSelf)
+            else /*if(_viewerScreens[i].gameObject.activeSelf)*/
             {
                 _viewerScreens[i].Hide();
             }
