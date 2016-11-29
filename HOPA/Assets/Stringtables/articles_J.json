@@ -3,11 +3,11 @@
 	"title_en":"Dining Hall\nPrologue",
 	"textPath_pl":"Jadalna/Wstep", 
 	"bgImage":"Jadalna/_0005_wstep_kwadrat", 
-	"miniImage":"Jadalna/zdj_wstep"},
+	"miniImage":"Jadalna/wstep_zdj"},
 
     {"title_pl":"Sala jadalna\nWnętrza i symbolika dekoracji", 
 	"title_en":"Dining Hall\nSymbolism of decorations",
 	"textPath_pl":"Jadalna/Wystroj", 
 	"bgImage":"Jadalna/_0007_wystroj_kwadrat", 
-	"miniImage":"Jadalna/zdj_wystroj"}
+	"miniImage":"Jadalna/wystroj_zdj"}
 ]}
