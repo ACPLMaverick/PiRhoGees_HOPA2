@@ -12,6 +12,9 @@ public class Dust : MonoBehaviour {
     private Texture2D _copy;
     private Vector3 _wp1;
 
+    private Coroutine _disappearCoroutine;
+    private float _coroutineTime = 1.0f;
+
 	// Use this for initialization
 	void Start () {
         InputManager.Instance.OnInputMoveExclusive.AddListener(OnDrag);
@@ -126,10 +129,30 @@ public class Dust : MonoBehaviour {
         IsClear = false;
 
         CopyTexture2D();
+        _mySpriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     public int GetPixelsCount()
     {
         return _copy.width * _copy.height;
+    }
+
+    public void DustDisappear()
+    {
+        _disappearCoroutine = StartCoroutine(DustDisappearOnComplete());
+    }
+
+    private IEnumerator DustDisappearOnComplete()
+    {
+        float time = 0.0f;
+        float alpha = 1.0f;
+
+        while(time < _coroutineTime)
+        {
+            alpha = Mathf.Lerp(1, 0, (time / _coroutineTime));
+            _mySpriteRenderer.color = new Color(1, 1, 1, alpha);
+            time += Time.deltaTime;
+            yield return null;
+        }
     }
 }

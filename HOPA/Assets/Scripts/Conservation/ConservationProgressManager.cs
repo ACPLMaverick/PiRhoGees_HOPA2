@@ -6,11 +6,15 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
     public static ConservationProgressManager Instance;
 
     public Dust DustyImage;
+    public Hole[] Holes;
+
+    public bool ClearingFinished;
+    public bool HolesFixingFinished;
+    public int HolesFixedCount;
 
     [SerializeField]
-    private float _targetWinCondition = 0.9f;
-
-    private float _winCondition;
+    private float _targetDustClearance = 0.9f;
+    private float _dustClearanceCondition;
 
     // Use this for initialization
     public override void Start () {
@@ -26,11 +30,25 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
 
     public override void CheckProgress()
     {
-        _winCondition = (float)ElementsCompleted / (float)DustyImage.GetPixelsCount();
-        if (_winCondition >= _targetWinCondition)
+        if (ClearingFinished && HolesFixingFinished)
+        {
+            WinGame();
+        }
+
+        //DUST CLEARING CHECK
+        _dustClearanceCondition = (float)ElementsCompleted / (float)DustyImage.GetPixelsCount();
+        if (!ClearingFinished && _dustClearanceCondition >= _targetDustClearance)
         {
             DustyImage.IsClear = true;
-            WinGame();
+            DustyImage.DustDisappear();
+            ClearingFinished = true;
+            //WinGame();
+        }
+
+        //HOLE FIXING CHECK
+        if(!HolesFixingFinished && HolesFixedCount == Holes.Length)
+        {
+            HolesFixingFinished = true;
         }
     }
 
@@ -39,6 +57,13 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
         base.ResetGame();
 
         DustyImage.Reset();
+        ClearingFinished = false;
 
+        HolesFixedCount = 0;
+        foreach(Hole h in Holes)
+        {
+            h.Reset();
+        }
+        HolesFixingFinished = false;
     }
 }
