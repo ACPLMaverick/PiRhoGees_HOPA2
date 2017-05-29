@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class FurnaceGameManager : MonoBehaviour
 {
@@ -107,6 +108,7 @@ public class FurnaceGameManager : MonoBehaviour
 
         if (_infoFullscreenGroup != null)
         {
+            _infoFullscreenGroup.GetComponent<Image>().sprite = Resources.Load<Sprite>("Jadalna/ekran_wygranej_jadalna");
             _infoFullscreenGroup.SwitchOn();
         }
         else

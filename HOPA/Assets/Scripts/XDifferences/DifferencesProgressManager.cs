@@ -16,6 +16,7 @@ public class DifferencesProgressManager : MinigameProgressManager<DifferentObjec
         base.Start();
 
         Instance = this;
+        Type = RoomType.MIRROR;
 	}
 	
 	// Update is called once per frame

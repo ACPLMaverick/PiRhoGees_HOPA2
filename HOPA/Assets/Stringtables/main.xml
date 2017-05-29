@@ -259,5 +259,30 @@
       Pinch in to zoom out the picture or pinch out to zoom it in.
     </value>
   </string>
+
+  <string index="$CONGRATULATIONS">
+    <value lang="pl">
+      Gratulacje! Ukończyłeś grę!
+    </value>
+    <value lang="en">
+      Congratulations! Now you finished game!
+    </value>
+  </string>
+  <string index="$CONGRATULATIONS_DESC">
+    <value lang="pl">
+      To jeszcze nie koniec - w menu głównym czekają nieodkryte gry.
+    </value>
+    <value lang="en">
+      We hope to see you in another challange. Thank you for playing.
+    </value>
+  </string>
+  <string index="$TOUCH_TO_CONTINUE">
+    <value lang="pl">
+      Dotknij ekranu, aby kontynuować.
+    </value>
+    <value lang="en">
+      Touch the screen to continue.
+    </value>
+  </string>
   
 </stringtable>

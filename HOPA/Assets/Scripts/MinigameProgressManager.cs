@@ -2,6 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
+
+public enum RoomType
+{
+    DINNER,
+    MIRROR,
+    NONE
+}
 
 public class MinigameProgressManager<T> : MonoBehaviour
 {
@@ -14,6 +22,7 @@ public class MinigameProgressManager<T> : MonoBehaviour
     public T[] Elements;
     public int ElementsCompleted;
     public bool HasWon;
+    public RoomType Type;
 
     public PauseMenu PauseMenuGroup;
     public Switchable InfoFullscreenGroup;
@@ -22,6 +31,7 @@ public class MinigameProgressManager<T> : MonoBehaviour
     public virtual void Start()
     {
         InfoFullscreenGroup.gameObject.SetActive(false);
+        Type = RoomType.NONE;
     }
 
     // Update is called once per frame
@@ -52,6 +62,7 @@ public class MinigameProgressManager<T> : MonoBehaviour
 
         if (InfoFullscreenGroup != null)
         {
+            SetInfoVisuals();
             InfoFullscreenGroup.GetComponent<InfoFullscreen>().ButtonTotal.onClick.AddListener(new UnityEngine.Events.UnityAction(BackToMenu));
         }
         StartCoroutine(RoomFinishedCoroutine());
@@ -96,5 +107,20 @@ public class MinigameProgressManager<T> : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    private void SetInfoVisuals()
+    {
+        switch(Type)
+        {
+            case RoomType.DINNER:
+                InfoFullscreenGroup.GetComponent<Image>().sprite = Resources.Load<Sprite>("Jadalna/ekran_wygranej_jadalna");
+                break;
+            case RoomType.MIRROR:
+                InfoFullscreenGroup.GetComponent<Image>().sprite = Resources.Load<Sprite>("Lustrzana/ekran_wygranej_lustrzana");
+                break;
+            case RoomType.NONE:
+                break;
+        }
     }
 }

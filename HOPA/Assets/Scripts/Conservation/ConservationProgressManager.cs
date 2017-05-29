@@ -21,6 +21,7 @@ public class ConservationProgressManager : MinigameProgressManager<Dust> {
         base.Start();
 
         Instance = this;
+        Type = RoomType.DINNER;
 	}
 	
 	// Update is called once per frame

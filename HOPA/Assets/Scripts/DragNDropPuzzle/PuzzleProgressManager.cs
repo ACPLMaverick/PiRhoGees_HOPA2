@@ -16,6 +16,7 @@ public class PuzzleProgressManager : MinigameProgressManager<PuzzleElement> {
         base.Start();
 
         Instance = this;
+        Type = RoomType.MIRROR;
 	}
 	
 	// Update is called once per frame
