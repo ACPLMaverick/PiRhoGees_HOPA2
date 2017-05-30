@@ -284,5 +284,39 @@
       Touch the screen to continue.
     </value>
   </string>
+
+  <string index="$HOW_TO_PLAY">
+    <value lang="pl">
+      Jak grać?
+    </value>
+    <value lang="en">
+      How to play?
+    </value> 
+  </string>
+
+  <string index="$DIFF_TUTORIAL">
+    <value lang="pl">
+      Znajdź elementy znajdujące się w sali lustrzanej, których nie ma na zdjęciu sprzed lat.
+    </value>
+    <value lang="en">
+      Find objects present in the Mirror Hall, which are not on the historical photograph.
+    </value>
+  </string>
+  <string index="$CONSERV_TUTORIAL">
+    <value lang="pl">
+      Zostań konserwatorem obrazów. Przywróć dawny blask dziełom sztuki, ścierając z nich brud oraz naprawiając dziury.
+    </value>
+    <value lang="en">
+      Be a conservator. Restore former brilliancy of this piece of art by wiping off dirt and fixing holes.
+    </value>
+  </string>
+  <string index="$FURNACE_TUTORIAL">
+    <value lang="pl">
+      Ustaw pilastry w odpowiadające rzeczywistości miejsca, aby znów symbolizowały pory roku.
+    </value>
+    <value lang="en">
+      Set pilasters to their appropriate positions, so they once again symbolize four seasons.
+    </value>
+  </string>
   
 </stringtable>

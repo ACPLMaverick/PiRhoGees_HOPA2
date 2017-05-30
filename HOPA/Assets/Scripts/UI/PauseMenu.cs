@@ -35,7 +35,10 @@ public class PauseMenu : MonoBehaviour
         }
 
         _btnExit.onClick.AddListener(new UnityEngine.Events.UnityAction(OnExitButtonClick));
-        _btnReturn.onClick.AddListener(new UnityEngine.Events.UnityAction(OnReturnButtonClick));
+        if (_btnReturn != null)
+        {
+            _btnReturn.onClick.AddListener(new UnityEngine.Events.UnityAction(OnReturnButtonClick));
+        }
     }
 
     // Use this for initialization
