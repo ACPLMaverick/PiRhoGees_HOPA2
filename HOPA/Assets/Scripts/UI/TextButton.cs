@@ -77,7 +77,14 @@ public class TextButton : MonoBehaviour {
     {
         BackButton.onClick.RemoveAllListeners();
         BackButton.onClick.AddListener(() => SceneChangeManager.Instance.ChangeScene(0));
-        BackButton.GetComponentInChildren<Text>().text = BackButtonMenuText;
+        if (_parentLanguageManager.CurrentLanguage == LanguageManager.Language.English)
+        {
+            BackButton.GetComponentInChildren<Text>().text = "Back to menu";
+        }
+        else
+        {
+            BackButton.GetComponentInChildren<Text>().text = "Powrót do menu";
+        }
 
         ReadingPanel.TextSlider.GetComponent<Switchable>().SwitchOff();
         ReadingPanel.GetComponent<Switchable>().SwitchOff();
@@ -93,5 +100,15 @@ public class TextButton : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         ReadingPanel.SetReadingSpace();
         ReadingPanel.SetSliderSize();
+    }
+
+    public void EnableMyButton()
+    {
+        _myButton.interactable = true;
+    }
+
+    public void DisableMyButton()
+    {
+        _myButton.interactable = false;
     }
 }

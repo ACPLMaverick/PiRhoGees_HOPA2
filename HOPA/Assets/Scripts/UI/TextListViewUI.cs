@@ -150,8 +150,16 @@ public class TextListViewUI : MonoBehaviour
         }
 
         var N = JSON.Parse(JSONFile.text);
-        ButtonSource.GetComponent<TextButton>().Title = N["articles"][0][titleLanguage].Value;
-        ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0][textLanguage].Value;
+        if(N["articles"][0][textLanguage].Value == "None")
+        {
+            ButtonSource.GetComponent<TextButton>().Title = N["articles"][0][titleLanguage].Value + string.Format("{0}(Coming soon)", System.Environment.NewLine);
+            ButtonSource.GetComponent<TextButton>().DisableMyButton();
+        }
+        else
+        {
+            ButtonSource.GetComponent<TextButton>().Title = N["articles"][0][titleLanguage].Value;
+            ButtonSource.GetComponent<TextButton>().TextPath = N["articles"][0][textLanguage].Value;
+        }
         ButtonSource.GetComponent<TextButton>().UpdateTitle();
         _textsCount = N["articles"].Count;
         
@@ -187,7 +195,17 @@ public class TextListViewUI : MonoBehaviour
             copy.GetComponent<RectTransform>().localPosition = new Vector2(x / 2, y);
 
             copy.GetComponent<TextButton>().Title = N["articles"][i][titleLanguage].Value;
-            copy.GetComponent<TextButton>().TextPath = N["articles"][i][textLanguage].Value;
+            if (N["articles"][i][textLanguage].Value == "None")
+            {
+                copy.GetComponent<TextButton>().Title += string.Format("{0}(Coming soon)", System.Environment.NewLine);
+                copy.GetComponent<TextButton>().DisableMyButton();
+            }
+            else
+            {
+                copy.GetComponent<TextButton>().EnableMyButton();
+                copy.GetComponent<TextButton>().Title = N["articles"][i][titleLanguage].Value;
+                copy.GetComponent<TextButton>().TextPath = N["articles"][i][textLanguage].Value;
+            }
             copy.GetComponent<TextButton>().MainImage.sprite = Resources.Load<Sprite>(N["articles"][i]["bgImage"].Value);
             copy.GetComponent<TextButton>().MiniImage.sprite = Resources.Load<Sprite>(N["articles"][i]["miniImage"].Value);
         }

@@ -76,18 +76,6 @@ public class MainMenuManager : MonoBehaviour
     public void ButtonClickMenuJadalna()
     {
         SwitchToScreen(_screenJadalna);
-        if(_myLanguage.CurrentLanguage == LanguageManager.Language.English)
-        {
-            _screenJadalnaInfoComingSoonText.gameObject.SetActive(true);
-            _screenJadalnaInfoComingSoonText.GetComponentInParent<Button>().interactable = false;
-            _screenJadalnaInfoImage.sprite = Resources.Load<Sprite>("Jadalna/_0029_info_j_CS");
-        }
-        else
-        {
-            _screenJadalnaInfoComingSoonText.gameObject.SetActive(false);
-            _screenJadalnaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
-            _screenJadalnaInfoImage.sprite = Resources.Load<Sprite>("Jadalna/_0029_info_j");
-        }
         //_infoFullscreenJadalna.GetComponent<Switchable>().SwitchOn();
     }
 
