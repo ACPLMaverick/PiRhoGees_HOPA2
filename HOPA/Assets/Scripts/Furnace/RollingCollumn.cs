@@ -32,6 +32,7 @@ public class RollingCollumn : MonoBehaviour
     RollingPart[] _parts;
     bool _locked = false;
     ParticleSystem _winParticle;
+    DisappearableObject _dp;
 
     #endregion
 
@@ -49,6 +50,8 @@ public class RollingCollumn : MonoBehaviour
 
         // pre-check
         OnRollingPartChanged(null);
+
+        _dp = GetComponentInChildren<DisappearableObject>();
 	}
 	
 	// Update is called once per frame
@@ -86,6 +89,9 @@ public class RollingCollumn : MonoBehaviour
         }
         _locked = true;
         EventCorrect.Invoke(this);
+
+        if (_dp != null)
+            _dp.Activate();
     }
     #endregion
 }

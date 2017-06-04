@@ -1,9 +1,129 @@
 fileFormatVersion: 2
 guid: 642ed4acc7f4f494ebf417ae4d5d90c6
-timeCreated: 1482531359
+timeCreated: 1496579531
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: gora_animacja_0
+    21300002: gora_animacja_1
+    21300004: gora_animacja_2
+    21300006: gora_animacja_3
+    21300008: gora_animacja_4
+    21300010: gora_animacja_5
+    21300012: gora_animacja_6
+    21300014: gora_animacja_7
+    21300016: gora_animacja_8
+    21300018: gora_animacja_9
+    21300020: gora_animacja_10
+    21300022: gora_animacja_11
+    21300024: gora_animacja_12
+    21300026: gora_animacja_13
+    21300028: gora_animacja_14
+    21300030: gora_animacja_15
+    21300032: gora_animacja_16
+    21300034: gora_animacja_17
+    21300036: gora_animacja_18
+    21300038: gora_animacja_19
+    21300040: gora_animacja_20
+    21300042: gora_animacja_21
+    21300044: gora_animacja_22
+    21300046: gora_animacja_23
+    21300048: gora_animacja_24
+    21300050: gora_animacja_25
+    21300052: gora_animacja_26
+    21300054: gora_animacja_27
+    21300056: gora_animacja_28
+    21300058: gora_animacja_29
+    21300060: gora_animacja_30
+    21300062: gora_animacja_31
+    21300064: gora_animacja_32
+    21300066: gora_animacja_33
+    21300068: gora_animacja_34
+    21300070: gora_animacja_35
+    21300072: gora_animacja_36
+    21300074: gora_animacja_37
+    21300076: gora_animacja_38
+    21300078: gora_animacja_39
+    21300080: gora_animacja_40
+    21300082: gora_animacja_41
+    21300084: gora_animacja_42
+    21300086: gora_animacja_43
+    21300088: gora_animacja_44
+    21300090: gora_animacja_45
+    21300092: gora_animacja_46
+    21300094: gora_animacja_47
+    21300096: gora_animacja_48
+    21300098: gora_animacja_49
+    21300100: gora_animacja_50
+    21300102: gora_animacja_51
+    21300104: gora_animacja_52
+    21300106: gora_animacja_53
+    21300108: gora_animacja_54
+    21300110: gora_animacja_55
+    21300112: gora_animacja_56
+    21300114: gora_animacja_57
+    21300116: gora_animacja_58
+    21300118: gora_animacja_59
+    21300120: gora_animacja_60
+    21300122: gora_animacja_61
+    21300124: gora_animacja_62
+    21300126: gora_animacja_63
+    21300128: gora_animacja_64
+    21300130: gora_animacja_65
+    21300132: gora_animacja_66
+    21300134: gora_animacja_67
+    21300136: gora_animacja_68
+    21300138: gora_animacja_69
+    21300140: gora_animacja_70
+    21300142: gora_animacja_71
+    21300144: gora_animacja_72
+    21300146: gora_animacja_73
+    21300148: gora_animacja_74
+    21300150: gora_animacja_75
+    21300152: gora_animacja_76
+    21300154: gora_animacja_77
+    21300156: gora_animacja_78
+    21300158: gora_animacja_79
+    21300160: gora_animacja_80
+    21300162: gora_animacja_81
+    21300164: gora_animacja_82
+    21300166: gora_animacja_83
+    21300168: gora_animacja_84
+    21300170: gora_animacja_85
+    21300172: gora_animacja_86
+    21300174: gora_animacja_87
+    21300176: gora_animacja_88
+    21300178: gora_animacja_89
+    21300180: gora_animacja_90
+    21300182: gora_animacja_91
+    21300184: gora_animacja_92
+    21300186: gora_animacja_93
+    21300188: gora_animacja_94
+    21300190: gora_animacja_95
+    21300192: gora_animacja_96
+    21300194: gora_animacja_97
+    21300196: gora_animacja_98
+    21300198: gora_animacja_99
+    21300200: gora_animacja_100
+    21300202: gora_animacja_101
+    21300204: gora_animacja_102
+    21300206: gora_animacja_103
+    21300208: gora_animacja_104
+    21300210: gora_animacja_105
+    21300212: gora_animacja_106
+    21300214: gora_animacja_107
+    21300216: gora_animacja_108
+    21300218: gora_animacja_109
+    21300220: gora_animacja_110
+    21300222: gora_animacja_111
+    21300224: gora_animacja_112
+    21300226: gora_animacja_113
+    21300228: gora_animacja_114
+    21300230: gora_animacja_115
+    21300232: gora_animacja_116
+    21300234: gora_animacja_117
+    21300236: gora_animacja_118
+    21300238: gora_animacja_119
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +150,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +158,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +171,1567 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: gora_animacja_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_4
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_5
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_6
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_7
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_8
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_9
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_10
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_11
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1890
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_13
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_14
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_15
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_16
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_17
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_18
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_19
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_20
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_21
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_22
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_23
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1680
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_25
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_26
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_27
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_28
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_29
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_30
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_31
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_32
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_33
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_34
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_35
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1470
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_37
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_38
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_39
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_40
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_41
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_42
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_43
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_44
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_45
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_46
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_47
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1260
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_49
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_50
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_51
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_52
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_53
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_54
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_55
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_56
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_57
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_58
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_59
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1050
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_61
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_62
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_63
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_64
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_65
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_66
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_67
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_68
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_69
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_70
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_71
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 840
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_73
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_74
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_75
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_76
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_77
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_78
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_79
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_80
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_81
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_82
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_83
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 630
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_85
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_86
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_87
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_88
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_89
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_90
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_91
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_92
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_93
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_94
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_95
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 420
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_97
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_98
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_99
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_100
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_101
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_102
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_103
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_104
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_105
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_106
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_107
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 210
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_109
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_110
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_111
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_112
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_113
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_114
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_115
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_116
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_117
+      rect:
+        serializedVersion: 2
+        x: 1980
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_118
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: gora_animacja_119
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 0
+        width: 220
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -104,6 +104,20 @@ public class DisappearableObject : MonoBehaviour
         }
     }
 
+    public void Activate()
+    {
+        if (Mode == DisappearableMode.DISAPPEAR)
+        {
+            gameObject.SetActive(true);
+            StartCoroutine(FadeCoroutine(1.0f, 0.0f, TimeFadeOutSeconds, !DeactivateOnClicked, DestroyOnClicked));
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            StartCoroutine(FadeCoroutine(0.0f, 1.0f, TimeFadeOutSeconds, true, DestroyOnClicked));
+        }
+    }
+
     protected virtual void OnClickUp(Vector2 screenPos, Collider2D hitCollider2D)
     {
         if(gameObject != null && 

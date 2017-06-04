@@ -13,12 +13,6 @@ public class RollingPart : MonoBehaviour
     [SerializeField]
     protected int _correctIndex = 1;
 
-    [SerializeField]
-    protected List<Sprite> _sprites;
-
-    [SerializeField]
-    protected bool _canWrap = true;
-
     #endregion
 
     #region Properties
@@ -39,20 +33,23 @@ public class RollingPart : MonoBehaviour
         }
     }
 
-    public Sprite CurrentSprite
-    {
-        get
-        {
-            return _sprites[_currentSpriteIndex];
-        }
-    }
-
     #endregion
 
     #region Protected
 
+    protected const int MAX_INDEX = 3;
+    protected const string STAGE_NAME = "Stage";
     protected SpriteRenderer _sr;
+    protected Animator _animator;
     protected int _currentSpriteIndex = 0;
+
+    protected string[] _stateNames =
+        {
+            ("RollingPart01"),
+            ("RollingPart02"),
+            ("RollingPart03"),
+            ("RollingPart04")
+        };
 
     #endregion
 
@@ -69,9 +66,22 @@ public class RollingPart : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        if(_beginIndex == -1 || _beginIndex == _correctIndex)
+        {
+            RandomizeBeginIndex();
+        }
+        else
+        {
+            _beginIndex = Mathf.Min(_beginIndex, MAX_INDEX);
+        }
+
         _currentSpriteIndex = _beginIndex;
         _sr = GetComponent<SpriteRenderer>();
-        _sr.sprite = _sprites[_beginIndex];
+        _animator = GetComponent<Animator>();
+
+        _animator.Play(_stateNames[_currentSpriteIndex]);
+        _animator.SetInteger(STAGE_NAME, _currentSpriteIndex);
+
         //InputManager.Instance.OnInputSwipe.AddListener(new UnityEngine.Events.UnityAction<Vector2, InputManager.SwipeDirection, float, Collider2D>(OnSwipe));
         InputManager.Instance.OnInputClickUp.AddListener(new UnityEngine.Events.UnityAction<Vector2, Collider2D>(OnClickUp));
     }
@@ -86,7 +96,13 @@ public class RollingPart : MonoBehaviour
 
     #region Functions Public
 
-
+    public void RandomizeBeginIndex()
+    {
+        do
+        {
+            _beginIndex = Random.Range(0, MAX_INDEX + 1);
+        } while (_beginIndex == _correctIndex);
+    }
 
     #endregion
 
@@ -97,40 +113,27 @@ public class RollingPart : MonoBehaviour
         // always roll collumn to the right (i.e. rotate CW)
         if(enabled && col == GetComponent<Collider2D>())
         {
-            _currentSpriteIndex = (_currentSpriteIndex + 1) % _sprites.Count;
-            SetSprite(_sprites[_currentSpriteIndex]);
+            _currentSpriteIndex = (_currentSpriteIndex + 1) % (MAX_INDEX + 1);
+            _animator.SetInteger(STAGE_NAME, _currentSpriteIndex);
             EventChanged.Invoke(this);
         }
     }
 
     protected void OnSwipe(Vector2 pos, InputManager.SwipeDirection dir, float diffLength, Collider2D col)
     {
-        if((((_currentSpriteIndex == 0 && dir == InputManager.SwipeDirection.LEFT) || 
-            (_currentSpriteIndex == _sprites.Count - 1) && dir == InputManager.SwipeDirection.RIGHT) && !_canWrap) ||
-            !enabled ||
-            col != GetComponent<Collider2D>())
-        {
-            return;
-        }
-
         int indexAddition = 1;
         if(dir == InputManager.SwipeDirection.LEFT)
         {
             indexAddition = -1;
         }
 
-        _currentSpriteIndex = (_currentSpriteIndex + indexAddition) % _sprites.Count;
+        _currentSpriteIndex = (_currentSpriteIndex + indexAddition) % (MAX_INDEX + 1);
         if(_currentSpriteIndex < 0)
         {
-            _currentSpriteIndex = _sprites.Count + _currentSpriteIndex;
+            _currentSpriteIndex = MAX_INDEX + _currentSpriteIndex;
         }
-        SetSprite(_sprites[_currentSpriteIndex]);
+        _animator.SetInteger(STAGE_NAME, _currentSpriteIndex);
         EventChanged.Invoke(this);
-    }
-
-    protected void SetSprite(Sprite nextSpr)
-    {
-        _sr.sprite = nextSpr;
     }
 
     #endregion
