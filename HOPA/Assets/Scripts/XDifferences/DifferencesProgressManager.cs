@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class DifferencesProgressManager : MinigameProgressManager<DifferentObject> {
 
+    #region Constants
+
+    private int TARGET_ELEMENTS = 7;
+
+    #endregion
+
     #region Public
 
     public static DifferencesProgressManager Instance;
@@ -35,6 +41,14 @@ public class DifferencesProgressManager : MinigameProgressManager<DifferentObjec
         foreach (DifferentObject puzzle in Elements)
         {
             puzzle.Reset();
+        }
+    }
+
+    public override void CheckProgress()
+    {
+        if (ElementsCompleted >= TARGET_ELEMENTS)
+        {
+            WinGame();
         }
     }
 

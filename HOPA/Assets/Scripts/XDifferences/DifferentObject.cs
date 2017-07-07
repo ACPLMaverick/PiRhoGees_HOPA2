@@ -5,6 +5,7 @@ using System.Collections;
 public class DifferentObject : MonoBehaviour {
 
     public bool IsFound;
+    public DifferentObject[] DependentObjects;
 
     private Coroutine _redMarkAnimation;
     private Image _redMark;
@@ -32,7 +33,13 @@ public class DifferentObject : MonoBehaviour {
 
             this.GetComponent<BoxCollider2D>().enabled = false;
 
-            //ADD SIBLING DIFFERENCE HERE
+            //ADD DEPENDENT DIFFERENCE HERE
+            foreach (DifferentObject obj in DependentObjects)
+            {
+                obj.IsFound = true;
+                obj._redMarkAnimation = StartCoroutine(obj.RedMarkAnimation());
+                obj.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 
