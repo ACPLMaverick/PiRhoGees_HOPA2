@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DifferencesProgressManager : MinigameProgressManager<DifferentObject> {
 
     #region Public
 
     public static DifferencesProgressManager Instance;
+    public Text ProgressCounterText;
 
     #endregion
 
@@ -22,6 +24,8 @@ public class DifferencesProgressManager : MinigameProgressManager<DifferentObjec
 	// Update is called once per frame
 	public override void Update () {
         base.Update();
+
+        ProgressCounterText.text = string.Format("{0}/7", ElementsCompleted);
 	}
 
     public override void ResetGame()

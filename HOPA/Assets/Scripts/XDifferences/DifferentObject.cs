@@ -31,6 +31,8 @@ public class DifferentObject : MonoBehaviour {
             _redMarkAnimation = StartCoroutine(RedMarkAnimation());
 
             this.GetComponent<BoxCollider2D>().enabled = false;
+
+            //ADD SIBLING DIFFERENCE HERE
         }
     }
 
