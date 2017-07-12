@@ -38,8 +38,6 @@ public class Dust : MonoBehaviour {
         {
             _wp1 = Camera.main.ScreenToWorldPoint(currentScreenPos);
 
-            //print(_wp1);
-
             UpdateTexture();
         }
     }
@@ -51,25 +49,9 @@ public class Dust : MonoBehaviour {
         // transform local coordinates to texture coordinates, taking sprite size into account
         _wp1.x = Mathf.Clamp01(((_wp1.x / _mySpriteRenderer.sprite.bounds.extents.x) + 1.0f) * 0.5f) * _copy.width;
         _wp1.y = Mathf.Clamp01(((_wp1.y / _mySpriteRenderer.sprite.bounds.extents.y) + 1.0f) * 0.5f) * _copy.height;
-        //Debug.Log(_wp1);
 
         ClearWithBrush(Mathf.RoundToInt(_wp1.x), Mathf.RoundToInt(_wp1.y));
 
-        /*
-        //LOGIC
-        if(_wp1.x <= this.transform.position.x + (_myCollider.size.x * this.transform.localScale.x) / 2 &&
-            _wp1.x >= this.transform.position.x - (_myCollider.size.x * this.transform.localScale.x) / 2 &&
-            _wp1.y <= this.transform.position.y + (_myCollider.size.y * this.transform.localScale.y) / 2 &&
-            _wp1.y >= this.transform.position.y - (_myCollider.size.y * this.transform.localScale.y) / 2)
-        {
-            _wp1 -= this.transform.position;
-
-            Debug.Log(_wp1);
-
-            ClearWithBrush(Mathf.RoundToInt((_wp1.x + 1) * _copy.width * 0.5f),
-                Mathf.RoundToInt((_wp1.y + 1) * _copy.height * 0.5f));
-        }
-        */
         //This finalizes it. If you want to edit it still, do it before you finish with Apply(). Do NOT expect to edit the image after you have applied.
         _copy.Apply();
     }
@@ -87,12 +69,26 @@ public class Dust : MonoBehaviour {
                 {
                     if (_copy.GetPixel(x, y).a != 0)
                     {
-                        _copy.SetPixel(x, y, new Color(0, 0, 0, 0));
-                        ConservationProgressManager.Instance.ElementsCompleted += 1;
+                        Color pixel = _copy.GetPixel(x, y);
+                        int distance = CountDistance(baseX, baseY, x, y);
+                        if (distance <= ClearingRadius)
+                        {
+                            float alpha = 0.01f * distance;
+                            _copy.SetPixel(x, y, new Color(pixel.r, pixel.g, pixel.b, pixel.a - alpha));
+                            if (_copy.GetPixel(x, y).a == 0)
+                            {
+                                ConservationProgressManager.Instance.ElementsCompleted += 1;
+                            }
+                        }
                     }
                 }
             }
         }
+    }
+
+    public int CountDistance(int baseX, int baseY, int targetX, int targetY)
+    {
+        return (int)(Mathf.Sqrt(SimpleSquarePow(targetY - baseY) + SimpleSquarePow(targetX - baseX)));
     }
 
     public void CopyTexture2D()
@@ -154,5 +150,10 @@ public class Dust : MonoBehaviour {
             time += Time.deltaTime;
             yield return null;
         }
+    }
+
+    private int SimpleSquarePow(int i)
+    {
+        return i * i;
     }
 }
