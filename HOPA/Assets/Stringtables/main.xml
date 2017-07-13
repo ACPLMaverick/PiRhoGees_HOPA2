@@ -326,5 +326,13 @@
       Set pilasters to their appropriate positions, so they once again symbolize four seasons.
     </value>
   </string>
+  <string index="$MIRROR_TUTORIAL">
+    <value lang="pl">
+      Złóż rozbite lustro przeciągając kawałki na odpowiadające im miejsca.
+    </value>
+    <value lang="en">
+      Put together broken mirror by dragging the pieces and dropping them on corresponding slots.
+    </value>
+  </string>
   
 </stringtable>
