@@ -355,18 +355,18 @@
   
   <string index="$DINNER_RUBLE">
     <value lang="pl">
-      Carskie ruble
+      Ruble
     </value>
     <value lang="en">
-      Tsarist roubles
+      Roubles
     </value>
   </string>
   <string index="$DINNER_RUBLE_DESC">
     <value lang="pl">
-      PINIONDZE
+      Carskie ruble
     </value>
     <value lang="en">
-      MONEY
+      Tsarist roubles
     </value>
   </string>
   <string index="$DINNER_STAMPS">
@@ -379,10 +379,10 @@
   </string>
   <string index="$DINNER_STAMPS_DESC">
     <value lang="pl">
-      Używane aby zapieczętowywać listy i korespondencję
+      Stemple fabryczne do drukowania tkanin - Mosiądz, drewno XIX w.
     </value>
     <value lang="en">
-      Used to stamp, simple right?
+      Factory stamps for fabric printing - Brass, 19th century wood.
     </value>
   </string>
   <string index="$DINNER_CLOCK">
@@ -395,10 +395,10 @@
   </string>
   <string index="$DINNER_CLOCK_DESC">
     <value lang="pl">
-      Nie mam pojęcia cóż może to być za ustrojstwo.
+      Zegar do kart zegarowych z portierni zakładów I.K. Poznańskiego
     </value>
     <value lang="en">
-      Clock used by factory workers to check in and check out.
+      Clock for time cards from the porter's factory of I.K. Poznanski
     </value>
   </string>
   <string index="$DINNER_MEDAL">
@@ -411,10 +411,10 @@
   </string>
   <string index="$DINNER_MEDAL_DESC">
     <value lang="pl">
-      Medal.
+      Medal nagrodowy dla I.K Poznańskiego 1880r
     </value>
     <value lang="en">
-      Medal.
+      Medal awarded to I.K Poznański 1880
     </value>
   </string>
   <string index="$DINNER_WATCH">
@@ -427,10 +427,10 @@
   </string>
   <string index="$DINNER_WATCH_DESC">
     <value lang="pl">
-      Ozdobny zegarek.
+      Zegarek kieszonkowy
     </value>
     <value lang="en">
-      Tick tock.
+      Pocket watch
     </value>
   </string>
 
