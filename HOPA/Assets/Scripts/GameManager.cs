@@ -42,7 +42,10 @@ public class GameManager : Singleton<GameManager>
         CurrentRoom.FinishedEvent.AddListener(OnRoomCommonPickablesCollected);
         AudioManager.Instance.PlayMusic(CurrentRoom.AmbientTheme, 0.5f);
         ItemInfoGroup.gameObject.SetActive(false);
-        PauseMenuGroup.gameObject.SetActive(false);
+        if (PauseMenuGroup != null)
+        {
+            PauseMenuGroup.gameObject.SetActive(false);
+        }
 
         if(EndingInfoFullscreen != null)
         {
