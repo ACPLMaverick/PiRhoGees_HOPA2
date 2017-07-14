@@ -334,5 +334,104 @@
       Put together broken mirror by dragging the pieces and dropping them on corresponding slots.
     </value>
   </string>
+
+  <!--HOPA_JADALNA-->
+  <string index="$TAP_TO_CLOSE">
+    <value lang="pl">
+      Dotknij, aby zamknąć okno
+    </value>
+    <value lang="en">
+      Tap to close
+    </value>
+  </string>
+  <string index="$DINNER_HOPA_TUTORIAL">
+    <value lang="pl">
+      Odszukaj wszystkie elementy z listy. Możesz zarówno przybliżać jak i przesuwać zdjęcie.
+    </value>
+    <value lang="en">
+      Find all listed elements. You can zoom the view as well as move it around.
+    </value>
+  </string>
   
+  <string index="$DINNER_RUBLE">
+    <value lang="pl">
+      Carskie ruble
+    </value>
+    <value lang="en">
+      Tsarist roubles
+    </value>
+  </string>
+  <string index="$DINNER_RUBLE_DESC">
+    <value lang="pl">
+      PINIONDZE
+    </value>
+    <value lang="en">
+      MONEY
+    </value>
+  </string>
+  <string index="$DINNER_STAMPS">
+    <value lang="pl">
+      Stemple
+    </value>
+    <value lang="en">
+      Stamps
+    </value>
+  </string>
+  <string index="$DINNER_STAMPS_DESC">
+    <value lang="pl">
+      Używane aby zapieczętowywać listy i korespondencję
+    </value>
+    <value lang="en">
+      Used to stamp, simple right?
+    </value>
+  </string>
+  <string index="$DINNER_CLOCK">
+    <value lang="pl">
+      Zegar na karty
+    </value>
+    <value lang="en">
+      Clock
+    </value>
+  </string>
+  <string index="$DINNER_CLOCK_DESC">
+    <value lang="pl">
+      Nie mam pojęcia cóż może to być za ustrojstwo.
+    </value>
+    <value lang="en">
+      Clock used by factory workers to check in and check out.
+    </value>
+  </string>
+  <string index="$DINNER_MEDAL">
+    <value lang="pl">
+      Medal
+    </value>
+    <value lang="en">
+      Medal
+    </value>
+  </string>
+  <string index="$DINNER_MEDAL_DESC">
+    <value lang="pl">
+      Medal.
+    </value>
+    <value lang="en">
+      Medal.
+    </value>
+  </string>
+  <string index="$DINNER_WATCH">
+    <value lang="pl">
+      Zegarek
+    </value>
+    <value lang="en">
+      Watch
+    </value>
+  </string>
+  <string index="$DINNER_WATCH_DESC">
+    <value lang="pl">
+      Ozdobny zegarek.
+    </value>
+    <value lang="en">
+      Tick tock.
+    </value>
+  </string>
+
 </stringtable>

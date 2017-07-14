@@ -12,9 +12,14 @@ public class ItemInfo : MonoBehaviour
     private Text _tit;
     private Text _titBig;
     private Text _txt;
+    private Text _pressToClose;
     private Button _backButton;
     private Vector2 _defSizeDelta;
 
+    #endregion
+
+    #region public
+    public LanguageManager LangManager;
     #endregion
 
     #region functions
@@ -29,6 +34,7 @@ public class ItemInfo : MonoBehaviour
         _tit = texts[0];
         _txt = texts[1];
         _titBig = texts[2];
+        _pressToClose = texts[3];
         _backButton = GetComponentsInChildren<Button>()[0];
         _backButton.onClick.AddListener(new UnityEngine.Events.UnityAction(OnBackButtonClick));
         _defSizeDelta = _img.rectTransform.sizeDelta;
@@ -68,6 +74,12 @@ public class ItemInfo : MonoBehaviour
         _tit.text = title;
 
         _txt.text = text;
+
+        LangManager.UpdateSingleText(_pressToClose);
+        LangManager.UpdateSingleText(_tit);
+        LangManager.UpdateSingleText(_txt);
+        LanguageManager.Language _lang = (LanguageManager.Language)PlayerPrefs.GetInt("PP_LANGUAGE", 0);
+        LangManager.ChangeLanguage(_lang);
     }
 
     public void Show(Sprite sprite, string title)
@@ -92,6 +104,11 @@ public class ItemInfo : MonoBehaviour
         _titBig.text = title;
 
         _txt.text = "";
+
+        LangManager.UpdateSingleText(_pressToClose);
+        LangManager.UpdateSingleText(_titBig);
+        LanguageManager.Language _lang = (LanguageManager.Language)PlayerPrefs.GetInt("PP_LANGUAGE", 0);
+        LangManager.ChangeLanguage(_lang);
     }
 
     public void Close()

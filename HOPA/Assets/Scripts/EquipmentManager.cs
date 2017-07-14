@@ -16,6 +16,7 @@ public class EquipmentManager : Singleton<EquipmentManager>
 
     public RectTransform PanelPickableList;
     public Button ButtonBack;
+    public LanguageManager LangManager;
 
     #endregion
 
@@ -86,6 +87,7 @@ public class EquipmentManager : Singleton<EquipmentManager>
     {
         List<PickableObject> pickablesOnLevel = GameManager.Instance.CurrentRoom.PickableObjects;
         CanvasGroup[] fields = PanelPickableList.GetComponentsInChildren<CanvasGroup>(true);
+        List<Text> allTexts = new List<Text>();
 
         int i = 1;  // because first canvas group is panel root object
         foreach(PickableObject obj in pickablesOnLevel)
@@ -109,6 +111,7 @@ public class EquipmentManager : Singleton<EquipmentManager>
             }
 
             _allPickablesDict.Add(obj, text);
+            allTexts.Add(text);
             ++i;
         }
 
@@ -120,6 +123,10 @@ public class EquipmentManager : Singleton<EquipmentManager>
             fields[j].GetComponentInChildren<Text>().text = "";
             fields[j].GetComponentInChildren<Button>().enabled = false;
         }
+
+        LangManager.UpdateIndexToText(allTexts);
+        LanguageManager.Language _lang = (LanguageManager.Language)PlayerPrefs.GetInt("PP_LANGUAGE", 0);
+        LangManager.ChangeLanguage(_lang);
     }
 
     #endregion

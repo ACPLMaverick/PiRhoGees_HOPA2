@@ -159,5 +159,26 @@ public class LanguageManager : MonoBehaviour
         }
     }
 
+    public void UpdateIndexToText(List<Text> texts)
+    {
+        //for all texts from list update string value from pair
+        for (int i = 0; i < texts.Count; ++i)
+        {
+            UpdateSingleText(texts[i]);
+        }
+    }
+
+    public void UpdateSingleText(Text text)
+    {
+        if (_indexToText.ContainsKey(text))
+        {
+            _indexToText[text] = text.text;
+        }
+        else
+        {
+            _indexToText.Add(text, text.text);
+        }
+    }
+
     #endregion
 }
