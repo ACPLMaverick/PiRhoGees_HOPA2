@@ -82,18 +82,19 @@ public class MainMenuManager : MonoBehaviour
     public void ButtonClickMenuLustrzana()
     {
         SwitchToScreen(_screenLustrzana);
-        if (_myLanguage.CurrentLanguage == LanguageManager.Language.English)
-        {
-            _screenLustrzanaInfoComingSoonText.gameObject.SetActive(true);
-            _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = false;
-            _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0030_info_l_CS");
-        }
-        else
-        {
-            _screenLustrzanaInfoComingSoonText.gameObject.SetActive(false);
-            _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
-            _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0023_info_l");
-        }
+        _screenLustrzanaInfoComingSoonText.gameObject.SetActive(false);
+        _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
+        _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0023_info_l");
+        //if (_myLanguage.CurrentLanguage == LanguageManager.Language.English)
+        //{
+        //    //_screenLustrzanaInfoComingSoonText.gameObject.SetActive(true);
+        //    //_screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = false;
+        //    //_screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0030_info_l_CS");
+        //}
+        //else
+        //{
+
+        //}
         //_infoFullscreenLustrzana.GetComponent<Switchable>().SwitchOn();
     }
 

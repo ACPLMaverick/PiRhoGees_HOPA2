@@ -1,13 +1,15 @@
 {"articles":[
     {"title_pl":"Sala lustrzana\nWstęp", 
 	"title_en":"Mirror Hall\nPrologue",
-	"textPath_pl":"Lustrzana/Wstep", 
+    "textPath_pl": "Lustrzana/Wstep",
+    "textPath_en": "Lustrzana/Wstep",
 	"bgImage":"Lustrzana/_0007_kwadrat_wstep", 
 	"miniImage":"Lustrzana/zdj_wstep"},
 
     {"title_pl":"Sala lustrzana\nWystrój", 
 	"title_en":"Mirror Hall\nDecorations",
-	"textPath_pl":"Lustrzana/Wystroj", 
+    "textPath_pl": "Lustrzana/Wystroj", 
+    "textPath_en": "Lustrzana/Wystroj",
 	"bgImage":"Lustrzana/_0006_kwadrat_wystroj", 
 	"miniImage":"Lustrzana/zdj_wystroj"}
 ]}

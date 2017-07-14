@@ -9,7 +9,7 @@
     {"title_pl":"Sala jadalna\nWnętrza i symbolika dekoracji", 
 	"title_en":"Dining Hall\nSymbolism of decorations",
 	"textPath_pl":"Jadalna/Wystroj", 
-	"textPath_en":"None",
+	"textPath_en":"Jadalna/Wystroj",
 	"bgImage":"Jadalna/_0007_wystroj_kwadrat", 
 	"miniImage":"Jadalna/wystroj_zdj"}
 ]}
