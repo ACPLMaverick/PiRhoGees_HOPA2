@@ -22,11 +22,19 @@ public class FurnaceGameManager : MonoBehaviour
     [SerializeField]
     protected Switchable _infoFullscreenGroup;
 
+    [SerializeField]
+    protected SpriteRenderer _fireImage;
+
+    [SerializeField]
+    protected SpriteRenderer _glowImage;
+
     #endregion
 
     #region Protected
 
     int _correctCollumnCtr = 0;
+    Color _fireImageColor;
+    Color _glowImageColor;
 
     #endregion
 
@@ -36,8 +44,10 @@ public class FurnaceGameManager : MonoBehaviour
     void Start ()
     {
         _infoFullscreenGroup.gameObject.SetActive(false);
+        _fireImageColor = _fireImage.color;
+        _glowImageColor = _glowImage.color;
 
-        for(int i = 0; i < _collumns.Count; ++i)
+        for (int i = 0; i < _collumns.Count; ++i)
         {
             _collumns[i].EventCorrect.AddListener(new UnityEngine.Events.UnityAction<RollingCollumn>(OnCollumnCorrect));
             if(_collumns[i].CorrectAndLocked)
@@ -81,8 +91,9 @@ public class FurnaceGameManager : MonoBehaviour
     protected void OnCollumnCorrect(RollingCollumn collumn)
     {
         ++_correctCollumnCtr;
+        StartCoroutine(ColumnFinishedCoroutine());
 
-        if(_correctCollumnCtr == _collumns.Count)
+        if (_correctCollumnCtr == _collumns.Count)
         {
             Finish();
         }
@@ -102,8 +113,45 @@ public class FurnaceGameManager : MonoBehaviour
         SceneChangeManager.Instance.ChangeScene(0);
     }
 
+    private IEnumerator ColumnFinishedCoroutine()
+    {
+        float cTime = Time.time;
+
+        while (Time.time - cTime <= 1f)
+        {
+            float lerpValue = (Time.time - cTime) / (1f);
+            _glowImageColor.a = lerpValue;
+            _glowImage.color = _glowImageColor;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        cTime = Time.time;
+
+        while (Time.time - cTime <= 1f)
+        {
+            float lerpValue = (Time.time - cTime) / (1f);
+            _glowImageColor.a = 1 - lerpValue;
+            _glowImage.color = _glowImageColor;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
     private IEnumerator RoomFinishedCoroutine()
     {
+        float cTime = Time.time;
+
+        while (Time.time - cTime <= 1.5f)
+        {
+            float lerpValue = (Time.time - cTime) / (1.5f);
+            _fireImageColor.a = lerpValue;
+            _fireImage.color = _fireImageColor;
+            yield return null;
+        }
+
         yield return new WaitForSeconds(WAIT_FOR_ENDING_PHOTO_SECONDS);
 
         if (_infoFullscreenGroup != null)
