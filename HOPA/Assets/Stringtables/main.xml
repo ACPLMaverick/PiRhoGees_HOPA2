@@ -434,4 +434,86 @@
     </value>
   </string>
 
+  <!--HOPA_LUSTRZANA-->
+  <string index="$MIRROR_TOPHAT">
+    <value lang="pl">
+      Cylinder
+    </value>
+    <value lang="en">
+      Top Hat
+    </value>
+  </string>
+  <string index="$MIRROR_TOPHAT_DESC">
+    <value lang="pl">
+      Biały cylinder.
+    </value>
+    <value lang="en">
+      White top hat.
+    </value>
+  </string>
+  <string index="$MIRROR_SCARF">
+    <value lang="pl">
+      Szal
+    </value>
+    <value lang="en">
+      Scarf
+    </value>
+  </string>
+  <string index="$MIRROR_SCARF_DESC">
+    <value lang="pl">
+      Biały szal.
+    </value>
+    <value lang="en">
+      White scarf.
+    </value>
+  </string>
+  <string index="$MIRROR_GLOVES">
+    <value lang="pl">
+      Rękawiczki
+    </value>
+    <value lang="en">
+      Gloves
+    </value>
+  </string>
+  <string index="$MIRROR_GLOVES_DESC">
+    <value lang="pl">
+      Białe rękawiczki.
+    </value>
+    <value lang="en">
+      White gloves.
+    </value>
+  </string>
+  <string index="$MIRROR_TYPEWRITER">
+    <value lang="pl">
+      Maszyna do pisania
+    </value>
+    <value lang="en">
+      Typewriter
+    </value>
+  </string>
+  <string index="$MIRROR_TYPEWRITER_DESC">
+    <value lang="pl">
+      Maszyna do pisania marki Underwood. Jeden z elementów wystroju biurka I.K Poznańskiego.
+    </value>
+    <value lang="en">
+      Underwood typewriter - one of the decorations of I.K Poznański's desk.
+    </value>
+  </string>
+  <string index="$MIRROR_BINOCULARS">
+    <value lang="pl">
+      Lornetka
+    </value>
+    <value lang="en">
+      Binoculars
+    </value>
+  </string>
+  <string index="$MIRROR_BINOCULARS_DESC">
+    <value lang="pl">
+      Lornetka teatralna. Mosiądz złocony, macica perłowa. Francja, koniec XIX wieku.
+    </value>
+    <value lang="en">
+      Theatrical binoculars. Gold brass and nacre. France, end of the XIX century.
+    </value>
+  </string>
+
 </stringtable>
