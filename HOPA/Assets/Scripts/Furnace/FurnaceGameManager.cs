@@ -7,7 +7,7 @@ public class FurnaceGameManager : MonoBehaviour
 {
     #region Const
 
-    protected const float WAIT_FOR_ENDING_PHOTO_SECONDS = 1.0f;
+    protected const float WAIT_FOR_ENDING_PHOTO_SECONDS = 3.0f;
 
     #endregion
 

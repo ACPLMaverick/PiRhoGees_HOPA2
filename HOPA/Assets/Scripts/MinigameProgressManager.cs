@@ -15,7 +15,7 @@ public class MinigameProgressManager<T> : MonoBehaviour
 {
     #region Const
 
-    public const float WAIT_FOR_ENDING_PHOTO_SECONDS = 1.0f;
+    public const float WAIT_FOR_ENDING_PHOTO_SECONDS = 3.0f;
 
     #endregion
 
