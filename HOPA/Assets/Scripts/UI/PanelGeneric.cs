@@ -66,103 +66,103 @@ public class PanelGeneric : MonoBehaviour
 
     public void TogglePanel()
     {
-        if(gameObject.activeSelf)
-        {
-            if(_isHidden)
-            {
-                Show(false);
+        //if(gameObject.activeSelf)
+        //{
+        //    if(_isHidden)
+        //    {
+        //        Show(false);
 
-                foreach (PanelGeneric p in ConnectedPanels)
-                {
-                    p.Show(!p.gameObject.activeSelf);
-                }
-            }
-            else
-            {
-                Hide(false);
+        //        foreach (PanelGeneric p in ConnectedPanels)
+        //        {
+        //            p.Show(!p.gameObject.activeSelf);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Hide(false);
 
-                foreach (PanelGeneric p in ConnectedPanels)
-                {
-                    p.Hide(!p.gameObject.activeSelf);
-                }
-            }
-        }
+        //        foreach (PanelGeneric p in ConnectedPanels)
+        //        {
+        //            p.Hide(!p.gameObject.activeSelf);
+        //        }
+        //    }
+        //}
     }
 
     public void Hide(bool immediate)
     {
-        if(!_isHidden)
-        {
-            if (immediate)
-            {
-                if(_crt != null)
-                    StopCoroutine(_crt);
-                _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, _yHidden);
-            }
-            else
-            {
-                _crt = StartCoroutine(Utility.TransformCoroutineUI(
-                    _rt,
-                    new Vector2(_rt.anchoredPosition.x, _yStart),
-                    _rt.localRotation,
-                    _rt.localScale,
-                    new Vector2(_rt.anchoredPosition.x, _yHidden),
-                    _rt.localRotation,
-                    _rt.localScale,
-                    0.5f,
-                    true
-                    ));
-            }
+        //if(!_isHidden)
+        //{
+        //    if (immediate)
+        //    {
+        //        if(_crt != null)
+        //            StopCoroutine(_crt);
+        //        _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, _yHidden);
+        //    }
+        //    else
+        //    {
+        //        _crt = StartCoroutine(Utility.TransformCoroutineUI(
+        //            _rt,
+        //            new Vector2(_rt.anchoredPosition.x, _yStart),
+        //            _rt.localRotation,
+        //            _rt.localScale,
+        //            new Vector2(_rt.anchoredPosition.x, _yHidden),
+        //            _rt.localRotation,
+        //            _rt.localScale,
+        //            0.5f,
+        //            true
+        //            ));
+        //    }
 
-            Arrow.transform.localScale = Vector3.one;
-            _isHidden = true;
-        }
+        //    Arrow.transform.localScale = Vector3.one;
+        //    _isHidden = true;
+        //}
     }
 
     public void Show(bool immediate)
     {
-        if(_isHidden)
-        {
-            if (immediate)
-            {
-                if (_crt != null)
-                    StopCoroutine(_crt);
-                _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, _yStart);
-            }
-            else
-            {
-                _crt = StartCoroutine(Utility.TransformCoroutineUI(
-                    _rt,
-                    new Vector2(_rt.anchoredPosition.x, _yHidden),
-                    _rt.localRotation,
-                    _rt.localScale,
-                    new Vector2(_rt.anchoredPosition.x, _yStart),
-                    _rt.localRotation,
-                    _rt.localScale,
-                    0.5f,
-                    true
-                    ));
-            }
+        //if(_isHidden)
+        //{
+        //    if (immediate)
+        //    {
+        //        if (_crt != null)
+        //            StopCoroutine(_crt);
+        //        _rt.anchoredPosition = new Vector2(_rt.anchoredPosition.x, _yStart);
+        //    }
+        //    else
+        //    {
+        //        _crt = StartCoroutine(Utility.TransformCoroutineUI(
+        //            _rt,
+        //            new Vector2(_rt.anchoredPosition.x, _yHidden),
+        //            _rt.localRotation,
+        //            _rt.localScale,
+        //            new Vector2(_rt.anchoredPosition.x, _yStart),
+        //            _rt.localRotation,
+        //            _rt.localScale,
+        //            0.5f,
+        //            true
+        //            ));
+        //    }
 
-            Arrow.transform.localScale = new Vector3(1.0f, -1.0f, 1.0f);
-            _isHidden = false;
-        }
+        //    Arrow.transform.localScale = new Vector3(1.0f, -1.0f, 1.0f);
+        //    _isHidden = false;
+        //}
     }
 
     protected void HidePanelSwipe(Vector2 origin, InputManager.SwipeDirection dir, float length, Collider2D col)
     {
-        if(gameObject.activeSelf && !_isHidden && dir == InputManager.SwipeDirection.DOWN && Utility.IsCursorInUIBounds(_rt, origin))
-        {
-            TogglePanel();
-        }
+        //if(gameObject.activeSelf && !_isHidden && dir == InputManager.SwipeDirection.DOWN && Utility.IsCursorInUIBounds(_rt, origin))
+        //{
+        //    TogglePanel();
+        //}
     }
 
     protected void ShowPanelSwipe(Vector2 origin, InputManager.SwipeDirection dir, float length, Collider2D col)
     {
-        if (gameObject.activeSelf && _isHidden && dir == InputManager.SwipeDirection.UP && Utility.IsCursorInUIBounds(_rt, origin))
-        {
-            TogglePanel();
-        }
+        //if (gameObject.activeSelf && _isHidden && dir == InputManager.SwipeDirection.UP && Utility.IsCursorInUIBounds(_rt, origin))
+        //{
+        //    TogglePanel();
+        //}
     }
 
     #endregion

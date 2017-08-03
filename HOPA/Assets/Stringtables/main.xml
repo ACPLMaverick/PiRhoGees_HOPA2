@@ -346,10 +346,10 @@
   </string>
   <string index="$DINNER_HOPA_TUTORIAL">
     <value lang="pl">
-      Odszukaj wszystkie elementy z listy. Możesz zarówno przybliżać jak i przesuwać zdjęcie.
+      Duch muzeum poukrywał eksponaty, pomóż kustoszowi odszukać wszystkie elementy z listy. Możesz zarówno przybliżać jak i przesuwać zdjęcie. Klikając na element z listy wyświetlasz informacje o nim.
     </value>
     <value lang="en">
-      Find all listed elements. You can zoom the view as well as move it around.
+      A ghost of the museum has hidden some exhibits, help the custodian find all elements from the list. You can zoom the view as well as move it around. Clicking an element of the list displays information about it.
     </value>
   </string>
   

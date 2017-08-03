@@ -30,6 +30,8 @@ public class EquipmentManager : Singleton<EquipmentManager>
 
     private Dictionary<PickableObject, Text> _allPickablesDict;
 
+    private Color _baseColor = Color.white;
+
     #endregion
 
     #region functions
@@ -69,8 +71,8 @@ public class EquipmentManager : Singleton<EquipmentManager>
 
     public void ChangeTextPickedStatus(Text text, Button button, bool status)
     {
-        text.fontStyle = !status ? FontStyle.Bold : FontStyle.BoldAndItalic;
-        text.color = !status ? Color.white : new Color(0.8f, 0.8f, 0.8f);
+        text.fontStyle = !status ? FontStyle.Normal : FontStyle.Italic;
+        text.color = !status ? _baseColor : new Color(0.6f, 0.6f, 0.6f);
         //button.interactable = !status;
     }
 
@@ -96,6 +98,7 @@ public class EquipmentManager : Singleton<EquipmentManager>
             Button button = fields[i].GetComponentInChildren<Button>();
             Text text = fields[i].GetComponentInChildren<Text>();
             text.text = obj.Name;
+            _baseColor = text.color;
 
             // Assigning list element to pickable object here
             obj.AssociatedListElement = fields[i];
