@@ -46,6 +46,11 @@ public class MinigameProgressManager<T> : MonoBehaviour
         {
             ResetGame();
         }
+
+        if(Input.GetKeyUp(KeyCode.G))
+        {
+            WinGame();
+        }
     }
 
     public virtual void CheckProgress()
@@ -60,12 +65,12 @@ public class MinigameProgressManager<T> : MonoBehaviour
     {
         HasWon = true;
 
+        StartCoroutine(RoomFinishedCoroutine());
         if (InfoFullscreenGroup != null)
         {
             SetInfoVisuals();
             InfoFullscreenGroup.GetComponent<InfoFullscreen>().ButtonTotal.onClick.AddListener(new UnityEngine.Events.UnityAction(BackToMenu));
         }
-        StartCoroutine(RoomFinishedCoroutine());
 
         Debug.Log("Hooray! You won!");
     }
@@ -99,6 +104,7 @@ public class MinigameProgressManager<T> : MonoBehaviour
 
         if (InfoFullscreenGroup != null)
         {
+            //InfoFullscreenGroup.gameObject.SetActive(true);
             InfoFullscreenGroup.SwitchOn();
         }
         else

@@ -41,6 +41,26 @@ public static class Utility
         yield return null;
     }
 
+    public static IEnumerator FadeCoroutineUIDelay(CanvasGroup grp, float delay, float fadeStart, float fadeTarget, float timeSec, bool active)
+    {
+        grp.alpha = fadeStart;
+
+        yield return new WaitForSeconds(delay);
+        float currentTime = Time.time;
+
+        while (Time.time - currentTime <= timeSec)
+        {
+            float lerp = (Time.time - currentTime) / timeSec;
+
+            grp.alpha = Mathf.Lerp(fadeStart, fadeTarget, lerp);
+            yield return null;
+        }
+        grp.alpha = fadeTarget;
+        grp.gameObject.SetActive(active);
+
+        yield return null;
+    }
+
     public static IEnumerator TransformCoroutine(Transform t, Vector3 startPos, Quaternion startRot, Vector3 startScale,
                                                     Vector3 targetPos, Quaternion targetRot, Vector3 targetScale, float timeSec, bool active)
     {
