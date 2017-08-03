@@ -27,7 +27,7 @@ public class DifferentObject : MonoBehaviour {
         if(hitCollider2D != null && hitCollider2D.gameObject == this.gameObject && !IsFound)
         {
             IsFound = true;
-            DifferencesProgressManager.Instance.ElementsCompleted += 1;
+            DifferencesProgressManager.Instance.AddElementCompleted(this);
 
             _redMarkAnimation = StartCoroutine(RedMarkAnimation());
 
