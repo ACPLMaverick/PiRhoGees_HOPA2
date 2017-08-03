@@ -140,7 +140,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ButtonClickLustrzanaHOPA()
     {
-        SceneChangeManager.Instance.ChangeScene(8);     // TO BE CHANGED!
+        SceneChangeManager.Instance.ChangeScene(11);
     }
 
     public void ButtonClickLustrzanaReconstruction()
