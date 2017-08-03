@@ -81,6 +81,7 @@ public class InfoFullscreen : MonoBehaviour
     protected Text _text;
     protected Button _btnFwd;
     protected Button _btnBwd;
+    [SerializeField]
     protected Button _btnTotal;
 
     protected CanvasGroup _grpForward = null;

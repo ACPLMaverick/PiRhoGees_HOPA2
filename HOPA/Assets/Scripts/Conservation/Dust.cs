@@ -4,6 +4,7 @@ using System.Collections;
 public class Dust : MonoBehaviour {
 
     public int ClearingRadius;
+    public float PixelClearedThreshold;
     public bool IsClear;
 
     private BoxCollider2D _myCollider;
@@ -67,15 +68,19 @@ public class Dust : MonoBehaviour {
                     x <= _copy.width &&
                     x >= 0)
                 {
-                    if (_copy.GetPixel(x, y).a != 0)
+                    if (_copy.GetPixel(x, y).a != 0.0f)
                     {
                         Color pixel = _copy.GetPixel(x, y);
                         int distance = CountDistance(baseX, baseY, x, y);
                         if (distance <= ClearingRadius)
                         {
-                            float alpha = 0.01f * distance;
-                            _copy.SetPixel(x, y, new Color(pixel.r, pixel.g, pixel.b, pixel.a - alpha));
-                            if (_copy.GetPixel(x, y).a == 0)
+                            float alpha = 2.0f / Mathf.Max(distance, 0.0001f);
+                            alpha = pixel.a - alpha;
+                            alpha = Mathf.Clamp01(alpha);
+
+                            _copy.SetPixel(x, y, new Color(pixel.r, pixel.g, pixel.b, alpha));
+
+                            if (alpha <= PixelClearedThreshold)
                             {
                                 ConservationProgressManager.Instance.ElementsCompleted += 1;
                             }

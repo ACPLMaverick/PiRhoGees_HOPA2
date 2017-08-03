@@ -7,7 +7,6 @@ public class GameManager : Singleton<GameManager>
 {
     #region const
 
-    private const float WAIT_FOR_ENDING_PHOTO_SECONDS = 2.0f;
 
     #endregion
 
@@ -20,9 +19,10 @@ public class GameManager : Singleton<GameManager>
     public PauseMenu PauseMenuGroup;
     public Switchable EndingInfoFullscreen;
 
-    public float RoomTransitionTime = 2.0f;
+    public float RoomTransitionTime = 5.0f;
 
     #endregion
+
 
     #region private
 
@@ -52,12 +52,15 @@ public class GameManager : Singleton<GameManager>
             EndingInfoFullscreen.gameObject.SetActive(false);
             EndingInfoFullscreen.GetComponent<InfoFullscreen>().ButtonTotal.onClick.AddListener(new UnityEngine.Events.UnityAction(EndRoom));
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-
+        if(Input.GetKeyUp(KeyCode.G))
+        {
+            EndRoomOnInfoButtonClicked();
+        }
 	}
 
     public void TransitionToRoom(Room room)
@@ -187,17 +190,6 @@ public class GameManager : Singleton<GameManager>
     private void EndRoomOnInfoButtonClicked()
     {
         ItemInfoGroup.GetComponentInChildren<Button>().onClick.RemoveAllListeners();          // !!!
-        StartCoroutine(RoomFinishedCoroutine());
-    }
-
-    private void EndRoom()
-    {
-        SceneChangeManager.Instance.ChangeScene(0);
-    }
-
-    private IEnumerator RoomFinishedCoroutine()
-    {
-        yield return new WaitForSeconds(WAIT_FOR_ENDING_PHOTO_SECONDS);
 
         if (EndingInfoFullscreen != null)
         {
@@ -207,7 +199,10 @@ public class GameManager : Singleton<GameManager>
         {
             EndRoom();
         }
+    }
 
-        yield return null;
+    private void EndRoom()
+    {
+        SceneChangeManager.Instance.ChangeScene(0);
     }
 }

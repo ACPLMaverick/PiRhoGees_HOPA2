@@ -28,7 +28,11 @@ public class BackButton : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	
+        Vector3 scaleOne = Vector3.one;
+        Vector3 scaleTwo = scaleOne * 0.8f;
+
+        float lerp = (Mathf.Sin(2.0f * Time.time) + 1.0f) * 0.5f;
+        transform.localScale = Vector3.Lerp(scaleOne, scaleTwo, lerp);
 	}
 
     public void UpdateOnCurrentRoom()
