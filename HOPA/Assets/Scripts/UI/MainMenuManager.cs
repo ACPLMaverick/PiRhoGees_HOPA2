@@ -84,7 +84,7 @@ public class MainMenuManager : MonoBehaviour
         SwitchToScreen(_screenLustrzana);
         _screenLustrzanaInfoComingSoonText.gameObject.SetActive(false);
         _screenLustrzanaInfoComingSoonText.GetComponentInParent<Button>().interactable = true;
-        _screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0023_info_l");
+        //_screenLustrzanaInfoImage.sprite = Resources.Load<Sprite>("Lustrzana/lustrzana_0023_info_l");
         //if (_myLanguage.CurrentLanguage == LanguageManager.Language.English)
         //{
         //    //_screenLustrzanaInfoComingSoonText.gameObject.SetActive(true);
