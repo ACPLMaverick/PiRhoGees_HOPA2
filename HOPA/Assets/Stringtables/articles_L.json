@@ -2,7 +2,7 @@
     {"title_pl":"Sala lustrzana\nWstęp", 
 	"title_en":"Mirror Hall\nPrologue",
     "textPath_pl": "Lustrzana/Wstep",
-    "textPath_en": "Lustrzana/Wstep",
+    "textPath_en": "Lustrzana/Wstep_en",
 	"bgImage":"Lustrzana/_0007_kwadrat_wstep", 
 	"miniImage":"Lustrzana/zdj_wstep"},
 
